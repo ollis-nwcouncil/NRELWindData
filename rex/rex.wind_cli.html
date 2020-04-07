@@ -1,0 +1,456 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>rex.wind_cli module &mdash; rex 0.1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="rex.version module" href="rex.version.html" />
+    <link href="../_static/style.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> rex
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../misc/misc.html">Installation and Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../misc/installation.html">Installation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../misc/installation.html#option-1-pip-install-recommended-for-analysts">Option 1: PIP Install (recommended for analysts):</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../misc/installation.html#option-2-clone-repo-recommended-for-developers">Option 2: Clone repo (recommended for developers)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../misc/installation.html#usage-on-eagle">Usage on Eagle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../misc/installation.html#command-line-tools">Command Line Tools</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/misc.html#examples">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../misc/examples.nsrdb.html">National Solar Radiation Database (NSRDB)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../misc/examples.nsrdb.html#data-format">Data Format</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../misc/examples.nsrdb.html#nsrdb-module">NSRDB Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../misc/examples.nsrdb.html#nsrdbx-class">NSRDBX class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../misc/examples.nsrdb.html#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../misc/examples.wind.html">Wind Integration National Dataset (WIND) Toolkit</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../misc/examples.wind.html#model">Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../misc/examples.wind.html#domains">Domains</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../misc/examples.wind.html#data-format">Data Format</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../misc/examples.wind.html#wind-module">WIND Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../misc/examples.wind.html#windx-class">WindX class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../misc/examples.wind.html#references">References</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="rex.html">rex package</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="rex.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rex.utilities.html">rex.utilities package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rex.utilities.html#submodules">Submodules</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="reference internal" href="rex.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="rex.renewable_resource.html">rex.renewable_resource module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rex.resource.html">rex.resource module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rex.resource_cli.html">rex.resource_cli module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rex.resource_cli.html#rex">rex</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rex.resource_extraction.html">rex.resource_extraction module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rex.sam_resource.html">rex.sam_resource module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rex.solar_cli.html">rex.solar_cli module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rex.solar_cli.html#nsrdb">NSRDB</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rex.version.html">rex.version module</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">rex.wind_cli module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#wind">WIND</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">rex</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="rex.html">rex package</a> &raquo;</li>
+        
+      <li>rex.wind_cli module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/rex/rex.wind_cli.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="rex-wind-cli-module">
+<h1>rex.wind_cli module<a class="headerlink" href="#rex-wind-cli-module" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="wind">
+<h2>WIND<a class="headerlink" href="#wind" title="Permalink to this headline">¶</a></h2>
+<p>WindX Command Line Interface</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>WIND <span class="o">[</span>OPTIONS<span class="o">]</span> COMMAND <span class="o">[</span>ARGS<span class="o">]</span>...
+</pre></div>
+</div>
+<p class="rubric">Options</p>
+<dl class="option">
+<dt id="cmdoption-wind-h5">
+<code class="sig-name descname">-h5</code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--wind_h5</code><code class="sig-prename descclassname"> &lt;wind_h5&gt;</code><a class="headerlink" href="#cmdoption-wind-h5" title="Permalink to this definition">¶</a></dt>
+<dd><p>Path to Resource .h5 file  [required]</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-wind-o">
+<code class="sig-name descname">-o</code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--out_dir</code><code class="sig-prename descclassname"> &lt;out_dir&gt;</code><a class="headerlink" href="#cmdoption-wind-o" title="Permalink to this definition">¶</a></dt>
+<dd><p>Directory to dump output files  [required]</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-wind-t">
+<code class="sig-name descname">-t</code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--compute_tree</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-wind-t" title="Permalink to this definition">¶</a></dt>
+<dd><p>Flag to force the computation of the cKDTree</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-wind-v">
+<code class="sig-name descname">-v</code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--verbose</code><code class="sig-prename descclassname"></code><a class="headerlink" href="#cmdoption-wind-v" title="Permalink to this definition">¶</a></dt>
+<dd><p>Flag to turn on debug logging. Default is not verbose.</p>
+</dd></dl>
+
+<div class="section" id="wind-multi-site">
+<h3>multi-site<a class="headerlink" href="#wind-multi-site" title="Permalink to this headline">¶</a></h3>
+<p>Extract multiple sites given in ‘–sites’ .csv or .json as
+“latitude”, “longitude” pairs OR “gid”s</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>WIND multi-site <span class="o">[</span>OPTIONS<span class="o">]</span> COMMAND <span class="o">[</span>ARGS<span class="o">]</span>...
+</pre></div>
+</div>
+<p class="rubric">Options</p>
+<dl class="option">
+<dt id="cmdoption-wind-multi-site-s">
+<code class="sig-name descname">-s</code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--sites</code><code class="sig-prename descclassname"> &lt;sites&gt;</code><a class="headerlink" href="#cmdoption-wind-multi-site-s" title="Permalink to this definition">¶</a></dt>
+<dd><p>.csv or .json file with columns “latitude”, “longitude” OR “gid”  [required]</p>
+</dd></dl>
+
+<div class="section" id="wind-multi-site-dataset">
+<h4>dataset<a class="headerlink" href="#wind-multi-site-dataset" title="Permalink to this headline">¶</a></h4>
+<p>Extract given dataset for all sites</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>WIND multi-site dataset <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+<p class="rubric">Options</p>
+<dl class="option">
+<dt id="cmdoption-wind-multi-site-dataset-d">
+<code class="sig-name descname">-d</code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--dataset</code><code class="sig-prename descclassname"> &lt;dataset&gt;</code><a class="headerlink" href="#cmdoption-wind-multi-site-dataset-d" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dataset to extract  [required]</p>
+</dd></dl>
+
+</div>
+<div class="section" id="wind-multi-site-sam">
+<h4>sam<a class="headerlink" href="#wind-multi-site-sam" title="Permalink to this headline">¶</a></h4>
+<p>Extract SAM variables</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>WIND multi-site sam <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+<p class="rubric">Options</p>
+<dl class="option">
+<dt id="cmdoption-wind-multi-site-sam-h">
+<code class="sig-name descname">-h</code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--hub_height</code><code class="sig-prename descclassname"> &lt;hub_height&gt;</code><a class="headerlink" href="#cmdoption-wind-multi-site-sam-h" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hub height to extract SAM variables at  [required]</p>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="wind-region">
+<h3>region<a class="headerlink" href="#wind-region" title="Permalink to this headline">¶</a></h3>
+<p>Extract a single dataset for all pixels in the given region</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>WIND region <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+<p class="rubric">Options</p>
+<dl class="option">
+<dt id="cmdoption-wind-region-d">
+<code class="sig-name descname">-d</code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--dataset</code><code class="sig-prename descclassname"> &lt;dataset&gt;</code><a class="headerlink" href="#cmdoption-wind-region-d" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dataset to extract  [required]</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-wind-region-r">
+<code class="sig-name descname">-r</code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--region</code><code class="sig-prename descclassname"> &lt;region&gt;</code><a class="headerlink" href="#cmdoption-wind-region-r" title="Permalink to this definition">¶</a></dt>
+<dd><p>Region to extract  [required]</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-wind-region-col">
+<code class="sig-name descname">-col</code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--region_col</code><code class="sig-prename descclassname"> &lt;region_col&gt;</code><a class="headerlink" href="#cmdoption-wind-region-col" title="Permalink to this definition">¶</a></dt>
+<dd><p>Meta column to search for region</p>
+</dd></dl>
+
+</div>
+<div class="section" id="wind-sam-file">
+<h3>sam-file<a class="headerlink" href="#wind-sam-file" title="Permalink to this headline">¶</a></h3>
+<p>Extract all datasets at the given hub height needed for SAM for
+nearest pixel to the given (lat, lon) coordinates OR the given
+resource gid</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>WIND sam-file <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+<p class="rubric">Options</p>
+<dl class="option">
+<dt id="cmdoption-wind-sam-file-h">
+<code class="sig-name descname">-h</code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--hub_height</code><code class="sig-prename descclassname"> &lt;hub_height&gt;</code><a class="headerlink" href="#cmdoption-wind-sam-file-h" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hub height to extract SAM variables at  [required]</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-wind-sam-file-ll">
+<code class="sig-name descname">-ll</code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--lat_lon</code><code class="sig-prename descclassname"> &lt;lat_lon&gt;</code><a class="headerlink" href="#cmdoption-wind-sam-file-ll" title="Permalink to this definition">¶</a></dt>
+<dd><p>(lat, lon) coordinates of interest</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-wind-sam-file-g">
+<code class="sig-name descname">-g</code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--gid</code><code class="sig-prename descclassname"> &lt;gid&gt;</code><a class="headerlink" href="#cmdoption-wind-sam-file-g" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resource gid of interest</p>
+</dd></dl>
+
+</div>
+<div class="section" id="wind-site">
+<h3>site<a class="headerlink" href="#wind-site" title="Permalink to this headline">¶</a></h3>
+<p>Extract a single dataset for the nearest pixel to the given (lat, lon)
+coordinates OR the given resource gid</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>WIND site <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+<p class="rubric">Options</p>
+<dl class="option">
+<dt id="cmdoption-wind-site-d">
+<code class="sig-name descname">-d</code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--dataset</code><code class="sig-prename descclassname"> &lt;dataset&gt;</code><a class="headerlink" href="#cmdoption-wind-site-d" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dataset to extract  [required]</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-wind-site-g">
+<code class="sig-name descname">-g</code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--gid</code><code class="sig-prename descclassname"> &lt;gid&gt;</code><a class="headerlink" href="#cmdoption-wind-site-g" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resource gid of interest</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-wind-site-ll">
+<code class="sig-name descname">-ll</code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--lat_lon</code><code class="sig-prename descclassname"> &lt;lat_lon&gt;</code><a class="headerlink" href="#cmdoption-wind-site-ll" title="Permalink to this definition">¶</a></dt>
+<dd><p>(lat, lon) coordinates of interest</p>
+</dd></dl>
+
+</div>
+<div class="section" id="wind-timestep">
+<h3>timestep<a class="headerlink" href="#wind-timestep" title="Permalink to this headline">¶</a></h3>
+<p>Extract a single dataset for a single timestep
+Extract only pixels in region if given.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>WIND timestep <span class="o">[</span>OPTIONS<span class="o">]</span>
+</pre></div>
+</div>
+<p class="rubric">Options</p>
+<dl class="option">
+<dt id="cmdoption-wind-timestep-d">
+<code class="sig-name descname">-d</code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--dataset</code><code class="sig-prename descclassname"> &lt;dataset&gt;</code><a class="headerlink" href="#cmdoption-wind-timestep-d" title="Permalink to this definition">¶</a></dt>
+<dd><p>Dataset to extract  [required]</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-wind-timestep-ts">
+<code class="sig-name descname">-ts</code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--timestep</code><code class="sig-prename descclassname"> &lt;timestep&gt;</code><a class="headerlink" href="#cmdoption-wind-timestep-ts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Timestep to extract  [required]</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-wind-timestep-r">
+<code class="sig-name descname">-r</code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--region</code><code class="sig-prename descclassname"> &lt;region&gt;</code><a class="headerlink" href="#cmdoption-wind-timestep-r" title="Permalink to this definition">¶</a></dt>
+<dd><p>Region to extract</p>
+</dd></dl>
+
+<dl class="option">
+<dt id="cmdoption-wind-timestep-col">
+<code class="sig-name descname">-col</code><code class="sig-prename descclassname"></code><code class="sig-prename descclassname">, </code><code class="sig-name descname">--region_col</code><code class="sig-prename descclassname"> &lt;region_col&gt;</code><a class="headerlink" href="#cmdoption-wind-timestep-col" title="Permalink to this definition">¶</a></dt>
+<dd><p>Meta column to search for region</p>
+</dd></dl>
+
+</div>
+</div>
+<span class="target" id="module-rex.wind_cli"></span><p>WindX Command Line Interface</p>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="rex.version.html" class="btn btn-neutral float-left" title="rex.version module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Alliance for Sustainable Energy, LLC
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

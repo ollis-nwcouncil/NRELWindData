@@ -1,0 +1,653 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>rex.resource_extraction.resource_extraction module &mdash; rex 0.1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="rex.resource_extraction.solar_cli module" href="rex.resource_extraction.solar_cli.html" />
+    <link rel="prev" title="rex.resource_extraction.resource_cli module" href="rex.resource_extraction.resource_cli.html" />
+    <link href="../_static/style.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> rex
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../misc/misc.html">Installation and Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../misc/installation.html">Installation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../misc/installation.html#option-1-pip-install-recommended-for-analysts">Option 1: PIP Install (recommended for analysts):</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../misc/installation.html#option-2-clone-repo-recommended-for-developers">Option 2: Clone repo (recommended for developers)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../misc/installation.html#usage-on-eagle">Usage on Eagle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../misc/installation.html#command-line-tools">Command Line Tools</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/misc.html#examples">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../misc/examples.nsrdb.html">National Solar Radiation Database (NSRDB)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../misc/examples.nsrdb.html#data-format">Data Format</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../misc/examples.nsrdb.html#nsrdb-module">NSRDB Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../misc/examples.nsrdb.html#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../misc/examples.wind.html">Wind Integration National Dataset (WIND) Toolkit</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../misc/examples.wind.html#model">Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../misc/examples.wind.html#domains">Domains</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../misc/examples.wind.html#data-format">Data Format</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../misc/examples.wind.html#wind-module">WIND Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../misc/examples.wind.html#references">References</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="rex.html">rex package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="rex.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="rex.resource_extraction.html">rex.resource_extraction package</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="rex.resource_extraction.html#submodules">Submodules</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rex.utilities.html">rex.utilities package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rex.utilities.html#submodules">Submodules</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rex.html#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rex.cli.html">rex.cli module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rex.renewable_resource.html">rex.renewable_resource module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rex.resource.html">rex.resource module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rex.sam_resource.html">rex.sam_resource module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rex.version.html">rex.version module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">rex</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="rex.html">rex package</a> &raquo;</li>
+        
+          <li><a href="rex.resource_extraction.html">rex.resource_extraction package</a> &raquo;</li>
+        
+      <li>rex.resource_extraction.resource_extraction module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/rex/rex.resource_extraction.resource_extraction.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-rex.resource_extraction.resource_extraction">
+<span id="rex-resource-extraction-resource-extraction-module"></span><h1>rex.resource_extraction.resource_extraction module<a class="headerlink" href="#module-rex.resource_extraction.resource_extraction" title="Permalink to this headline">¶</a></h1>
+<p>Resource Extraction Tools</p>
+<dl class="class">
+<dt id="rex.resource_extraction.resource_extraction.ResourceX">
+<em class="property">class </em><code class="sig-prename descclassname">rex.resource_extraction.resource_extraction.</code><code class="sig-name descname">ResourceX</code><span class="sig-paren">(</span><em class="sig-param">res_h5</em>, <em class="sig-param">tree=None</em>, <em class="sig-param">unscale=True</em>, <em class="sig-param">hsds=False</em>, <em class="sig-param">str_decode=True</em>, <em class="sig-param">group=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/resource_extraction/resource_extraction.html#ResourceX"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.resource_extraction.resource_extraction.ResourceX" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="rex.resource.html#rex.resource.Resource" title="rex.resource.Resource"><code class="xref py py-class docutils literal notranslate"><span class="pre">rex.resource.Resource</span></code></a></p>
+<p>Resource data extraction tool</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>res_h5</strong> (<em>str</em>) – Path to resource .h5 file of interest</p></li>
+<li><p><strong>tree</strong> (<em>str</em>) – Path to .pgz file containing pickled cKDTree of lat, lon
+coordinates</p></li>
+<li><p><strong>unscale</strong> (<em>bool</em>) – Boolean flag to automatically unscale variables on extraction</p></li>
+<li><p><strong>hsds</strong> (<em>bool</em>) – Boolean flag to use h5pyd to handle .h5 ‘files’ hosted on AWS
+behind HSDS</p></li>
+<li><p><strong>str_decode</strong> (<em>bool</em>) – Boolean flag to decode the bytestring meta data into normal
+strings. Setting this to False will speed up the meta data read.</p></li>
+<li><p><strong>group</strong> (<em>str</em>) – Group within .h5 resource file to open</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="rex.resource_extraction.resource_extraction.ResourceX.tree">
+<em class="property">property </em><code class="sig-name descname">tree</code><a class="headerlink" href="#rex.resource_extraction.resource_extraction.ResourceX.tree" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>tree</strong> (<em>cKDTree</em>) – Lat, lon coordinates cKDTree</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rex.resource_extraction.resource_extraction.ResourceX.countries">
+<em class="property">property </em><code class="sig-name descname">countries</code><a class="headerlink" href="#rex.resource_extraction.resource_extraction.ResourceX.countries" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>countries</strong> (<em>ndarray</em>) – Countries available in .h5 file</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rex.resource_extraction.resource_extraction.ResourceX.states">
+<em class="property">property </em><code class="sig-name descname">states</code><a class="headerlink" href="#rex.resource_extraction.resource_extraction.ResourceX.states" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>states</strong> (<em>ndarray</em>) – States available in .h5 file</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rex.resource_extraction.resource_extraction.ResourceX.counties">
+<em class="property">property </em><code class="sig-name descname">counties</code><a class="headerlink" href="#rex.resource_extraction.resource_extraction.ResourceX.counties" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>counties</strong> (<em>ndarray</em>) – Counties available in .h5 file</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rex.resource_extraction.resource_extraction.ResourceX.get_gid_ts">
+<code class="sig-name descname">get_gid_ts</code><span class="sig-paren">(</span><em class="sig-param">ds_name</em>, <em class="sig-param">gid</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/resource_extraction/resource_extraction.html#ResourceX.get_gid_ts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.resource_extraction.resource_extraction.ResourceX.get_gid_ts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extract timeseries of site(s) neareset to given lat_lon(s)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ds_name</strong> (<em>str</em>) – Dataset to extract</p></li>
+<li><p><strong>gid</strong> (<em>int | list</em>) – Resource gid(s) of interset</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>site_ts</strong> (<em>ndarray</em>) – Time-series for given site(s) and dataset</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rex.resource_extraction.resource_extraction.ResourceX.get_gid_df">
+<code class="sig-name descname">get_gid_df</code><span class="sig-paren">(</span><em class="sig-param">ds_name</em>, <em class="sig-param">gid</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/resource_extraction/resource_extraction.html#ResourceX.get_gid_df"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.resource_extraction.resource_extraction.ResourceX.get_gid_df" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extract timeseries of site(s) nearest to given lat_lon(s) and return
+as a DataFrame</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ds_name</strong> (<em>str</em>) – Dataset to extract</p></li>
+<li><p><strong>gid</strong> (<em>int | list</em>) – Resource gid(s) of interset</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>site_df</strong> (<em>pandas.DataFrame</em>) – Time-series DataFrame for given site and dataset</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rex.resource_extraction.resource_extraction.ResourceX.get_lat_lon_ts">
+<code class="sig-name descname">get_lat_lon_ts</code><span class="sig-paren">(</span><em class="sig-param">ds_name</em>, <em class="sig-param">lat_lon</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/resource_extraction/resource_extraction.html#ResourceX.get_lat_lon_ts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.resource_extraction.resource_extraction.ResourceX.get_lat_lon_ts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extract timeseries of site(s) neareset to given lat_lon(s)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ds_name</strong> (<em>str</em>) – Dataset to extract</p></li>
+<li><p><strong>lat_lon</strong> (<em>tuple | list</em>) – (lat, lon) coordinate of interest or pairs of coordinates</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>site_ts</strong> (<em>ndarray</em>) – Time-series for given site(s) and dataset</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rex.resource_extraction.resource_extraction.ResourceX.get_lat_lon_df">
+<code class="sig-name descname">get_lat_lon_df</code><span class="sig-paren">(</span><em class="sig-param">ds_name</em>, <em class="sig-param">lat_lon</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/resource_extraction/resource_extraction.html#ResourceX.get_lat_lon_df"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.resource_extraction.resource_extraction.ResourceX.get_lat_lon_df" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extract timeseries of site(s) nearest to given lat_lon(s) and return
+as a DataFrame</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ds_name</strong> (<em>str</em>) – Dataset to extract</p></li>
+<li><p><strong>lat_lon</strong> (<em>tuple</em>) – (lat, lon) coordinate of interest</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>site_df</strong> (<em>pandas.DataFrame</em>) – Time-series DataFrame for given site and dataset</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rex.resource_extraction.resource_extraction.ResourceX.get_region_ts">
+<code class="sig-name descname">get_region_ts</code><span class="sig-paren">(</span><em class="sig-param">ds_name</em>, <em class="sig-param">region</em>, <em class="sig-param">region_col='state'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/resource_extraction/resource_extraction.html#ResourceX.get_region_ts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.resource_extraction.resource_extraction.ResourceX.get_region_ts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extract timeseries of of all sites in given region</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ds_name</strong> (<em>str</em>) – Dataset to extract</p></li>
+<li><p><strong>region</strong> (<em>str</em>) – Region to search for</p></li>
+<li><p><strong>region_col</strong> (<em>str</em>) – Region column to search</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>region_ts</strong> (<em>ndarray</em>) – Time-series array of desired dataset for all sites in desired
+region</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rex.resource_extraction.resource_extraction.ResourceX.get_region_df">
+<code class="sig-name descname">get_region_df</code><span class="sig-paren">(</span><em class="sig-param">ds_name</em>, <em class="sig-param">region</em>, <em class="sig-param">region_col='state'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/resource_extraction/resource_extraction.html#ResourceX.get_region_df"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.resource_extraction.resource_extraction.ResourceX.get_region_df" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extract timeseries of of all sites in given region and return as a
+DataFrame</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ds_name</strong> (<em>str</em>) – Dataset to extract</p></li>
+<li><p><strong>region</strong> (<em>str</em>) – Region to extract all pixels for</p></li>
+<li><p><strong>region_col</strong> (<em>str</em>) – Region column to search</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>region_df</strong> (<em>pandas.DataFrame</em>) – Time-series array of desired dataset for all sites in desired
+region</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rex.resource_extraction.resource_extraction.ResourceX.get_SAM_gid">
+<code class="sig-name descname">get_SAM_gid</code><span class="sig-paren">(</span><em class="sig-param">gid</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/resource_extraction/resource_extraction.html#ResourceX.get_SAM_gid"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.resource_extraction.resource_extraction.ResourceX.get_SAM_gid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extract time-series of all variables needed to run SAM for nearest
+site to given resource gid</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>gid</strong> (<em>int | list</em>) – Resource gid(s) of interset</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>SAM_df</strong> (<em>pandas.DataFrame | list</em>) – Time-series DataFrame for given site and dataset
+If multiple lat, lon pairs are given a list of DatFrames is
+returned</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rex.resource_extraction.resource_extraction.ResourceX.get_SAM_lat_lon">
+<code class="sig-name descname">get_SAM_lat_lon</code><span class="sig-paren">(</span><em class="sig-param">lat_lon</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/resource_extraction/resource_extraction.html#ResourceX.get_SAM_lat_lon"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.resource_extraction.resource_extraction.ResourceX.get_SAM_lat_lon" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extract time-series of all variables needed to run SAM for nearest
+site to given lat_lon</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>lat_lon</strong> (<em>tuple</em>) – (lat, lon) coordinate of interest</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>SAM_df</strong> (<em>pandas.DataFrame | list</em>) – Time-series DataFrame for given site and dataset
+If multiple lat, lon pairs are given a list of DatFrames is
+returned</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rex.resource_extraction.resource_extraction.ResourceX.get_timestep_map">
+<code class="sig-name descname">get_timestep_map</code><span class="sig-paren">(</span><em class="sig-param">ds_name</em>, <em class="sig-param">timestep</em>, <em class="sig-param">region=None</em>, <em class="sig-param">region_col='state'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/resource_extraction/resource_extraction.html#ResourceX.get_timestep_map"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.resource_extraction.resource_extraction.ResourceX.get_timestep_map" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extract a map of the given dataset at the given timestep for the
+given region if supplied</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ds_name</strong> (<em>str</em>) – Dataset to extract</p></li>
+<li><p><strong>timestep</strong> (<em>str</em>) – Timestep of interest</p></li>
+<li><p><strong>region</strong> (<em>str</em>) – Region to extract all pixels for</p></li>
+<li><p><strong>region_col</strong> (<em>str</em>) – Region column to search</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>ts_map</strong> (<em>pandas.DataFrame</em>) – DataFrame of map values</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="rex.resource_extraction.resource_extraction.SolarX">
+<em class="property">class </em><code class="sig-prename descclassname">rex.resource_extraction.resource_extraction.</code><code class="sig-name descname">SolarX</code><span class="sig-paren">(</span><em class="sig-param">solar_h5</em>, <em class="sig-param">tree=None</em>, <em class="sig-param">compute_tree=False</em>, <em class="sig-param">unscale=True</em>, <em class="sig-param">hsds=False</em>, <em class="sig-param">str_decode=True</em>, <em class="sig-param">group=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/resource_extraction/resource_extraction.html#SolarX"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.resource_extraction.resource_extraction.SolarX" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="rex.renewable_resource.html#rex.renewable_resource.SolarResource" title="rex.renewable_resource.SolarResource"><code class="xref py py-class docutils literal notranslate"><span class="pre">rex.renewable_resource.SolarResource</span></code></a>, <a class="reference internal" href="#rex.resource_extraction.resource_extraction.ResourceX" title="rex.resource_extraction.resource_extraction.ResourceX"><code class="xref py py-class docutils literal notranslate"><span class="pre">rex.resource_extraction.resource_extraction.ResourceX</span></code></a></p>
+<p>Solar Resource extraction class</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>solar_h5</strong> (<em>str</em>) – Path to solar .h5 file of interest</p></li>
+<li><p><strong>tree</strong> (<em>str</em>) – path to .pgz file containing pickled cKDTree of lat, lon
+coordinates</p></li>
+<li><p><strong>compute_tree</strong> (<em>bool</em>) – Force the computation of the cKDTree</p></li>
+<li><p><strong>unscale</strong> (<em>bool</em>) – Boolean flag to automatically unscale variables on extraction</p></li>
+<li><p><strong>hsds</strong> (<em>bool</em>) – Boolean flag to use h5pyd to handle .h5 ‘files’ hosted on AWS
+behind HSDS</p></li>
+<li><p><strong>str_decode</strong> (<em>bool</em>) – Boolean flag to decode the bytestring meta data into normal
+strings. Setting this to False will speed up the meta data read.</p></li>
+<li><p><strong>group</strong> (<em>str</em>) – Group within .h5 resource file to open</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="rex.resource_extraction.resource_extraction.NSRDBX">
+<em class="property">class </em><code class="sig-prename descclassname">rex.resource_extraction.resource_extraction.</code><code class="sig-name descname">NSRDBX</code><span class="sig-paren">(</span><em class="sig-param">nsrdb_h5</em>, <em class="sig-param">tree=None</em>, <em class="sig-param">compute_tree=False</em>, <em class="sig-param">unscale=True</em>, <em class="sig-param">hsds=False</em>, <em class="sig-param">str_decode=True</em>, <em class="sig-param">group=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/resource_extraction/resource_extraction.html#NSRDBX"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.resource_extraction.resource_extraction.NSRDBX" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="rex.renewable_resource.html#rex.renewable_resource.NSRDB" title="rex.renewable_resource.NSRDB"><code class="xref py py-class docutils literal notranslate"><span class="pre">rex.renewable_resource.NSRDB</span></code></a>, <a class="reference internal" href="#rex.resource_extraction.resource_extraction.ResourceX" title="rex.resource_extraction.resource_extraction.ResourceX"><code class="xref py py-class docutils literal notranslate"><span class="pre">rex.resource_extraction.resource_extraction.ResourceX</span></code></a></p>
+<p>NSRDB extraction class</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nsrdb_h5</strong> (<em>str</em>) – Path to NSRDB .h5 file of interest</p></li>
+<li><p><strong>tree</strong> (<em>str</em>) – path to .pgz file containing pickled cKDTree of lat, lon
+coordinates</p></li>
+<li><p><strong>compute_tree</strong> (<em>bool</em>) – Force the computation of the cKDTree</p></li>
+<li><p><strong>unscale</strong> (<em>bool</em>) – Boolean flag to automatically unscale variables on extraction</p></li>
+<li><p><strong>hsds</strong> (<em>bool</em>) – Boolean flag to use h5pyd to handle .h5 ‘files’ hosted on AWS
+behind HSDS</p></li>
+<li><p><strong>str_decode</strong> (<em>bool</em>) – Boolean flag to decode the bytestring meta data into normal
+strings. Setting this to False will speed up the meta data read.</p></li>
+<li><p><strong>group</strong> (<em>str</em>) – Group within .h5 resource file to open</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="rex.resource_extraction.resource_extraction.MultiFileNSRDBX">
+<em class="property">class </em><code class="sig-prename descclassname">rex.resource_extraction.resource_extraction.</code><code class="sig-name descname">MultiFileNSRDBX</code><span class="sig-paren">(</span><em class="sig-param">nsrdb_path</em>, <em class="sig-param">tree=None</em>, <em class="sig-param">compute_tree=False</em>, <em class="sig-param">unscale=True</em>, <em class="sig-param">str_decode=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/resource_extraction/resource_extraction.html#MultiFileNSRDBX"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.resource_extraction.resource_extraction.MultiFileNSRDBX" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="rex.renewable_resource.html#rex.renewable_resource.MultiFileNSRDB" title="rex.renewable_resource.MultiFileNSRDB"><code class="xref py py-class docutils literal notranslate"><span class="pre">rex.renewable_resource.MultiFileNSRDB</span></code></a>, <a class="reference internal" href="#rex.resource_extraction.resource_extraction.ResourceX" title="rex.resource_extraction.resource_extraction.ResourceX"><code class="xref py py-class docutils literal notranslate"><span class="pre">rex.resource_extraction.resource_extraction.ResourceX</span></code></a></p>
+<p>NSRDB extraction class</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul>
+<li><p><strong>nsrdb_path</strong> (<em>str</em>) – Path to NSRDB .h5 files
+Available formats:</p>
+<blockquote>
+<div><p>/h5_dir/
+/h5_dir/prefix*suffix</p>
+</div></blockquote>
+</li>
+<li><p><strong>tree</strong> (<em>str</em>) – path to .pgz file containing pickled cKDTree of lat, lon
+coordinates</p></li>
+<li><p><strong>compute_tree</strong> (<em>bool</em>) – Force the computation of the cKDTree</p></li>
+<li><p><strong>prefix</strong> (<em>str</em>) – Prefix for resource .h5 files</p></li>
+<li><p><strong>suffix</strong> (<em>str</em>) – Suffix for resource .h5 files</p></li>
+<li><p><strong>unscale</strong> (<em>bool</em>) – Boolean flag to automatically unscale variables on extraction</p></li>
+<li><p><strong>str_decode</strong> (<em>bool</em>) – Boolean flag to decode the bytestring meta data into normal
+strings. Setting this to False will speed up the meta data read.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="rex.resource_extraction.resource_extraction.WindX">
+<em class="property">class </em><code class="sig-prename descclassname">rex.resource_extraction.resource_extraction.</code><code class="sig-name descname">WindX</code><span class="sig-paren">(</span><em class="sig-param">wind_h5</em>, <em class="sig-param">tree=None</em>, <em class="sig-param">compute_tree=False</em>, <em class="sig-param">unscale=True</em>, <em class="sig-param">hsds=False</em>, <em class="sig-param">str_decode=True</em>, <em class="sig-param">group=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/resource_extraction/resource_extraction.html#WindX"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.resource_extraction.resource_extraction.WindX" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="rex.renewable_resource.html#rex.renewable_resource.WindResource" title="rex.renewable_resource.WindResource"><code class="xref py py-class docutils literal notranslate"><span class="pre">rex.renewable_resource.WindResource</span></code></a>, <a class="reference internal" href="#rex.resource_extraction.resource_extraction.ResourceX" title="rex.resource_extraction.resource_extraction.ResourceX"><code class="xref py py-class docutils literal notranslate"><span class="pre">rex.resource_extraction.resource_extraction.ResourceX</span></code></a></p>
+<p>Wind Resource extraction class</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>wind_h5</strong> (<em>str</em>) – Path to Wind .h5 file of interest</p></li>
+<li><p><strong>tree</strong> (<em>str</em>) – path to .pgz file containing pickled cKDTree of lat, lon
+coordinates</p></li>
+<li><p><strong>compute_tree</strong> (<em>bool</em>) – Force the computation of the cKDTree</p></li>
+<li><p><strong>kwargs</strong> (<em>dict</em>) – Kwargs for Resource</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="rex.resource_extraction.resource_extraction.WindX.get_SAM_gid">
+<code class="sig-name descname">get_SAM_gid</code><span class="sig-paren">(</span><em class="sig-param">hub_height</em>, <em class="sig-param">gid</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/resource_extraction/resource_extraction.html#WindX.get_SAM_gid"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.resource_extraction.resource_extraction.WindX.get_SAM_gid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extract time-series of all variables needed to run SAM for nearest
+site to given resource gid and hub height</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>hub_height</strong> (<em>int</em>) – Hub height of interest</p></li>
+<li><p><strong>gid</strong> (<em>int | list</em>) – Resource gid(s) of interset</p></li>
+<li><p><strong>kwargs</strong> (<em>dict</em>) – Internal kwargs for _get_SAM_df:
+- require_wind_dir
+- icing</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>SAM_df</strong> (<em>pandas.DataFrame | list</em>) – Time-series DataFrame for given site and dataset
+If multiple lat, lon pairs are given a list of DatFrames is
+returned</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rex.resource_extraction.resource_extraction.WindX.get_SAM_lat_lon">
+<code class="sig-name descname">get_SAM_lat_lon</code><span class="sig-paren">(</span><em class="sig-param">hub_height</em>, <em class="sig-param">lat_lon</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/resource_extraction/resource_extraction.html#WindX.get_SAM_lat_lon"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.resource_extraction.resource_extraction.WindX.get_SAM_lat_lon" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extract time-series of all variables needed to run SAM for nearest
+site to given lat_lon and hub height</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>hub_height</strong> (<em>int</em>) – Hub height of interest</p></li>
+<li><p><strong>gid</strong> (<em>int | list</em>) – Resource gid(s) of interset</p></li>
+<li><p><strong>kwargs</strong> (<em>dict</em>) – Internal kwargs for _get_SAM_df:
+- require_wind_dir
+- icing</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>SAM_df</strong> (<em>pandas.DataFrame | list</em>) – Time-series DataFrame for given site and dataset
+If multiple lat, lon pairs are given a list of DatFrames is
+returned</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="rex.resource_extraction.resource_extraction.MultiFileWindX">
+<em class="property">class </em><code class="sig-prename descclassname">rex.resource_extraction.resource_extraction.</code><code class="sig-name descname">MultiFileWindX</code><span class="sig-paren">(</span><em class="sig-param">wtk_path</em>, <em class="sig-param">tree=None</em>, <em class="sig-param">compute_tree=False</em>, <em class="sig-param">unscale=True</em>, <em class="sig-param">str_decode=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/resource_extraction/resource_extraction.html#MultiFileWindX"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.resource_extraction.resource_extraction.MultiFileWindX" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="rex.renewable_resource.html#rex.renewable_resource.MultiFileWTK" title="rex.renewable_resource.MultiFileWTK"><code class="xref py py-class docutils literal notranslate"><span class="pre">rex.renewable_resource.MultiFileWTK</span></code></a>, <a class="reference internal" href="#rex.resource_extraction.resource_extraction.WindX" title="rex.resource_extraction.resource_extraction.WindX"><code class="xref py py-class docutils literal notranslate"><span class="pre">rex.resource_extraction.resource_extraction.WindX</span></code></a></p>
+<p>Wind Resource extraction class</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul>
+<li><p><strong>wtk_path</strong> (<em>str</em>) – Path to five minute WTK .h5 files
+Available formats:</p>
+<blockquote>
+<div><p>/h5_dir/
+/h5_dir/prefix*suffix</p>
+</div></blockquote>
+</li>
+<li><p><strong>tree</strong> (<em>str</em>) – path to .pgz file containing pickled cKDTree of lat, lon
+coordinates</p></li>
+<li><p><strong>compute_tree</strong> (<em>bool</em>) – Force the computation of the cKDTree</p></li>
+<li><p><strong>prefix</strong> (<em>str</em>) – Prefix for resource .h5 files</p></li>
+<li><p><strong>suffix</strong> (<em>str</em>) – Suffix for resource .h5 files</p></li>
+<li><p><strong>unscale</strong> (<em>bool</em>) – Boolean flag to automatically unscale variables on extraction</p></li>
+<li><p><strong>str_decode</strong> (<em>bool</em>) – Boolean flag to decode the bytestring meta data into normal
+strings. Setting this to False will speed up the meta data read.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="rex.resource_extraction.solar_cli.html" class="btn btn-neutral float-right" title="rex.resource_extraction.solar_cli module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="rex.resource_extraction.resource_cli.html" class="btn btn-neutral float-left" title="rex.resource_extraction.resource_cli module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Alliance for Sustainable Energy, LLC
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

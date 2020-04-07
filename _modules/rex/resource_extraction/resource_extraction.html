@@ -1,0 +1,945 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>rex.resource_extraction.resource_extraction &mdash; rex 0.1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link href="../../../_static/style.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> rex
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/misc.html">Installation and Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../misc/installation.html">Installation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../misc/installation.html#option-1-pip-install-recommended-for-analysts">Option 1: PIP Install (recommended for analysts):</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../misc/installation.html#option-2-clone-repo-recommended-for-developers">Option 2: Clone repo (recommended for developers)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../misc/installation.html#usage-on-eagle">Usage on Eagle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../misc/installation.html#command-line-tools">Command Line Tools</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../misc/misc.html#examples">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../misc/examples.nsrdb.html">National Solar Radiation Database (NSRDB)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../misc/examples.nsrdb.html#data-format">Data Format</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../misc/examples.nsrdb.html#nsrdb-module">NSRDB Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../misc/examples.nsrdb.html#nsrdbx-class">NSRDBX class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../misc/examples.nsrdb.html#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../misc/examples.wind.html">Wind Integration National Dataset (WIND) Toolkit</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../misc/examples.wind.html#model">Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../misc/examples.wind.html#domains">Domains</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../misc/examples.wind.html#data-format">Data Format</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../misc/examples.wind.html#wind-module">WIND Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../misc/examples.wind.html#windx-class">WindX class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../misc/examples.wind.html#references">References</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../rex/rex.html">rex package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../rex/rex.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../rex/rex.utilities.html">rex.utilities package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../rex/rex.utilities.html#submodules">Submodules</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../rex/rex.html#submodules">Submodules</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../rex/rex.renewable_resource.html">rex.renewable_resource module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../rex/rex.resource.html">rex.resource module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../rex/rex.resource_cli.html">rex.resource_cli module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../rex/rex.resource_cli.html#rex">rex</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../rex/rex.resource_extraction.html">rex.resource_extraction module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../rex/rex.sam_resource.html">rex.sam_resource module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../rex/rex.solar_cli.html">rex.solar_cli module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../rex/rex.solar_cli.html#nsrdb">NSRDB</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../rex/rex.version.html">rex.version module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../rex/rex.wind_cli.html">rex.wind_cli module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../rex/rex.wind_cli.html#wind">WIND</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">rex</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+          <li><a href="../resource_extraction.html">rex.resource_extraction</a> &raquo;</li>
+        
+      <li>rex.resource_extraction.resource_extraction</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for rex.resource_extraction.resource_extraction</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Resource Extraction Tools</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">gzip</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">pickle</span>
+<span class="kn">from</span> <span class="nn">scipy.spatial</span> <span class="kn">import</span> <span class="n">cKDTree</span>
+
+<span class="kn">from</span> <span class="nn">rex.resource</span> <span class="kn">import</span> <span class="n">Resource</span>
+<span class="kn">from</span> <span class="nn">rex.renewable_resource</span> <span class="kn">import</span> <span class="p">(</span><span class="n">MultiFileWTK</span><span class="p">,</span> <span class="n">MultiFileNSRDB</span><span class="p">,</span> <span class="n">NSRDB</span><span class="p">,</span>
+                                    <span class="n">SolarResource</span><span class="p">,</span> <span class="n">WindResource</span><span class="p">)</span>
+
+<span class="n">BIN</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">realpath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)))</span>
+<span class="n">BIN</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">BIN</span><span class="p">),</span> <span class="s1">&#39;bin&#39;</span><span class="p">)</span>
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="ResourceX"><a class="viewcode-back" href="../../../rex/rex.resource_extraction.resource_extraction.html#rex.resource_extraction.resource_extraction.ResourceX">[docs]</a><span class="k">class</span> <span class="nc">ResourceX</span><span class="p">(</span><span class="n">Resource</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Resource data extraction tool</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">res_h5</span><span class="p">,</span> <span class="n">tree</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">unscale</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">hsds</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                 <span class="n">str_decode</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">group</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        res_h5 : str</span>
+<span class="sd">            Path to resource .h5 file of interest</span>
+<span class="sd">        tree : str</span>
+<span class="sd">            Path to .pgz file containing pickled cKDTree of lat, lon</span>
+<span class="sd">            coordinates</span>
+<span class="sd">        unscale : bool</span>
+<span class="sd">            Boolean flag to automatically unscale variables on extraction</span>
+<span class="sd">        hsds : bool</span>
+<span class="sd">            Boolean flag to use h5pyd to handle .h5 &#39;files&#39; hosted on AWS</span>
+<span class="sd">            behind HSDS</span>
+<span class="sd">        str_decode : bool</span>
+<span class="sd">            Boolean flag to decode the bytestring meta data into normal</span>
+<span class="sd">            strings. Setting this to False will speed up the meta data read.</span>
+<span class="sd">        group : str</span>
+<span class="sd">            Group within .h5 resource file to open</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">res_h5</span><span class="p">,</span> <span class="n">unscale</span><span class="o">=</span><span class="n">unscale</span><span class="p">,</span> <span class="n">hsds</span><span class="o">=</span><span class="n">hsds</span><span class="p">,</span>
+                         <span class="n">str_decode</span><span class="o">=</span><span class="n">str_decode</span><span class="p">,</span> <span class="n">group</span><span class="o">=</span><span class="n">group</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_tree</span> <span class="o">=</span> <span class="n">tree</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">tree</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        tree : cKDTree</span>
+<span class="sd">            Lat, lon coordinates cKDTree</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_tree</span><span class="p">,</span> <span class="n">cKDTree</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_tree</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_init_tree</span><span class="p">(</span><span class="n">tree</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_tree</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tree</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">countries</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        countries : ndarray</span>
+<span class="sd">            Countries available in .h5 file</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="s1">&#39;country&#39;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">meta</span><span class="p">:</span>
+            <span class="n">countries</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">meta</span><span class="p">[</span><span class="s1">&#39;country&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">countries</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="k">return</span> <span class="n">countries</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">states</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        states : ndarray</span>
+<span class="sd">            States available in .h5 file</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="s1">&#39;state&#39;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">meta</span><span class="p">:</span>
+            <span class="n">states</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">meta</span><span class="p">[</span><span class="s1">&#39;state&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">states</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="k">return</span> <span class="n">states</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">counties</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        counties : ndarray</span>
+<span class="sd">            Counties available in .h5 file</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="s1">&#39;county&#39;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">meta</span><span class="p">:</span>
+            <span class="n">counties</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">meta</span><span class="p">[</span><span class="s1">&#39;county&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">counties</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="k">return</span> <span class="n">counties</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_load_tree</span><span class="p">(</span><span class="n">tree_pickle</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Load tree from pickle file</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        tree_pickle : str</span>
+<span class="sd">            Pickle (.pkl, .pickle) or compressed pickle (.pgz, .pgzip) file</span>
+<span class="sd">            containing precomputed cKDTree</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        tree : cKDTree</span>
+<span class="sd">            Precomputed tree of lat, lon coordinates</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">tree_pickle</span><span class="o">.</span><span class="n">endswith</span><span class="p">((</span><span class="s1">&#39;.pkl&#39;</span><span class="p">,</span> <span class="s1">&#39;.pickle&#39;</span><span class="p">)):</span>
+                <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">tree_pickle</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                    <span class="n">tree</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">tree_pickle</span><span class="o">.</span><span class="n">endswith</span><span class="p">((</span><span class="s1">&#39;.pgz&#39;</span><span class="p">,</span> <span class="s1">&#39;.pgzip&#39;</span><span class="p">,</span> <span class="s1">&#39;.gz&#39;</span><span class="p">,</span> <span class="s1">&#39;.gzip&#39;</span><span class="p">)):</span>
+                <span class="k">with</span> <span class="n">gzip</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">tree_pickle</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                    <span class="n">tree</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s1">&#39;Cannot parse files of type &quot;</span><span class="si">{}</span><span class="s1">&quot;&#39;</span>
+                               <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">tree_pickle</span><span class="p">))</span>
+                <span class="n">tree</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s1">&#39;Could not extract tree from </span><span class="si">{}</span><span class="s1">: </span><span class="si">{}</span><span class="s1">&#39;</span>
+                           <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">tree_pickle</span><span class="p">,</span> <span class="n">e</span><span class="p">))</span>
+            <span class="n">tree</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="k">return</span> <span class="n">tree</span>
+
+    <span class="k">def</span> <span class="nf">_init_tree</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tree</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">compute_tree</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Inititialize cKDTree of lat, lon coordinates</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        tree : str | cKDTree | NoneType</span>
+<span class="sd">            Path to .pgz file containing pre-computed tree</span>
+<span class="sd">            If None search bin for .pgz file matching h5 file</span>
+<span class="sd">            else compute tree</span>
+<span class="sd">        compute_tree : bool</span>
+<span class="sd">            Force the computation of the cKDTree</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        tree : cKDTree</span>
+<span class="sd">            cKDTree of lat, lon coordinate from wtk .h5 file</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">compute_tree</span><span class="p">:</span>
+            <span class="n">tree</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="p">(</span><span class="n">cKDTree</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="kc">None</span><span class="p">))):</span>
+                <span class="n">tree</span> <span class="o">=</span> <span class="kc">None</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s1">&#39;Precomputed tree must be supplied as a pickle &#39;</span>
+                               <span class="s1">&#39;file or a cKDTree, not a </span><span class="si">{}</span><span class="s1">&#39;</span>
+                               <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">tree</span><span class="p">)))</span>
+
+            <span class="k">if</span> <span class="n">tree</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">pgz_files</span> <span class="o">=</span> <span class="p">[</span><span class="n">file</span> <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">BIN</span><span class="p">)</span>
+                             <span class="k">if</span> <span class="n">file</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.pgz&#39;</span><span class="p">)]</span>
+                <span class="k">for</span> <span class="n">pgz</span> <span class="ow">in</span> <span class="n">pgz_files</span><span class="p">:</span>
+                    <span class="n">prefix</span> <span class="o">=</span> <span class="n">pgz</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_tree&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+                    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">h5_file</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">prefix</span><span class="p">):</span>
+                        <span class="n">tree</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">BIN</span><span class="p">,</span> <span class="n">pgz</span><span class="p">)</span>
+                        <span class="k">break</span>
+
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+                <span class="n">tree</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_load_tree</span><span class="p">(</span><span class="n">tree</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">tree</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">lat_lon</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">meta</span><span class="p">[[</span><span class="s1">&#39;latitude&#39;</span><span class="p">,</span> <span class="s1">&#39;longitude&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span>
+            <span class="n">tree</span> <span class="o">=</span> <span class="n">cKDTree</span><span class="p">(</span><span class="n">lat_lon</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">tree</span>
+
+    <span class="k">def</span> <span class="nf">_get_nearest</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lat_lon</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get nearest gid to given (lat, lon) pair or pairs</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        lat_lon : ndarray</span>
+<span class="sd">            Either a single (lat, lon) pair or series of (lat, lon) pairs</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        gids : int | ndarray</span>
+<span class="sd">            Nearest gid(s) to given (lat, lon) pair(s)</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">gids</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tree</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">lat_lon</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">gids</span>
+
+    <span class="k">def</span> <span class="nf">_get_region</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">region</span><span class="p">,</span> <span class="n">region_col</span><span class="o">=</span><span class="s1">&#39;state&#39;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the gids for given region</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        region : str</span>
+<span class="sd">            Region to search for</span>
+<span class="sd">        region_col : str</span>
+<span class="sd">            Region column to search</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        gids : ndarray</span>
+<span class="sd">            Vector of gids in given region</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">gids</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">meta</span><span class="p">[</span><span class="n">region_col</span><span class="p">]</span> <span class="o">==</span> <span class="n">region</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">values</span>
+        <span class="k">return</span> <span class="n">gids</span>
+
+    <span class="k">def</span> <span class="nf">_get_timestep_idx</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">timestep</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the index of the desired timestep</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        timestep : str</span>
+<span class="sd">            Timestep of interest</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        ts_idx : int</span>
+<span class="sd">            Time index value</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">timestep</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">timestep</span><span class="p">)</span>
+        <span class="n">idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">time_index</span> <span class="o">==</span> <span class="n">timestep</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="k">return</span> <span class="n">idx</span>
+
+<div class="viewcode-block" id="ResourceX.get_gid_ts"><a class="viewcode-back" href="../../../rex/rex.resource_extraction.resource_extraction.html#rex.resource_extraction.resource_extraction.ResourceX.get_gid_ts">[docs]</a>    <span class="k">def</span> <span class="nf">get_gid_ts</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ds_name</span><span class="p">,</span> <span class="n">gid</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Extract timeseries of site(s) neareset to given lat_lon(s)</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        ds_name : str</span>
+<span class="sd">            Dataset to extract</span>
+<span class="sd">        gid : int | list</span>
+<span class="sd">            Resource gid(s) of interset</span>
+
+<span class="sd">        Return</span>
+<span class="sd">        ------</span>
+<span class="sd">        site_ts : ndarray</span>
+<span class="sd">            Time-series for given site(s) and dataset</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">site_ts</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="n">ds_name</span><span class="p">,</span> <span class="p">:,</span> <span class="n">gid</span><span class="p">]</span>
+
+        <span class="k">return</span> <span class="n">site_ts</span></div>
+
+<div class="viewcode-block" id="ResourceX.get_gid_df"><a class="viewcode-back" href="../../../rex/rex.resource_extraction.resource_extraction.html#rex.resource_extraction.resource_extraction.ResourceX.get_gid_df">[docs]</a>    <span class="k">def</span> <span class="nf">get_gid_df</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ds_name</span><span class="p">,</span> <span class="n">gid</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Extract timeseries of site(s) nearest to given lat_lon(s) and return</span>
+<span class="sd">        as a DataFrame</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        ds_name : str</span>
+<span class="sd">            Dataset to extract</span>
+<span class="sd">        gid : int | list</span>
+<span class="sd">            Resource gid(s) of interset</span>
+
+<span class="sd">        Return</span>
+<span class="sd">        ------</span>
+<span class="sd">        site_df : pandas.DataFrame</span>
+<span class="sd">            Time-series DataFrame for given site and dataset</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">gid</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+            <span class="n">site_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="n">ds_name</span><span class="p">:</span> <span class="bp">self</span><span class="p">[</span><span class="n">ds_name</span><span class="p">,</span> <span class="p">:,</span> <span class="n">gid</span><span class="p">]},</span>
+                                   <span class="n">index</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">time_index</span><span class="p">)</span>
+            <span class="n">site_df</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">gid</span>
+            <span class="n">site_df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;time_index&#39;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">site_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="bp">self</span><span class="p">[</span><span class="n">ds_name</span><span class="p">,</span> <span class="p">:,</span> <span class="n">gid</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="n">gid</span><span class="p">,</span>
+                                   <span class="n">index</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">time_index</span><span class="p">)</span>
+            <span class="n">site_df</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">ds_name</span>
+            <span class="n">site_df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;time_index&#39;</span>
+
+        <span class="k">return</span> <span class="n">site_df</span></div>
+
+<div class="viewcode-block" id="ResourceX.get_lat_lon_ts"><a class="viewcode-back" href="../../../rex/rex.resource_extraction.resource_extraction.html#rex.resource_extraction.resource_extraction.ResourceX.get_lat_lon_ts">[docs]</a>    <span class="k">def</span> <span class="nf">get_lat_lon_ts</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ds_name</span><span class="p">,</span> <span class="n">lat_lon</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Extract timeseries of site(s) neareset to given lat_lon(s)</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        ds_name : str</span>
+<span class="sd">            Dataset to extract</span>
+<span class="sd">        lat_lon : tuple | list</span>
+<span class="sd">            (lat, lon) coordinate of interest or pairs of coordinates</span>
+
+<span class="sd">        Return</span>
+<span class="sd">        ------</span>
+<span class="sd">        site_ts : ndarray</span>
+<span class="sd">            Time-series for given site(s) and dataset</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">gid</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_nearest</span><span class="p">(</span><span class="n">lat_lon</span><span class="p">)</span>
+        <span class="n">site_ts</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_gid_ts</span><span class="p">(</span><span class="n">ds_name</span><span class="p">,</span> <span class="n">gid</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">site_ts</span></div>
+
+<div class="viewcode-block" id="ResourceX.get_lat_lon_df"><a class="viewcode-back" href="../../../rex/rex.resource_extraction.resource_extraction.html#rex.resource_extraction.resource_extraction.ResourceX.get_lat_lon_df">[docs]</a>    <span class="k">def</span> <span class="nf">get_lat_lon_df</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ds_name</span><span class="p">,</span> <span class="n">lat_lon</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Extract timeseries of site(s) nearest to given lat_lon(s) and return</span>
+<span class="sd">        as a DataFrame</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        ds_name : str</span>
+<span class="sd">            Dataset to extract</span>
+<span class="sd">        lat_lon : tuple</span>
+<span class="sd">            (lat, lon) coordinate of interest</span>
+
+<span class="sd">        Return</span>
+<span class="sd">        ------</span>
+<span class="sd">        site_df : pandas.DataFrame</span>
+<span class="sd">            Time-series DataFrame for given site and dataset</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">gid</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_nearest</span><span class="p">(</span><span class="n">lat_lon</span><span class="p">)</span>
+        <span class="n">site_df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_gid_df</span><span class="p">(</span><span class="n">ds_name</span><span class="p">,</span> <span class="n">gid</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">site_df</span></div>
+
+<div class="viewcode-block" id="ResourceX.get_region_ts"><a class="viewcode-back" href="../../../rex/rex.resource_extraction.resource_extraction.html#rex.resource_extraction.resource_extraction.ResourceX.get_region_ts">[docs]</a>    <span class="k">def</span> <span class="nf">get_region_ts</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ds_name</span><span class="p">,</span> <span class="n">region</span><span class="p">,</span> <span class="n">region_col</span><span class="o">=</span><span class="s1">&#39;state&#39;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Extract timeseries of of all sites in given region</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        ds_name : str</span>
+<span class="sd">            Dataset to extract</span>
+<span class="sd">        region : str</span>
+<span class="sd">            Region to search for</span>
+<span class="sd">        region_col : str</span>
+<span class="sd">            Region column to search</span>
+
+<span class="sd">        Return</span>
+<span class="sd">        ------</span>
+<span class="sd">        region_ts : ndarray</span>
+<span class="sd">            Time-series array of desired dataset for all sites in desired</span>
+<span class="sd">            region</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">gids</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_region</span><span class="p">(</span><span class="n">region</span><span class="p">,</span> <span class="n">region_col</span><span class="o">=</span><span class="n">region_col</span><span class="p">)</span>
+        <span class="n">region_ts</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="n">ds_name</span><span class="p">,</span> <span class="p">:,</span> <span class="n">gids</span><span class="p">]</span>
+
+        <span class="k">return</span> <span class="n">region_ts</span></div>
+
+<div class="viewcode-block" id="ResourceX.get_region_df"><a class="viewcode-back" href="../../../rex/rex.resource_extraction.resource_extraction.html#rex.resource_extraction.resource_extraction.ResourceX.get_region_df">[docs]</a>    <span class="k">def</span> <span class="nf">get_region_df</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ds_name</span><span class="p">,</span> <span class="n">region</span><span class="p">,</span> <span class="n">region_col</span><span class="o">=</span><span class="s1">&#39;state&#39;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Extract timeseries of of all sites in given region and return as a</span>
+<span class="sd">        DataFrame</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        ds_name : str</span>
+<span class="sd">            Dataset to extract</span>
+<span class="sd">        region : str</span>
+<span class="sd">            Region to extract all pixels for</span>
+<span class="sd">        region_col : str</span>
+<span class="sd">            Region column to search</span>
+
+<span class="sd">        Return</span>
+<span class="sd">        ------</span>
+<span class="sd">        region_df : pandas.DataFrame</span>
+<span class="sd">            Time-series array of desired dataset for all sites in desired</span>
+<span class="sd">            region</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">gids</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_region</span><span class="p">(</span><span class="n">region</span><span class="p">,</span> <span class="n">region_col</span><span class="o">=</span><span class="n">region_col</span><span class="p">)</span>
+        <span class="n">region_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="bp">self</span><span class="p">[</span><span class="n">ds_name</span><span class="p">,</span> <span class="p">:,</span> <span class="n">gids</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="n">gids</span><span class="p">,</span>
+                                 <span class="n">index</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">time_index</span><span class="p">)</span>
+        <span class="n">region_df</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">ds_name</span>
+        <span class="n">region_df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;time_index&#39;</span>
+
+        <span class="k">return</span> <span class="n">region_df</span></div>
+
+<div class="viewcode-block" id="ResourceX.get_SAM_gid"><a class="viewcode-back" href="../../../rex/rex.resource_extraction.resource_extraction.html#rex.resource_extraction.resource_extraction.ResourceX.get_SAM_gid">[docs]</a>    <span class="k">def</span> <span class="nf">get_SAM_gid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">gid</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Extract time-series of all variables needed to run SAM for nearest</span>
+<span class="sd">        site to given resource gid</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        gid : int | list</span>
+<span class="sd">            Resource gid(s) of interset</span>
+
+<span class="sd">        Return</span>
+<span class="sd">        ------</span>
+<span class="sd">        SAM_df : pandas.DataFrame | list</span>
+<span class="sd">            Time-series DataFrame for given site and dataset</span>
+<span class="sd">            If multiple lat, lon pairs are given a list of DatFrames is</span>
+<span class="sd">            returned</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">gid</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+            <span class="n">gid</span> <span class="o">=</span> <span class="p">[</span><span class="n">gid</span><span class="p">,</span> <span class="p">]</span>
+
+        <span class="n">SAM_df</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="nb">id</span> <span class="ow">in</span> <span class="n">gid</span><span class="p">:</span>
+            <span class="n">SAM_df</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="p">[</span><span class="s1">&#39;SAM&#39;</span><span class="p">,</span> <span class="nb">id</span><span class="p">])</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">SAM_df</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">SAM_df</span> <span class="o">=</span> <span class="n">SAM_df</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="k">return</span> <span class="n">SAM_df</span></div>
+
+<div class="viewcode-block" id="ResourceX.get_SAM_lat_lon"><a class="viewcode-back" href="../../../rex/rex.resource_extraction.resource_extraction.html#rex.resource_extraction.resource_extraction.ResourceX.get_SAM_lat_lon">[docs]</a>    <span class="k">def</span> <span class="nf">get_SAM_lat_lon</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lat_lon</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Extract time-series of all variables needed to run SAM for nearest</span>
+<span class="sd">        site to given lat_lon</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        lat_lon : tuple</span>
+<span class="sd">            (lat, lon) coordinate of interest</span>
+
+<span class="sd">        Return</span>
+<span class="sd">        ------</span>
+<span class="sd">        SAM_df : pandas.DataFrame | list</span>
+<span class="sd">            Time-series DataFrame for given site and dataset</span>
+<span class="sd">            If multiple lat, lon pairs are given a list of DatFrames is</span>
+<span class="sd">            returned</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">gid</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_nearest</span><span class="p">(</span><span class="n">lat_lon</span><span class="p">)</span>
+        <span class="n">SAM_df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_SAM_gid</span><span class="p">(</span><span class="n">gid</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">SAM_df</span></div>
+
+<div class="viewcode-block" id="ResourceX.get_timestep_map"><a class="viewcode-back" href="../../../rex/rex.resource_extraction.resource_extraction.html#rex.resource_extraction.resource_extraction.ResourceX.get_timestep_map">[docs]</a>    <span class="k">def</span> <span class="nf">get_timestep_map</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ds_name</span><span class="p">,</span> <span class="n">timestep</span><span class="p">,</span> <span class="n">region</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                         <span class="n">region_col</span><span class="o">=</span><span class="s1">&#39;state&#39;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Extract a map of the given dataset at the given timestep for the</span>
+<span class="sd">        given region if supplied</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        ds_name : str</span>
+<span class="sd">            Dataset to extract</span>
+<span class="sd">        timestep : str</span>
+<span class="sd">            Timestep of interest</span>
+<span class="sd">        region : str</span>
+<span class="sd">            Region to extract all pixels for</span>
+<span class="sd">        region_col : str</span>
+<span class="sd">            Region column to search</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        ts_map : pandas.DataFrame</span>
+<span class="sd">            DataFrame of map values</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">lat_lons</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">meta</span><span class="p">[[</span><span class="s1">&#39;latitude&#39;</span><span class="p">,</span> <span class="s1">&#39;longitude&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span>
+        <span class="n">ts_idx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_timestep_idx</span><span class="p">(</span><span class="n">timestep</span><span class="p">)</span>
+        <span class="n">gids</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">region</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">gids</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_region</span><span class="p">(</span><span class="n">region</span><span class="p">,</span> <span class="n">region_col</span><span class="o">=</span><span class="n">region_col</span><span class="p">)</span>
+            <span class="n">lat_lons</span> <span class="o">=</span> <span class="n">lat_lons</span><span class="p">[</span><span class="n">gids</span><span class="p">]</span>
+
+        <span class="n">ts_map</span> <span class="o">=</span> <span class="bp">self</span><span class="p">[</span><span class="n">ds_name</span><span class="p">,</span> <span class="n">ts_idx</span><span class="p">,</span> <span class="n">gids</span><span class="p">]</span>
+        <span class="n">ts_map</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;longitude&#39;</span><span class="p">:</span> <span class="n">lat_lons</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span>
+                               <span class="s1">&#39;latitude&#39;</span><span class="p">:</span> <span class="n">lat_lons</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span>
+                               <span class="n">ds_name</span><span class="p">:</span> <span class="n">ts_map</span><span class="p">})</span>
+
+        <span class="k">return</span> <span class="n">ts_map</span></div></div>
+
+
+<div class="viewcode-block" id="SolarX"><a class="viewcode-back" href="../../../rex/rex.resource_extraction.resource_extraction.html#rex.resource_extraction.resource_extraction.SolarX">[docs]</a><span class="k">class</span> <span class="nc">SolarX</span><span class="p">(</span><span class="n">SolarResource</span><span class="p">,</span> <span class="n">ResourceX</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Solar Resource extraction class</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">solar_h5</span><span class="p">,</span> <span class="n">tree</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">compute_tree</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">unscale</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                 <span class="n">hsds</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">str_decode</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">group</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        solar_h5 : str</span>
+<span class="sd">            Path to solar .h5 file of interest</span>
+<span class="sd">        tree : str</span>
+<span class="sd">            path to .pgz file containing pickled cKDTree of lat, lon</span>
+<span class="sd">            coordinates</span>
+<span class="sd">        compute_tree : bool</span>
+<span class="sd">            Force the computation of the cKDTree</span>
+<span class="sd">        unscale : bool</span>
+<span class="sd">            Boolean flag to automatically unscale variables on extraction</span>
+<span class="sd">        hsds : bool</span>
+<span class="sd">            Boolean flag to use h5pyd to handle .h5 &#39;files&#39; hosted on AWS</span>
+<span class="sd">            behind HSDS</span>
+<span class="sd">        str_decode : bool</span>
+<span class="sd">            Boolean flag to decode the bytestring meta data into normal</span>
+<span class="sd">            strings. Setting this to False will speed up the meta data read.</span>
+<span class="sd">        group : str</span>
+<span class="sd">            Group within .h5 resource file to open</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">solar_h5</span><span class="p">,</span> <span class="n">unscale</span><span class="o">=</span><span class="n">unscale</span><span class="p">,</span> <span class="n">hsds</span><span class="o">=</span><span class="n">hsds</span><span class="p">,</span>
+                         <span class="n">str_decode</span><span class="o">=</span><span class="n">str_decode</span><span class="p">,</span> <span class="n">group</span><span class="o">=</span><span class="n">group</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_tree</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_init_tree</span><span class="p">(</span><span class="n">tree</span><span class="o">=</span><span class="n">tree</span><span class="p">,</span> <span class="n">compute_tree</span><span class="o">=</span><span class="n">compute_tree</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="NSRDBX"><a class="viewcode-back" href="../../../rex/rex.resource_extraction.resource_extraction.html#rex.resource_extraction.resource_extraction.NSRDBX">[docs]</a><span class="k">class</span> <span class="nc">NSRDBX</span><span class="p">(</span><span class="n">NSRDB</span><span class="p">,</span> <span class="n">ResourceX</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    NSRDB extraction class</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nsrdb_h5</span><span class="p">,</span> <span class="n">tree</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">compute_tree</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">unscale</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                 <span class="n">hsds</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">str_decode</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">group</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        nsrdb_h5 : str</span>
+<span class="sd">            Path to NSRDB .h5 file of interest</span>
+<span class="sd">        tree : str</span>
+<span class="sd">            path to .pgz file containing pickled cKDTree of lat, lon</span>
+<span class="sd">            coordinates</span>
+<span class="sd">        compute_tree : bool</span>
+<span class="sd">            Force the computation of the cKDTree</span>
+<span class="sd">        unscale : bool</span>
+<span class="sd">            Boolean flag to automatically unscale variables on extraction</span>
+<span class="sd">        hsds : bool</span>
+<span class="sd">            Boolean flag to use h5pyd to handle .h5 &#39;files&#39; hosted on AWS</span>
+<span class="sd">            behind HSDS</span>
+<span class="sd">        str_decode : bool</span>
+<span class="sd">            Boolean flag to decode the bytestring meta data into normal</span>
+<span class="sd">            strings. Setting this to False will speed up the meta data read.</span>
+<span class="sd">        group : str</span>
+<span class="sd">            Group within .h5 resource file to open</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">nsrdb_h5</span><span class="p">,</span> <span class="n">unscale</span><span class="o">=</span><span class="n">unscale</span><span class="p">,</span> <span class="n">hsds</span><span class="o">=</span><span class="n">hsds</span><span class="p">,</span>
+                         <span class="n">str_decode</span><span class="o">=</span><span class="n">str_decode</span><span class="p">,</span> <span class="n">group</span><span class="o">=</span><span class="n">group</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_tree</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_init_tree</span><span class="p">(</span><span class="n">tree</span><span class="o">=</span><span class="n">tree</span><span class="p">,</span> <span class="n">compute_tree</span><span class="o">=</span><span class="n">compute_tree</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="MultiFileNSRDBX"><a class="viewcode-back" href="../../../rex/rex.resource_extraction.resource_extraction.html#rex.resource_extraction.resource_extraction.MultiFileNSRDBX">[docs]</a><span class="k">class</span> <span class="nc">MultiFileNSRDBX</span><span class="p">(</span><span class="n">MultiFileNSRDB</span><span class="p">,</span> <span class="n">ResourceX</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    NSRDB extraction class</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nsrdb_path</span><span class="p">,</span> <span class="n">tree</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">compute_tree</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                 <span class="n">unscale</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">str_decode</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        nsrdb_path : str</span>
+<span class="sd">            Path to NSRDB .h5 files</span>
+<span class="sd">            Available formats:</span>
+<span class="sd">                /h5_dir/</span>
+<span class="sd">                /h5_dir/prefix*suffix</span>
+<span class="sd">        tree : str</span>
+<span class="sd">            path to .pgz file containing pickled cKDTree of lat, lon</span>
+<span class="sd">            coordinates</span>
+<span class="sd">        compute_tree : bool</span>
+<span class="sd">            Force the computation of the cKDTree</span>
+<span class="sd">        prefix : str</span>
+<span class="sd">            Prefix for resource .h5 files</span>
+<span class="sd">        suffix : str</span>
+<span class="sd">            Suffix for resource .h5 files</span>
+<span class="sd">        unscale : bool</span>
+<span class="sd">            Boolean flag to automatically unscale variables on extraction</span>
+<span class="sd">        str_decode : bool</span>
+<span class="sd">            Boolean flag to decode the bytestring meta data into normal</span>
+<span class="sd">            strings. Setting this to False will speed up the meta data read.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">nsrdb_path</span><span class="p">,</span> <span class="n">unscale</span><span class="o">=</span><span class="n">unscale</span><span class="p">,</span> <span class="n">str_decode</span><span class="o">=</span><span class="n">str_decode</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_tree</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_init_tree</span><span class="p">(</span><span class="n">tree</span><span class="o">=</span><span class="n">tree</span><span class="p">,</span> <span class="n">compute_tree</span><span class="o">=</span><span class="n">compute_tree</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="WindX"><a class="viewcode-back" href="../../../rex/rex.resource_extraction.resource_extraction.html#rex.resource_extraction.resource_extraction.WindX">[docs]</a><span class="k">class</span> <span class="nc">WindX</span><span class="p">(</span><span class="n">WindResource</span><span class="p">,</span> <span class="n">ResourceX</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Wind Resource extraction class</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">wind_h5</span><span class="p">,</span> <span class="n">tree</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">compute_tree</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">unscale</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                 <span class="n">hsds</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">str_decode</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">group</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        wind_h5 : str</span>
+<span class="sd">            Path to Wind .h5 file of interest</span>
+<span class="sd">        tree : str</span>
+<span class="sd">            path to .pgz file containing pickled cKDTree of lat, lon</span>
+<span class="sd">            coordinates</span>
+<span class="sd">        compute_tree : bool</span>
+<span class="sd">            Force the computation of the cKDTree</span>
+<span class="sd">        kwargs : dict</span>
+<span class="sd">            Kwargs for Resource</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">wind_h5</span><span class="p">,</span> <span class="n">unscale</span><span class="o">=</span><span class="n">unscale</span><span class="p">,</span> <span class="n">hsds</span><span class="o">=</span><span class="n">hsds</span><span class="p">,</span>
+                         <span class="n">str_decode</span><span class="o">=</span><span class="n">str_decode</span><span class="p">,</span> <span class="n">group</span><span class="o">=</span><span class="n">group</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_tree</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_init_tree</span><span class="p">(</span><span class="n">tree</span><span class="o">=</span><span class="n">tree</span><span class="p">,</span> <span class="n">compute_tree</span><span class="o">=</span><span class="n">compute_tree</span><span class="p">)</span>
+
+<div class="viewcode-block" id="WindX.get_SAM_gid"><a class="viewcode-back" href="../../../rex/rex.resource_extraction.resource_extraction.html#rex.resource_extraction.resource_extraction.WindX.get_SAM_gid">[docs]</a>    <span class="k">def</span> <span class="nf">get_SAM_gid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hub_height</span><span class="p">,</span> <span class="n">gid</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Extract time-series of all variables needed to run SAM for nearest</span>
+<span class="sd">        site to given resource gid and hub height</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        hub_height : int</span>
+<span class="sd">            Hub height of interest</span>
+<span class="sd">        gid : int | list</span>
+<span class="sd">            Resource gid(s) of interset</span>
+<span class="sd">        kwargs : dict</span>
+<span class="sd">            Internal kwargs for _get_SAM_df:</span>
+<span class="sd">            - require_wind_dir</span>
+<span class="sd">            - icing</span>
+
+<span class="sd">        Return</span>
+<span class="sd">        ------</span>
+<span class="sd">        SAM_df : pandas.DataFrame | list</span>
+<span class="sd">            Time-series DataFrame for given site and dataset</span>
+<span class="sd">            If multiple lat, lon pairs are given a list of DatFrames is</span>
+<span class="sd">            returned</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">ds_name</span> <span class="o">=</span> <span class="s1">&#39;SAM_</span><span class="si">{}</span><span class="s1">m&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">hub_height</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">gid</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+            <span class="n">gid</span> <span class="o">=</span> <span class="p">[</span><span class="n">gid</span><span class="p">,</span> <span class="p">]</span>
+
+        <span class="n">SAM_df</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="nb">id</span> <span class="ow">in</span> <span class="n">gid</span><span class="p">:</span>
+            <span class="n">SAM_df</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_SAM_df</span><span class="p">(</span><span class="n">ds_name</span><span class="p">,</span> <span class="nb">id</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">SAM_df</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">SAM_df</span> <span class="o">=</span> <span class="n">SAM_df</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="k">return</span> <span class="n">SAM_df</span></div>
+
+<div class="viewcode-block" id="WindX.get_SAM_lat_lon"><a class="viewcode-back" href="../../../rex/rex.resource_extraction.resource_extraction.html#rex.resource_extraction.resource_extraction.WindX.get_SAM_lat_lon">[docs]</a>    <span class="k">def</span> <span class="nf">get_SAM_lat_lon</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hub_height</span><span class="p">,</span> <span class="n">lat_lon</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Extract time-series of all variables needed to run SAM for nearest</span>
+<span class="sd">        site to given lat_lon and hub height</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        hub_height : int</span>
+<span class="sd">            Hub height of interest</span>
+<span class="sd">        gid : int | list</span>
+<span class="sd">            Resource gid(s) of interset</span>
+<span class="sd">        kwargs : dict</span>
+<span class="sd">            Internal kwargs for _get_SAM_df:</span>
+<span class="sd">            - require_wind_dir</span>
+<span class="sd">            - icing</span>
+
+<span class="sd">        Return</span>
+<span class="sd">        ------</span>
+<span class="sd">        SAM_df : pandas.DataFrame | list</span>
+<span class="sd">            Time-series DataFrame for given site and dataset</span>
+<span class="sd">            If multiple lat, lon pairs are given a list of DatFrames is</span>
+<span class="sd">            returned</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">gid</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_nearest</span><span class="p">(</span><span class="n">lat_lon</span><span class="p">)</span>
+        <span class="n">SAM_df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_SAM_gid</span><span class="p">(</span><span class="n">hub_height</span><span class="p">,</span> <span class="n">gid</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">SAM_df</span></div></div>
+
+
+<div class="viewcode-block" id="MultiFileWindX"><a class="viewcode-back" href="../../../rex/rex.resource_extraction.resource_extraction.html#rex.resource_extraction.resource_extraction.MultiFileWindX">[docs]</a><span class="k">class</span> <span class="nc">MultiFileWindX</span><span class="p">(</span><span class="n">MultiFileWTK</span><span class="p">,</span> <span class="n">WindX</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Wind Resource extraction class</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">wtk_path</span><span class="p">,</span> <span class="n">tree</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">compute_tree</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                 <span class="n">unscale</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">str_decode</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        wtk_path : str</span>
+<span class="sd">            Path to five minute WTK .h5 files</span>
+<span class="sd">            Available formats:</span>
+<span class="sd">                /h5_dir/</span>
+<span class="sd">                /h5_dir/prefix*suffix</span>
+<span class="sd">        tree : str</span>
+<span class="sd">            path to .pgz file containing pickled cKDTree of lat, lon</span>
+<span class="sd">            coordinates</span>
+<span class="sd">        compute_tree : bool</span>
+<span class="sd">            Force the computation of the cKDTree</span>
+<span class="sd">        prefix : str</span>
+<span class="sd">            Prefix for resource .h5 files</span>
+<span class="sd">        suffix : str</span>
+<span class="sd">            Suffix for resource .h5 files</span>
+<span class="sd">        unscale : bool</span>
+<span class="sd">            Boolean flag to automatically unscale variables on extraction</span>
+<span class="sd">        str_decode : bool</span>
+<span class="sd">            Boolean flag to decode the bytestring meta data into normal</span>
+<span class="sd">            strings. Setting this to False will speed up the meta data read.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">wtk_path</span><span class="p">,</span> <span class="n">unscale</span><span class="o">=</span><span class="n">unscale</span><span class="p">,</span> <span class="n">str_decode</span><span class="o">=</span><span class="n">str_decode</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_tree</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_init_tree</span><span class="p">(</span><span class="n">tree</span><span class="o">=</span><span class="n">tree</span><span class="p">,</span> <span class="n">compute_tree</span><span class="o">=</span><span class="n">compute_tree</span><span class="p">)</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Alliance for Sustainable Energy, LLC
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

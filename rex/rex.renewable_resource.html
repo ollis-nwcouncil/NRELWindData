@@ -1,0 +1,760 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>rex.renewable_resource module &mdash; rex 0.1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="rex.resource module" href="rex.resource.html" />
+    <link rel="prev" title="rex.utilities.utilities module" href="rex.utilities.utilities.html" />
+    <link href="../_static/style.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> rex
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../misc/misc.html">Installation and Usage</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../misc/installation.html">Installation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../misc/installation.html#option-1-pip-install-recommended-for-analysts">Option 1: PIP Install (recommended for analysts):</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../misc/installation.html#option-2-clone-repo-recommended-for-developers">Option 2: Clone repo (recommended for developers)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../misc/installation.html#usage-on-eagle">Usage on Eagle</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../misc/installation.html#command-line-tools">Command Line Tools</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../misc/misc.html#examples">Examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../misc/examples.nsrdb.html">National Solar Radiation Database (NSRDB)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../misc/examples.nsrdb.html#data-format">Data Format</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../misc/examples.nsrdb.html#nsrdb-module">NSRDB Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../misc/examples.nsrdb.html#nsrdbx-class">NSRDBX class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../misc/examples.nsrdb.html#references">References</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../misc/examples.wind.html">Wind Integration National Dataset (WIND) Toolkit</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../misc/examples.wind.html#model">Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../misc/examples.wind.html#domains">Domains</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../misc/examples.wind.html#data-format">Data Format</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../misc/examples.wind.html#wind-module">WIND Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../misc/examples.wind.html#windx-class">WindX class</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../misc/examples.wind.html#references">References</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="rex.html">rex package</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="rex.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rex.utilities.html">rex.utilities package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rex.utilities.html#submodules">Submodules</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="reference internal" href="rex.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">rex.renewable_resource module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rex.resource.html">rex.resource module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rex.resource_cli.html">rex.resource_cli module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rex.resource_cli.html#rex">rex</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rex.resource_extraction.html">rex.resource_extraction module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rex.sam_resource.html">rex.sam_resource module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rex.solar_cli.html">rex.solar_cli module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rex.solar_cli.html#nsrdb">NSRDB</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="rex.version.html">rex.version module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rex.wind_cli.html">rex.wind_cli module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rex.wind_cli.html#wind">WIND</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">rex</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="rex.html">rex package</a> &raquo;</li>
+        
+      <li>rex.renewable_resource module</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/rex/rex.renewable_resource.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-rex.renewable_resource">
+<span id="rex-renewable-resource-module"></span><h1>rex.renewable_resource module<a class="headerlink" href="#module-rex.renewable_resource" title="Permalink to this headline">¶</a></h1>
+<p>Classes to handle renewable resource data</p>
+<dl class="class">
+<dt id="rex.renewable_resource.SolarResource">
+<em class="property">class </em><code class="sig-prename descclassname">rex.renewable_resource.</code><code class="sig-name descname">SolarResource</code><span class="sig-paren">(</span><em class="sig-param">h5_file</em>, <em class="sig-param">unscale=True</em>, <em class="sig-param">hsds=False</em>, <em class="sig-param">str_decode=True</em>, <em class="sig-param">group=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/renewable_resource.html#SolarResource"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.renewable_resource.SolarResource" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="rex.resource.html#rex.resource.Resource" title="rex.resource.Resource"><code class="xref py py-class docutils literal notranslate"><span class="pre">rex.resource.Resource</span></code></a></p>
+<p>Class to handle Solar Resource .h5 files</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><code class="xref py py-class docutils literal notranslate"><span class="pre">resource.Resource</span></code></dt><dd><p>Parent class</p>
+</dd>
+</dl>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>h5_file</strong> (<em>str</em>) – Path to .h5 resource file</p></li>
+<li><p><strong>unscale</strong> (<em>bool</em>) – Boolean flag to automatically unscale variables on extraction</p></li>
+<li><p><strong>hsds</strong> (<em>bool</em>) – Boolean flag to use h5pyd to handle .h5 ‘files’ hosted on AWS
+behind HSDS</p></li>
+<li><p><strong>str_decode</strong> (<em>bool</em>) – Boolean flag to decode the bytestring meta data into normal
+strings. Setting this to False will speed up the meta data read.</p></li>
+<li><p><strong>group</strong> (<em>str</em>) – Group within .h5 resource file to open</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="rex.renewable_resource.SolarResource.preload_SAM">
+<em class="property">classmethod </em><code class="sig-name descname">preload_SAM</code><span class="sig-paren">(</span><em class="sig-param">h5_file</em>, <em class="sig-param">project_points</em>, <em class="sig-param">clearsky=False</em>, <em class="sig-param">unscale=True</em>, <em class="sig-param">hsds=False</em>, <em class="sig-param">str_decode=True</em>, <em class="sig-param">group=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/renewable_resource.html#SolarResource.preload_SAM"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.renewable_resource.SolarResource.preload_SAM" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pre-load project_points for SAM</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>h5_file</strong> (<em>str</em>) – h5_file to extract resource from</p></li>
+<li><p><strong>project_points</strong> (<em>reV.config.ProjectPoints</em>) – Projects points to be pre-loaded from Resource for SAM</p></li>
+<li><p><strong>clearsky</strong> (<em>bool</em>) – Boolean flag to pull clearsky instead of real irradiance</p></li>
+<li><p><strong>unscale</strong> (<em>bool</em>) – Boolean flag to automatically unscale variables on extraction</p></li>
+<li><p><strong>hsds</strong> (<em>bool</em>) – Boolean flag to use h5pyd to handle .h5 ‘files’ hosted on AWS
+behind HSDS</p></li>
+<li><p><strong>str_decode</strong> (<em>bool</em>) – Boolean flag to decode the bytestring meta data into normal
+strings. Setting this to False will speed up the meta data read.</p></li>
+<li><p><strong>group</strong> (<em>str</em>) – Group within .h5 resource file to open</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>SAM_res</strong> (<em>SAMResource</em>) – Instance of SAMResource pre-loaded with Solar resource for sites
+in project_points</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="rex.renewable_resource.NSRDB">
+<em class="property">class </em><code class="sig-prename descclassname">rex.renewable_resource.</code><code class="sig-name descname">NSRDB</code><span class="sig-paren">(</span><em class="sig-param">h5_file</em>, <em class="sig-param">unscale=True</em>, <em class="sig-param">hsds=False</em>, <em class="sig-param">str_decode=True</em>, <em class="sig-param">group=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/renewable_resource.html#NSRDB"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.renewable_resource.NSRDB" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#rex.renewable_resource.SolarResource" title="rex.renewable_resource.SolarResource"><code class="xref py py-class docutils literal notranslate"><span class="pre">rex.renewable_resource.SolarResource</span></code></a></p>
+<p>Class to handle NSRDB .h5 files</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><code class="xref py py-class docutils literal notranslate"><span class="pre">resource.Resource</span></code></dt><dd><p>Parent class</p>
+</dd>
+</dl>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>h5_file</strong> (<em>str</em>) – Path to .h5 resource file</p></li>
+<li><p><strong>unscale</strong> (<em>bool</em>) – Boolean flag to automatically unscale variables on extraction</p></li>
+<li><p><strong>hsds</strong> (<em>bool</em>) – Boolean flag to use h5pyd to handle .h5 ‘files’ hosted on AWS
+behind HSDS</p></li>
+<li><p><strong>str_decode</strong> (<em>bool</em>) – Boolean flag to decode the bytestring meta data into normal
+strings. Setting this to False will speed up the meta data read.</p></li>
+<li><p><strong>group</strong> (<em>str</em>) – Group within .h5 resource file to open</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="attribute">
+<dt id="rex.renewable_resource.NSRDB.ADD_ATTR">
+<code class="sig-name descname">ADD_ATTR</code><em class="property"> = 'psm_add_offset'</em><a class="headerlink" href="#rex.renewable_resource.NSRDB.ADD_ATTR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="rex.renewable_resource.NSRDB.SCALE_ATTR">
+<code class="sig-name descname">SCALE_ATTR</code><em class="property"> = 'psm_scale_factor'</em><a class="headerlink" href="#rex.renewable_resource.NSRDB.SCALE_ATTR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="rex.renewable_resource.NSRDB.UNIT_ATTR">
+<code class="sig-name descname">UNIT_ATTR</code><em class="property"> = 'psm_units'</em><a class="headerlink" href="#rex.renewable_resource.NSRDB.UNIT_ATTR" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rex.renewable_resource.NSRDB.preload_SAM">
+<em class="property">classmethod </em><code class="sig-name descname">preload_SAM</code><span class="sig-paren">(</span><em class="sig-param">h5_file</em>, <em class="sig-param">project_points</em>, <em class="sig-param">clearsky=False</em>, <em class="sig-param">downscale=None</em>, <em class="sig-param">unscale=True</em>, <em class="sig-param">hsds=False</em>, <em class="sig-param">str_decode=True</em>, <em class="sig-param">group=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/renewable_resource.html#NSRDB.preload_SAM"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.renewable_resource.NSRDB.preload_SAM" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pre-load project_points for SAM</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>h5_file</strong> (<em>str</em>) – h5_file to extract resource from</p></li>
+<li><p><strong>project_points</strong> (<em>reV.config.ProjectPoints</em>) – Projects points to be pre-loaded from Resource for SAM</p></li>
+<li><p><strong>clearsky</strong> (<em>bool</em>) – Boolean flag to pull clearsky instead of real irradiance</p></li>
+<li><p><strong>downscale</strong> (<em>NoneType | str</em>) – Option for NSRDB resource downscaling to higher temporal
+resolution. Expects a string in the Pandas frequency format,
+e.g. ‘5min’.</p></li>
+<li><p><strong>unscale</strong> (<em>bool</em>) – Boolean flag to automatically unscale variables on extraction</p></li>
+<li><p><strong>hsds</strong> (<em>bool</em>) – Boolean flag to use h5pyd to handle .h5 ‘files’ hosted on AWS
+behind HSDS</p></li>
+<li><p><strong>str_decode</strong> (<em>bool</em>) – Boolean flag to decode the bytestring meta data into normal
+strings. Setting this to False will speed up the meta data read.</p></li>
+<li><p><strong>group</strong> (<em>str</em>) – Group within .h5 resource file to open</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>SAM_res</strong> (<em>SAMResource</em>) – Instance of SAMResource pre-loaded with Solar resource for sites
+in project_points</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="rex.renewable_resource.WindResource">
+<em class="property">class </em><code class="sig-prename descclassname">rex.renewable_resource.</code><code class="sig-name descname">WindResource</code><span class="sig-paren">(</span><em class="sig-param">h5_file</em>, <em class="sig-param">unscale=True</em>, <em class="sig-param">hsds=False</em>, <em class="sig-param">str_decode=True</em>, <em class="sig-param">group=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/renewable_resource.html#WindResource"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.renewable_resource.WindResource" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="rex.resource.html#rex.resource.Resource" title="rex.resource.Resource"><code class="xref py py-class docutils literal notranslate"><span class="pre">rex.resource.Resource</span></code></a></p>
+<p>Class to handle Wind Resource .h5 files</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><code class="xref py py-class docutils literal notranslate"><span class="pre">resource.Resource</span></code></dt><dd><p>Parent class</p>
+</dd>
+</dl>
+</div>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">file</span> <span class="o">=</span> <span class="s1">&#39;$TESTDATADIR/wtk/ri_100_wtk_2012.h5&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">WindResource</span><span class="p">(</span><span class="n">file</span><span class="p">)</span> <span class="k">as</span> <span class="n">res</span><span class="p">:</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">datasets</span><span class="p">)</span>
+<span class="go">[&#39;meta&#39;, &#39;pressure_0m&#39;, &#39;pressure_100m&#39;, &#39;pressure_200m&#39;,</span>
+<span class="go">&#39;temperature_100m&#39;, &#39;temperature_80m&#39;, &#39;time_index&#39;, &#39;winddirection_100m&#39;,</span>
+<span class="go">&#39;winddirection_80m&#39;, &#39;windspeed_100m&#39;, &#39;windspeed_80m&#39;]</span>
+</pre></div>
+</div>
+<p>WindResource can interpolate between available hub-heights (80 &amp; 100)</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">WindResource</span><span class="p">(</span><span class="n">file</span><span class="p">)</span> <span class="k">as</span> <span class="n">res</span><span class="p">:</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="n">wspd_90m</span> <span class="o">=</span> <span class="n">res</span><span class="p">[</span><span class="s1">&#39;windspeed_90m&#39;</span><span class="p">]</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wspd_90m</span>
+<span class="go">[[ 6.865      6.77       6.565     ...  8.65       8.62       8.415    ]</span>
+<span class="go"> [ 7.56       7.245      7.685     ...  5.9649997  5.8        6.2      ]</span>
+<span class="go"> [ 9.775      9.21       9.225     ...  7.12       7.495      7.675    ]</span>
+<span class="go">  ...</span>
+<span class="go"> [ 8.38       8.440001   8.85      ... 11.934999  12.139999  12.4      ]</span>
+<span class="go"> [ 9.900001   9.895      9.93      ... 12.825     12.86      12.965    ]</span>
+<span class="go"> [ 9.895     10.01      10.305     ... 14.71      14.79      14.764999 ]]</span>
+</pre></div>
+</div>
+<p>WindResource can also extrapolate beyond available hub-heights</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">WindResource</span><span class="p">(</span><span class="n">file</span><span class="p">)</span> <span class="k">as</span> <span class="n">res</span><span class="p">:</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="n">wspd_150m</span> <span class="o">=</span> <span class="n">res</span><span class="p">[</span><span class="s1">&#39;windspeed_150m&#39;</span><span class="p">]</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wspd_150m</span>
+<span class="go">ExtrapolationWarning: 150 is outside the height range (80, 100).</span>
+<span class="go">Extrapolation to be used.</span>
+<span class="go">[[ 7.336291   7.2570405  7.0532546 ...  9.736436   9.713792   9.487364 ]</span>
+<span class="go"> [ 8.038219   7.687255   8.208041  ...  6.6909685  6.362647   6.668326 ]</span>
+<span class="go"> [10.5515785  9.804363   9.770399  ...  8.026898   8.468434   8.67222  ]</span>
+<span class="go"> ...</span>
+<span class="go"> [ 9.079792   9.170363   9.634542  ... 13.472508  13.7102585 14.004617 ]</span>
+<span class="go"> [10.710078  10.710078  10.698757  ... 14.468795  14.514081  14.6386175]</span>
+<span class="go"> [10.698757  10.857258  11.174257  ... 16.585903  16.676476  16.653833 ]]</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>h5_file</strong> (<em>str</em>) – Path to .h5 resource file</p></li>
+<li><p><strong>unscale</strong> (<em>bool</em>) – Boolean flag to automatically unscale variables on extraction</p></li>
+<li><p><strong>hsds</strong> (<em>bool</em>) – Boolean flag to use h5pyd to handle .h5 ‘files’ hosted on AWS
+behind HSDS</p></li>
+<li><p><strong>str_decode</strong> (<em>bool</em>) – Boolean flag to decode the bytestring meta data into normal
+strings. Setting this to False will speed up the meta data read.</p></li>
+<li><p><strong>group</strong> (<em>str</em>) – Group within .h5 resource file to open</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="rex.renewable_resource.WindResource.heights">
+<em class="property">property </em><code class="sig-name descname">heights</code><a class="headerlink" href="#rex.renewable_resource.WindResource.heights" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extract available heights for pressure, temperature, windspeed, precip,
+and winddirection variables. Used for interpolation/extrapolation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>self._heights</strong> (<em>list</em>) – List of available heights for:
+windspeed, winddirection, temperature, and pressure</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rex.renewable_resource.WindResource.get_nearest_h">
+<em class="property">static </em><code class="sig-name descname">get_nearest_h</code><span class="sig-paren">(</span><em class="sig-param">h</em>, <em class="sig-param">heights</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/renewable_resource.html#WindResource.get_nearest_h"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.renewable_resource.WindResource.get_nearest_h" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get two nearest h values in heights.
+Determine if h is inside or outside the range of heights
+(requiring extrapolation instead of interpolation)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>h</strong> (<em>int | float</em>) – Height value of interest</p></li>
+<li><p><strong>heights</strong> (<em>list</em>) – List of available heights</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>nearest_h</strong> (<em>list</em>) – list of 1st and 2nd nearest height in heights</p></li>
+<li><p><strong>extrapolate</strong> (<em>bool</em>) – Flag as to whether h is inside or outside heights range</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rex.renewable_resource.WindResource.power_law_interp">
+<em class="property">static </em><code class="sig-name descname">power_law_interp</code><span class="sig-paren">(</span><em class="sig-param">ts_1</em>, <em class="sig-param">h_1</em>, <em class="sig-param">ts_2</em>, <em class="sig-param">h_2</em>, <em class="sig-param">h</em>, <em class="sig-param">mean=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/renewable_resource.html#WindResource.power_law_interp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.renewable_resource.WindResource.power_law_interp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Power-law interpolate/extrapolate time-series data to height h</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ts_1</strong> (<em>ndarray</em>) – Time-series array at height h_1</p></li>
+<li><p><strong>h_1</strong> (<em>int | float</em>) – Height corresponding to time-seris ts_1</p></li>
+<li><p><strong>ts_2</strong> (<em>ndarray</em>) – Time-series array at height h_2</p></li>
+<li><p><strong>h_2</strong> (<em>int | float</em>) – Height corresponding to time-seris ts_2</p></li>
+<li><p><strong>h</strong> (<em>int | float</em>) – Height of desired time-series</p></li>
+<li><p><strong>mean</strong> (<em>bool</em>) – Calculate average alpha versus point by point alpha</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>out</strong> (<em>ndarray</em>) – Time-series array at height h</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rex.renewable_resource.WindResource.linear_interp">
+<em class="property">static </em><code class="sig-name descname">linear_interp</code><span class="sig-paren">(</span><em class="sig-param">ts_1</em>, <em class="sig-param">h_1</em>, <em class="sig-param">ts_2</em>, <em class="sig-param">h_2</em>, <em class="sig-param">h</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/renewable_resource.html#WindResource.linear_interp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.renewable_resource.WindResource.linear_interp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Linear interpolate/extrapolate time-series data to height h</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ts_1</strong> (<em>ndarray</em>) – Time-series array at height h_1</p></li>
+<li><p><strong>h_1</strong> (<em>int | float</em>) – Height corresponding to time-seris ts_1</p></li>
+<li><p><strong>ts_2</strong> (<em>ndarray</em>) – Time-series array at height h_2</p></li>
+<li><p><strong>h_2</strong> (<em>int | float</em>) – Height corresponding to time-seris ts_2</p></li>
+<li><p><strong>h</strong> (<em>int | float</em>) – Height of desired time-series</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>out</strong> (<em>ndarray</em>) – Time-series array at height h</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rex.renewable_resource.WindResource.shortest_angle">
+<em class="property">static </em><code class="sig-name descname">shortest_angle</code><span class="sig-paren">(</span><em class="sig-param">a0</em>, <em class="sig-param">a1</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/renewable_resource.html#WindResource.shortest_angle"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.renewable_resource.WindResource.shortest_angle" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the shortest angle distance between a0 and a1</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>a0</strong> (<em>int | float</em>) – angle 0 in degrees</p></li>
+<li><p><strong>a1</strong> (<em>int | float</em>) – angle 1 in degrees</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>da</strong> (<em>int | float</em>) – shortest angle distance between a0 and a1</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rex.renewable_resource.WindResource.circular_interp">
+<em class="property">static </em><code class="sig-name descname">circular_interp</code><span class="sig-paren">(</span><em class="sig-param">ts_1</em>, <em class="sig-param">h_1</em>, <em class="sig-param">ts_2</em>, <em class="sig-param">h_2</em>, <em class="sig-param">h</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/renewable_resource.html#WindResource.circular_interp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.renewable_resource.WindResource.circular_interp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Circular interpolate/extrapolate time-series data to height h</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ts_1</strong> (<em>ndarray</em>) – Time-series array at height h_1</p></li>
+<li><p><strong>h_1</strong> (<em>int | float</em>) – Height corresponding to time-seris ts_1</p></li>
+<li><p><strong>ts_2</strong> (<em>ndarray</em>) – Time-series array at height h_2</p></li>
+<li><p><strong>h_2</strong> (<em>int | float</em>) – Height corresponding to time-seris ts_2</p></li>
+<li><p><strong>h</strong> (<em>int | float</em>) – Height of desired time-series</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>out</strong> (<em>ndarray</em>) – Time-series array at height h</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="rex.renewable_resource.WindResource.preload_SAM">
+<em class="property">classmethod </em><code class="sig-name descname">preload_SAM</code><span class="sig-paren">(</span><em class="sig-param">h5_file</em>, <em class="sig-param">project_points</em>, <em class="sig-param">require_wind_dir=False</em>, <em class="sig-param">precip_rate=False</em>, <em class="sig-param">icing=False</em>, <em class="sig-param">unscale=True</em>, <em class="sig-param">hsds=False</em>, <em class="sig-param">str_decode=True</em>, <em class="sig-param">group=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/renewable_resource.html#WindResource.preload_SAM"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.renewable_resource.WindResource.preload_SAM" title="Permalink to this definition">¶</a></dt>
+<dd><p>Placeholder for classmethod that will pre-load project_points for SAM</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>h5_file</strong> (<em>str</em>) – h5_file to extract resource from</p></li>
+<li><p><strong>project_points</strong> (<em>reV.config.ProjectPoints</em>) – Projects points to be pre-loaded from Resource for SAM</p></li>
+<li><p><strong>require_wind_dir</strong> (<em>bool</em>) – Boolean flag as to whether wind direction will be loaded.</p></li>
+<li><p><strong>precip_rate</strong> (<em>bool</em>) – Boolean flag as to whether precipitationrate_0m will be preloaded</p></li>
+<li><p><strong>icing</strong> (<em>bool</em>) – Boolean flag as to whether icing is analyzed.
+This will preload relative humidity.</p></li>
+<li><p><strong>unscale</strong> (<em>bool</em>) – Boolean flag to automatically unscale variables on extraction</p></li>
+<li><p><strong>hsds</strong> (<em>bool</em>) – Boolean flag to use h5pyd to handle .h5 ‘files’ hosted on AWS
+behind HSDS</p></li>
+<li><p><strong>str_decode</strong> (<em>bool</em>) – Boolean flag to decode the bytestring meta data into normal
+strings. Setting this to False will speed up the meta data read.</p></li>
+<li><p><strong>group</strong> (<em>str</em>) – Group within .h5 resource file to open</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>SAM_res</strong> (<em>SAMResource</em>) – Instance of SAMResource pre-loaded with Solar resource for sites
+in project_points</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="rex.renewable_resource.MultiFileNSRDB">
+<em class="property">class </em><code class="sig-prename descclassname">rex.renewable_resource.</code><code class="sig-name descname">MultiFileNSRDB</code><span class="sig-paren">(</span><em class="sig-param">h5_path</em>, <em class="sig-param">unscale=True</em>, <em class="sig-param">str_decode=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/renewable_resource.html#MultiFileNSRDB"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.renewable_resource.MultiFileNSRDB" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="rex.resource.html#rex.resource.MultiFileResource" title="rex.resource.MultiFileResource"><code class="xref py py-class docutils literal notranslate"><span class="pre">rex.resource.MultiFileResource</span></code></a>, <a class="reference internal" href="#rex.renewable_resource.NSRDB" title="rex.renewable_resource.NSRDB"><code class="xref py py-class docutils literal notranslate"><span class="pre">rex.renewable_resource.NSRDB</span></code></a></p>
+<p>Class to handle 2018 and beyond NSRDB data that is at 2km and
+sub 30 min resolution</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><code class="xref py py-class docutils literal notranslate"><span class="pre">resource.MultiFileResource</span></code></dt><dd><p>Parent class</p>
+</dd>
+<dt><code class="xref py py-class docutils literal notranslate"><span class="pre">resource.NSRDB</span></code></dt><dd><p>Parent class</p>
+</dd>
+</dl>
+</div>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul>
+<li><p><strong>h5_path</strong> (<em>str</em>) – Path to directory containing multi-file resource file sets.
+Available formats:</p>
+<blockquote>
+<div><p>/h5_dir/
+/h5_dir/prefix*suffix</p>
+</div></blockquote>
+</li>
+<li><p><strong>unscale</strong> (<em>bool</em>) – Boolean flag to automatically unscale variables on extraction</p></li>
+<li><p><strong>str_decode</strong> (<em>bool</em>) – Boolean flag to decode the bytestring meta data into normal
+strings. Setting this to False will speed up the meta data read.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="method">
+<dt id="rex.renewable_resource.MultiFileNSRDB.preload_SAM">
+<em class="property">classmethod </em><code class="sig-name descname">preload_SAM</code><span class="sig-paren">(</span><em class="sig-param">h5_path</em>, <em class="sig-param">project_points</em>, <em class="sig-param">clearsky=False</em>, <em class="sig-param">downscale=None</em>, <em class="sig-param">unscale=True</em>, <em class="sig-param">str_decode=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/renewable_resource.html#MultiFileNSRDB.preload_SAM"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.renewable_resource.MultiFileNSRDB.preload_SAM" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pre-load project_points for SAM</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul>
+<li><p><strong>h5_path</strong> (<em>str</em>) – Path to directory containing multi-file resource file sets.
+Available formats:</p>
+<blockquote>
+<div><p>/h5_dir/
+/h5_dir/prefix*suffix</p>
+</div></blockquote>
+</li>
+<li><p><strong>project_points</strong> (<em>reV.config.ProjectPoints</em>) – Projects points to be pre-loaded from Resource for SAM</p></li>
+<li><p><strong>clearsky</strong> (<em>bool</em>) – Boolean flag to pull clearsky instead of real irradiance</p></li>
+<li><p><strong>downscale</strong> (<em>NoneType | str</em>) – Option for NSRDB resource downscaling to higher temporal
+resolution. Expects a string in the Pandas frequency format,
+e.g. ‘5min’.</p></li>
+<li><p><strong>unscale</strong> (<em>bool</em>) – Boolean flag to automatically unscale variables on extraction</p></li>
+<li><p><strong>str_decode</strong> (<em>bool</em>) – Boolean flag to decode the bytestring meta data into normal
+strings. Setting this to False will speed up the meta data read.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>SAM_res</strong> (<em>SAMResource</em>) – Instance of SAMResource pre-loaded with Solar resource for sites
+in project_points</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="rex.renewable_resource.MultiFileWTK">
+<em class="property">class </em><code class="sig-prename descclassname">rex.renewable_resource.</code><code class="sig-name descname">MultiFileWTK</code><span class="sig-paren">(</span><em class="sig-param">h5_path</em>, <em class="sig-param">unscale=True</em>, <em class="sig-param">str_decode=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/renewable_resource.html#MultiFileWTK"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.renewable_resource.MultiFileWTK" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="rex.resource.html#rex.resource.MultiFileResource" title="rex.resource.MultiFileResource"><code class="xref py py-class docutils literal notranslate"><span class="pre">rex.resource.MultiFileResource</span></code></a>, <a class="reference internal" href="#rex.renewable_resource.WindResource" title="rex.renewable_resource.WindResource"><code class="xref py py-class docutils literal notranslate"><span class="pre">rex.renewable_resource.WindResource</span></code></a></p>
+<p>Class to handle 5min WIND Toolkit data</p>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><code class="xref py py-class docutils literal notranslate"><span class="pre">resource.MultiFileResource</span></code></dt><dd><p>Parent class</p>
+</dd>
+<dt><code class="xref py py-class docutils literal notranslate"><span class="pre">resource.WindResource</span></code></dt><dd><p>Parent class</p>
+</dd>
+</dl>
+</div>
+<p class="rubric">Examples</p>
+<p>MultiFileWTK automatically searches for files of the form <a href="#id1"><span class="problematic" id="id2">*</span></a>m.h5</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">file</span> <span class="o">=</span> <span class="s1">&#39;$TESTDATADIR/wtk&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">MultiFileWTK</span><span class="p">(</span><span class="n">file</span><span class="p">)</span> <span class="k">as</span> <span class="n">res</span><span class="p">:</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">_h5_files</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="nb">print</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">datasets</span><span class="p">)</span>
+<span class="go">[&#39;$TESTDATADIR/wtk_2010_200m.h5&#39;,</span>
+<span class="go"> &#39;$TESTDATADIR/wtk_2010_100m.h5&#39;]</span>
+<span class="go">[&#39;coordinates&#39;, &#39;meta&#39;, &#39;pressure_100m&#39;, &#39;pressure_200m&#39;,</span>
+<span class="go"> &#39;temperature_100m&#39;, &#39;temperature_200m&#39;, &#39;time_index&#39;,</span>
+<span class="go"> &#39;winddirection_100m&#39;, &#39;winddirection_200m&#39;, &#39;windspeed_100m&#39;,</span>
+<span class="go"> &#39;windspeed_200m&#39;]</span>
+</pre></div>
+</div>
+<p>MultiFileWTK, like WindResource can interpolate / extrapolate hub-heights</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">MultiFileWTK</span><span class="p">(</span><span class="n">file</span><span class="p">)</span> <span class="k">as</span> <span class="n">res</span><span class="p">:</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="n">wspd</span> <span class="o">=</span> <span class="n">res</span><span class="p">[</span><span class="s1">&#39;windspeed_150m&#39;</span><span class="p">]</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">wspd</span>
+<span class="go">[[16.19     16.25     16.305    ... 16.375    16.39     16.39    ]</span>
+<span class="go"> [16.15     16.205    16.255001 ... 16.35     16.365    16.39    ]</span>
+<span class="go"> [16.154999 16.195    16.23     ... 16.335    16.32     16.34    ]</span>
+<span class="go"> ...</span>
+<span class="go"> [10.965    11.675    12.08     ... 15.18     14.805    14.42    ]</span>
+<span class="go"> [11.66     11.91     12.535    ... 13.31     12.23     12.335   ]</span>
+<span class="go"> [12.785    13.295    14.014999 ... 12.205    11.360001 11.64    ]]</span>
+</pre></div>
+</div>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul>
+<li><p><strong>h5_path</strong> (<em>str</em>) – Path to directory containing multi-file resource file sets.
+Available formats:</p>
+<blockquote>
+<div><p>/h5_dir/
+/h5_dir/prefix*suffix</p>
+</div></blockquote>
+</li>
+<li><p><strong>unscale</strong> (<em>bool</em>) – Boolean flag to automatically unscale variables on extraction</p></li>
+<li><p><strong>str_decode</strong> (<em>bool</em>) – Boolean flag to decode the bytestring meta data into normal
+strings. Setting this to False will speed up the meta data read.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="attribute">
+<dt id="rex.renewable_resource.MultiFileWTK.SUFFIX">
+<code class="sig-name descname">SUFFIX</code><em class="property"> = 'm.h5'</em><a class="headerlink" href="#rex.renewable_resource.MultiFileWTK.SUFFIX" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="rex.renewable_resource.MultiFileWTK.preload_SAM">
+<em class="property">classmethod </em><code class="sig-name descname">preload_SAM</code><span class="sig-paren">(</span><em class="sig-param">h5_path</em>, <em class="sig-param">project_points</em>, <em class="sig-param">require_wind_dir=False</em>, <em class="sig-param">precip_rate=False</em>, <em class="sig-param">icing=False</em>, <em class="sig-param">unscale=True</em>, <em class="sig-param">str_decode=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/renewable_resource.html#MultiFileWTK.preload_SAM"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.renewable_resource.MultiFileWTK.preload_SAM" title="Permalink to this definition">¶</a></dt>
+<dd><p>Placeholder for classmethod that will pre-load project_points for SAM</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul>
+<li><p><strong>h5_path</strong> (<em>str</em>) – Path to directory containing multi-file resource file sets.
+Available formats:</p>
+<blockquote>
+<div><p>/h5_dir/
+/h5_dir/prefix*suffix</p>
+</div></blockquote>
+</li>
+<li><p><strong>project_points</strong> (<em>reV.config.ProjectPoints</em>) – Projects points to be pre-loaded from Resource for SAM</p></li>
+<li><p><strong>require_wind_dir</strong> (<em>bool</em>) – Boolean flag as to whether wind direction will be loaded.</p></li>
+<li><p><strong>precip_rate</strong> (<em>bool</em>) – Boolean flag as to whether precipitationrate_0m will be preloaded</p></li>
+<li><p><strong>icing</strong> (<em>bool</em>) – Boolean flag as to whether icing is analyzed.
+This will preload relative humidity.</p></li>
+<li><p><strong>unscale</strong> (<em>bool</em>) – Boolean flag to automatically unscale variables on extraction</p></li>
+<li><p><strong>str_decode</strong> (<em>bool</em>) – Boolean flag to decode the bytestring meta data into normal
+strings. Setting this to False will speed up the meta data read.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>SAM_res</strong> (<em>SAMResource</em>) – Instance of SAMResource pre-loaded with Solar resource for sites
+in project_points</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="rex.resource.html" class="btn btn-neutral float-right" title="rex.resource module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="rex.utilities.utilities.html" class="btn btn-neutral float-left" title="rex.utilities.utilities module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Alliance for Sustainable Energy, LLC
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
