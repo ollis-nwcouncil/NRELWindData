@@ -217,9 +217,9 @@
 <span id="rex-sam-resource-module"></span><h1>rex.sam_resource module<a class="headerlink" href="#module-rex.sam_resource" title="Permalink to this headline">¶</a></h1>
 <p>Module to handle SAM Resource iterator to create site by site resource
 DataFrames</p>
-<dl class="class">
+<dl class="py class">
 <dt id="rex.sam_resource.SAMResource">
-<em class="property">class </em><code class="sig-prename descclassname">rex.sam_resource.</code><code class="sig-name descname">SAMResource</code><span class="sig-paren">(</span><em class="sig-param">project_points</em>, <em class="sig-param">time_index</em>, <em class="sig-param">require_wind_dir=False</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/sam_resource.html#SAMResource"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.sam_resource.SAMResource" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">rex.sam_resource.</code><code class="sig-name descname">SAMResource</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">project_points</span></em>, <em class="sig-param"><span class="n">time_index</span></em>, <em class="sig-param"><span class="n">require_wind_dir</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/sam_resource.html#SAMResource"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.sam_resource.SAMResource" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Resource Manager for SAM</p>
 <dl class="field-list simple">
@@ -231,47 +231,47 @@ DataFrames</p>
 </ul>
 </dd>
 </dl>
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="rex.sam_resource.SAMResource.RES_VARS">
 <code class="sig-name descname">RES_VARS</code><em class="property"> = {'csp': ('dni', 'dhi', 'wind_speed', 'air_temperature', 'dew_point', 'surface_pressure'), 'lineardirectsteam': ('dni', 'dhi', 'wind_speed', 'air_temperature', 'dew_point', 'surface_pressure'), 'pv': ('dni', 'dhi', 'ghi', 'wind_speed', 'air_temperature'), 'solarwaterheat': ('dni', 'dhi', 'wind_speed', 'air_temperature', 'dew_point', 'surface_pressure'), 'troughphysicalheat': ('dni', 'dhi', 'wind_speed', 'air_temperature', 'dew_point', 'surface_pressure'), 'wind': ('pressure', 'temperature', 'winddirection', 'windspeed')}</em><a class="headerlink" href="#rex.sam_resource.SAMResource.RES_VARS" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="rex.sam_resource.SAMResource.PV_DATA_RANGES">
 <code class="sig-name descname">PV_DATA_RANGES</code><em class="property"> = {'air_temperature': (-200, 100), 'dhi': (0.0, 1360.0), 'dni': (0.0, 1360.0), 'ghi': (0.0, 1360.0), 'wind_speed': (0, 120)}</em><a class="headerlink" href="#rex.sam_resource.SAMResource.PV_DATA_RANGES" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="rex.sam_resource.SAMResource.CSP_DATA_RANGES">
 <code class="sig-name descname">CSP_DATA_RANGES</code><em class="property"> = {'air_temperature': (-200, 100), 'dew_point': (-200, 100), 'dhi': (0.0, 1360.0), 'dni': (0.0, 1360.0), 'ghi': (0.0, 1360.0), 'surface_pressure': (300, 1100), 'wind_speed': (0, 120)}</em><a class="headerlink" href="#rex.sam_resource.SAMResource.CSP_DATA_RANGES" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="rex.sam_resource.SAMResource.WIND_DATA_RANGES">
 <code class="sig-name descname">WIND_DATA_RANGES</code><em class="property"> = {'pressure': (0.5, 1.1), 'rh': (0.1, 99.9), 'temperature': (-200, 100), 'windspeed': (0, 120)}</em><a class="headerlink" href="#rex.sam_resource.SAMResource.WIND_DATA_RANGES" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="rex.sam_resource.SAMResource.TPPH_DATA_RANGES">
 <code class="sig-name descname">TPPH_DATA_RANGES</code><em class="property"> = {'air_temperature': (-200, 100), 'dew_point': (-200, 100), 'dhi': (0.0, 1360.0), 'dni': (0.0, 1360.0), 'ghi': (0.0, 1360.0), 'surface_pressure': (300, 1100), 'wind_speed': (0, 120)}</em><a class="headerlink" href="#rex.sam_resource.SAMResource.TPPH_DATA_RANGES" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="rex.sam_resource.SAMResource.LF_DATA_RANGES">
 <code class="sig-name descname">LF_DATA_RANGES</code><em class="property"> = {'air_temperature': (-200, 100), 'dew_point': (-200, 100), 'dhi': (0.0, 1360.0), 'dni': (0.0, 1360.0), 'ghi': (0.0, 1360.0), 'surface_pressure': (300, 1100), 'wind_speed': (0, 120)}</em><a class="headerlink" href="#rex.sam_resource.SAMResource.LF_DATA_RANGES" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="rex.sam_resource.SAMResource.SWH_DATA_RANGES">
 <code class="sig-name descname">SWH_DATA_RANGES</code><em class="property"> = {'air_temperature': (-200, 100), 'dew_point': (-200, 100), 'dhi': (0.0, 1360.0), 'dni': (0.0, 1360.0), 'ghi': (0.0, 1360.0), 'surface_pressure': (300, 1100), 'wind_speed': (0, 120)}</em><a class="headerlink" href="#rex.sam_resource.SAMResource.SWH_DATA_RANGES" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="rex.sam_resource.SAMResource.DATA_RANGES">
 <code class="sig-name descname">DATA_RANGES</code><em class="property"> = {'csp': {'air_temperature': (-200, 100), 'dew_point': (-200, 100), 'dhi': (0.0, 1360.0), 'dni': (0.0, 1360.0), 'ghi': (0.0, 1360.0), 'surface_pressure': (300, 1100), 'wind_speed': (0, 120)}, 'lineardirectsteam': {'air_temperature': (-200, 100), 'dew_point': (-200, 100), 'dhi': (0.0, 1360.0), 'dni': (0.0, 1360.0), 'ghi': (0.0, 1360.0), 'surface_pressure': (300, 1100), 'wind_speed': (0, 120)}, 'pv': {'air_temperature': (-200, 100), 'dhi': (0.0, 1360.0), 'dni': (0.0, 1360.0), 'ghi': (0.0, 1360.0), 'wind_speed': (0, 120)}, 'solarwaterheat': {'air_temperature': (-200, 100), 'dew_point': (-200, 100), 'dhi': (0.0, 1360.0), 'dni': (0.0, 1360.0), 'ghi': (0.0, 1360.0), 'surface_pressure': (300, 1100), 'wind_speed': (0, 120)}, 'troughphysicalheat': {'air_temperature': (-200, 100), 'dew_point': (-200, 100), 'dhi': (0.0, 1360.0), 'dni': (0.0, 1360.0), 'ghi': (0.0, 1360.0), 'surface_pressure': (300, 1100), 'wind_speed': (0, 120)}, 'wind': {'pressure': (0.5, 1.1), 'rh': (0.1, 99.9), 'temperature': (-200, 100), 'windspeed': (0, 120)}}</em><a class="headerlink" href="#rex.sam_resource.SAMResource.DATA_RANGES" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="rex.sam_resource.SAMResource.sites">
 <em class="property">property </em><code class="sig-name descname">sites</code><a class="headerlink" href="#rex.sam_resource.SAMResource.sites" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sites being pre-loaded for SAM</p>
@@ -282,7 +282,7 @@ DataFrames</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="rex.sam_resource.SAMResource.shape">
 <em class="property">property </em><code class="sig-name descname">shape</code><a class="headerlink" href="#rex.sam_resource.SAMResource.shape" title="Permalink to this definition">¶</a></dt>
 <dd><p>Shape of variable arrays</p>
@@ -293,7 +293,7 @@ DataFrames</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="rex.sam_resource.SAMResource.var_list">
 <em class="property">property </em><code class="sig-name descname">var_list</code><a class="headerlink" href="#rex.sam_resource.SAMResource.var_list" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return variable list associated with SAMResource type</p>
@@ -305,15 +305,15 @@ DataFrames</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="rex.sam_resource.SAMResource.set_clearsky">
 <code class="sig-name descname">set_clearsky</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/sam_resource.html#SAMResource.set_clearsky"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.sam_resource.SAMResource.set_clearsky" title="Permalink to this definition">¶</a></dt>
 <dd><p>Make the NSRDB var list for solar based on clearsky irradiance.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="rex.sam_resource.SAMResource.append_var_list">
-<code class="sig-name descname">append_var_list</code><span class="sig-paren">(</span><em class="sig-param">var</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/sam_resource.html#SAMResource.append_var_list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.sam_resource.SAMResource.append_var_list" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">append_var_list</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">var</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/sam_resource.html#SAMResource.append_var_list"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.sam_resource.SAMResource.append_var_list" title="Permalink to this definition">¶</a></dt>
 <dd><p>Append a new variable to the SAM resource protected var_list.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -323,7 +323,7 @@ property.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="rex.sam_resource.SAMResource.time_index">
 <em class="property">property </em><code class="sig-name descname">time_index</code><a class="headerlink" href="#rex.sam_resource.SAMResource.time_index" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return time_index</p>
@@ -334,7 +334,7 @@ property.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="rex.sam_resource.SAMResource.meta">
 <em class="property">property </em><code class="sig-name descname">meta</code><a class="headerlink" href="#rex.sam_resource.SAMResource.meta" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return sites meta</p>
@@ -345,7 +345,7 @@ property.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="rex.sam_resource.SAMResource.h">
 <em class="property">property </em><code class="sig-name descname">h</code><a class="headerlink" href="#rex.sam_resource.SAMResource.h" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get heights for wind sites</p>
@@ -356,9 +356,9 @@ property.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="rex.sam_resource.SAMResource.check_units">
-<em class="property">static </em><code class="sig-name descname">check_units</code><span class="sig-paren">(</span><em class="sig-param">var_name</em>, <em class="sig-param">var_array</em>, <em class="sig-param">tech</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/sam_resource.html#SAMResource.check_units"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.sam_resource.SAMResource.check_units" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">check_units</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">var_name</span></em>, <em class="sig-param"><span class="n">var_array</span></em>, <em class="sig-param"><span class="n">tech</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/sam_resource.html#SAMResource.check_units"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.sam_resource.SAMResource.check_units" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check units of variable array and convert to SAM units if needed</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -375,9 +375,9 @@ troughphysicalheat).</p></li>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="rex.sam_resource.SAMResource.enforce_arr_range">
-<em class="property">static </em><code class="sig-name descname">enforce_arr_range</code><span class="sig-paren">(</span><em class="sig-param">var</em>, <em class="sig-param">arr</em>, <em class="sig-param">valid_range</em>, <em class="sig-param">sites</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/sam_resource.html#SAMResource.enforce_arr_range"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.sam_resource.SAMResource.enforce_arr_range" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">enforce_arr_range</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">var</span></em>, <em class="sig-param"><span class="n">arr</span></em>, <em class="sig-param"><span class="n">valid_range</span></em>, <em class="sig-param"><span class="n">sites</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/sam_resource.html#SAMResource.enforce_arr_range"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.sam_resource.SAMResource.enforce_arr_range" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check an array for valid data range, warn, patch, and return.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -394,7 +394,7 @@ troughphysicalheat).</p></li>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="rex.sam_resource.SAMResource.runnable">
 <code class="sig-name descname">runnable</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/sam_resource.html#SAMResource.runnable"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.sam_resource.SAMResource.runnable" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check to see if SAMResource iterator is runnable:
@@ -407,9 +407,9 @@ troughphysicalheat).</p></li>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="rex.sam_resource.SAMResource.curtail_windspeed">
-<code class="sig-name descname">curtail_windspeed</code><span class="sig-paren">(</span><em class="sig-param">gids</em>, <em class="sig-param">curtailment</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/sam_resource.html#SAMResource.curtail_windspeed"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.sam_resource.SAMResource.curtail_windspeed" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">curtail_windspeed</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">gids</span></em>, <em class="sig-param"><span class="n">curtailment</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/sam_resource.html#SAMResource.curtail_windspeed"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.sam_resource.SAMResource.curtail_windspeed" title="Permalink to this definition">¶</a></dt>
 <dd><p>Apply temporal curtailment mask to windspeed resource at given sites</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>

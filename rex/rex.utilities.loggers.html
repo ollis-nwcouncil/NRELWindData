@@ -218,14 +218,44 @@
   <div class="section" id="module-rex.utilities.loggers">
 <span id="rex-utilities-loggers-module"></span><h1>rex.utilities.loggers module<a class="headerlink" href="#module-rex.utilities.loggers" title="Permalink to this headline">¶</a></h1>
 <p>Logging wrapper</p>
-<dl class="function">
+<dl class="py function">
+<dt id="rex.utilities.loggers.create_dirs">
+<code class="sig-prename descclassname">rex.utilities.loggers.</code><code class="sig-name descname">create_dirs</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dir_path</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/utilities/loggers.html#create_dirs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.utilities.loggers.create_dirs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Wrapper for checking and making directory to handle parallel processing</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>dir_path</strong> (<em>str</em>) – Directory path to create if it doesn’t exist</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="rex.utilities.loggers.get_handler">
+<code class="sig-prename descclassname">rex.utilities.loggers.</code><code class="sig-name descname">get_handler</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">log_level</span><span class="o">=</span><span class="default_value">'INFO'</span></em>, <em class="sig-param"><span class="n">log_file</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">log_format</span><span class="o">=</span><span class="default_value">'%(levelname)s - %(asctime)s [%(filename)s:%(lineno)d] : %(message)s'</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/utilities/loggers.html#get_handler"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.utilities.loggers.get_handler" title="Permalink to this definition">¶</a></dt>
+<dd><p>get logger handler</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>log_level</strong> (<em>str</em>) – handler-specific logging level, must be key in LOG_LEVEL.</p></li>
+<li><p><strong>log_file</strong> (<em>str</em>) – path to the log file</p></li>
+<li><p><strong>log_format</strong> (<em>str</em>) – format string to use with the logging package</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>handler</strong> (<em>logging.FileHandler | logging.StreamHandler</em>) – handler to add to logger</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt id="rex.utilities.loggers.setup_logger">
-<code class="sig-prename descclassname">rex.utilities.loggers.</code><code class="sig-name descname">setup_logger</code><span class="sig-paren">(</span><em class="sig-param">logger_name</em>, <em class="sig-param">log_level='INFO'</em>, <em class="sig-param">log_file=None</em>, <em class="sig-param">log_format='%(levelname)s - %(asctime)s [%(filename)s:%(lineno)d] : %(message)s'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/utilities/loggers.html#setup_logger"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.utilities.loggers.setup_logger" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">rex.utilities.loggers.</code><code class="sig-name descname">setup_logger</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">logger_name</span></em>, <em class="sig-param"><span class="n">stream</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">log_level</span><span class="o">=</span><span class="default_value">'INFO'</span></em>, <em class="sig-param"><span class="n">log_file</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">log_format</span><span class="o">=</span><span class="default_value">'%(levelname)s - %(asctime)s [%(filename)s:%(lineno)d] : %(message)s'</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/utilities/loggers.html#setup_logger"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.utilities.loggers.setup_logger" title="Permalink to this definition">¶</a></dt>
 <dd><p>Setup logging instance with given name and attributes</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>logger_name</strong> (<em>str</em>) – Name of logger</p></li>
+<li><p><strong>stream</strong> (<em>bool</em>) – Init stream logger</p></li>
 <li><p><strong>log_level</strong> (<em>str</em>) – Level of logging to capture, must be key in LOG_LEVEL. If multiple
 handlers/log_files are requested in a single call of this function,
 the specified logging level will be applied to all requested handlers.</p></li>
@@ -244,14 +274,14 @@ list of multiple handlers is permitted</p></li>
 </dl>
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="rex.utilities.loggers.LoggingAttributes">
 <em class="property">class </em><code class="sig-prename descclassname">rex.utilities.loggers.</code><code class="sig-name descname">LoggingAttributes</code><a class="reference internal" href="../_modules/rex/utilities/loggers.html#LoggingAttributes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.utilities.loggers.LoggingAttributes" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Class to store and pass logging attributes to modules</p>
-<dl class="method">
+<dl class="py method">
 <dt id="rex.utilities.loggers.LoggingAttributes.init_logger">
-<code class="sig-name descname">init_logger</code><span class="sig-paren">(</span><em class="sig-param">loggers</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/utilities/loggers.html#LoggingAttributes.init_logger"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.utilities.loggers.LoggingAttributes.init_logger" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">init_logger</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">loggers</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/utilities/loggers.html#LoggingAttributes.init_logger"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.utilities.loggers.LoggingAttributes.init_logger" title="Permalink to this definition">¶</a></dt>
 <dd><p>Extract logger attributes and initialize logger</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -262,9 +292,9 @@ list of multiple handlers is permitted</p></li>
 
 </dd></dl>
 
-<dl class="function">
+<dl class="py function">
 <dt id="rex.utilities.loggers.init_logger">
-<code class="sig-prename descclassname">rex.utilities.loggers.</code><code class="sig-name descname">init_logger</code><span class="sig-paren">(</span><em class="sig-param">logger_name</em>, <em class="sig-param">log_level='INFO'</em>, <em class="sig-param">log_file=None</em>, <em class="sig-param">log_format='%(levelname)s - %(asctime)s [%(filename)s:%(lineno)d] : %(message)s'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/utilities/loggers.html#init_logger"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.utilities.loggers.init_logger" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">rex.utilities.loggers.</code><code class="sig-name descname">init_logger</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">logger_name</span></em>, <em class="sig-param"><span class="n">stream</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">log_level</span><span class="o">=</span><span class="default_value">'INFO'</span></em>, <em class="sig-param"><span class="n">log_file</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">log_format</span><span class="o">=</span><span class="default_value">'%(levelname)s - %(asctime)s [%(filename)s:%(lineno)d] : %(message)s'</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/utilities/loggers.html#init_logger"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.utilities.loggers.init_logger" title="Permalink to this definition">¶</a></dt>
 <dd><p>Starts logging instance and adds logging attributes to REV_LOGGERS</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -280,6 +310,44 @@ list of multiple handlers is permitted</p></li>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p><strong>logger</strong> (<em>logging.logger</em>) – logging instance that was initialized</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="rex.utilities.loggers.init_mult">
+<code class="sig-prename descclassname">rex.utilities.loggers.</code><code class="sig-name descname">init_mult</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">name</span></em>, <em class="sig-param"><span class="n">logdir</span></em>, <em class="sig-param"><span class="n">modules</span></em>, <em class="sig-param"><span class="n">verbose</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">node</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/utilities/loggers.html#init_mult"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.utilities.loggers.init_mult" title="Permalink to this definition">¶</a></dt>
+<dd><p>Init multiple loggers to a single file or stdout.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – Job name; name of log file.</p></li>
+<li><p><strong>logdir</strong> (<em>str</em>) – Target directory to save .log files.</p></li>
+<li><p><strong>modules</strong> (<em>list | tuple</em>) – List of reV modules to initialize loggers for.</p></li>
+<li><p><strong>verbose</strong> (<em>bool</em>) – Option to turn on debug logging.</p></li>
+<li><p><strong>node</strong> (<em>bool</em>) – Flag for whether this is a node-level logger. If this is a node logger,
+and the log level is info, the log_file will be None (sent to stdout).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>loggers</strong> (<em>list</em>) – List of logging instances that were initialized.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="rex.utilities.loggers.log_mem">
+<code class="sig-prename descclassname">rex.utilities.loggers.</code><code class="sig-name descname">log_mem</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">logger</span></em>, <em class="sig-param"><span class="n">log_level</span><span class="o">=</span><span class="default_value">'DEBUG'</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/utilities/loggers.html#log_mem"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.utilities.loggers.log_mem" title="Permalink to this definition">¶</a></dt>
+<dd><p>Log the memory usage to the input logger object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>logger</strong> (<em>logging.Logger</em>) – Logger object to log memory message to.</p></li>
+<li><p><strong>log_level</strong> (<em>str</em>) – DEBUG or INFO for different log levels for this log message.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>msg</strong> (<em>str</em>) – Memory utilization log message string.</p>
 </dd>
 </dl>
 </dd></dl>

@@ -220,12 +220,11 @@
 <span class="kn">import</span> <span class="nn">pickle</span>
 <span class="kn">from</span> <span class="nn">scipy.spatial</span> <span class="kn">import</span> <span class="n">cKDTree</span>
 
-<span class="kn">from</span> <span class="nn">rex.resource</span> <span class="kn">import</span> <span class="n">Resource</span>
+<span class="kn">from</span> <span class="nn">rex.resource</span> <span class="kn">import</span> <span class="n">Resource</span><span class="p">,</span> <span class="n">MultiFileResource</span>
 <span class="kn">from</span> <span class="nn">rex.renewable_resource</span> <span class="kn">import</span> <span class="p">(</span><span class="n">MultiFileWTK</span><span class="p">,</span> <span class="n">MultiFileNSRDB</span><span class="p">,</span> <span class="n">NSRDB</span><span class="p">,</span>
                                     <span class="n">SolarResource</span><span class="p">,</span> <span class="n">WindResource</span><span class="p">)</span>
 
-<span class="n">BIN</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">realpath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)))</span>
-<span class="n">BIN</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">BIN</span><span class="p">),</span> <span class="s1">&#39;bin&#39;</span><span class="p">)</span>
+<span class="n">TREE_DIR</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">realpath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)),</span> <span class="s1">&#39;trees&#39;</span><span class="p">)</span>
 <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
 
 
@@ -378,12 +377,12 @@
                                <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">tree</span><span class="p">)))</span>
 
             <span class="k">if</span> <span class="n">tree</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-                <span class="n">pgz_files</span> <span class="o">=</span> <span class="p">[</span><span class="n">file</span> <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">BIN</span><span class="p">)</span>
+                <span class="n">pgz_files</span> <span class="o">=</span> <span class="p">[</span><span class="n">file</span> <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">TREE_DIR</span><span class="p">)</span>
                              <span class="k">if</span> <span class="n">file</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.pgz&#39;</span><span class="p">)]</span>
                 <span class="k">for</span> <span class="n">pgz</span> <span class="ow">in</span> <span class="n">pgz_files</span><span class="p">:</span>
                     <span class="n">prefix</span> <span class="o">=</span> <span class="n">pgz</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_tree&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
                     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">h5_file</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">prefix</span><span class="p">):</span>
-                        <span class="n">tree</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">BIN</span><span class="p">,</span> <span class="n">pgz</span><span class="p">)</span>
+                        <span class="n">tree</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">TREE_DIR</span><span class="p">,</span> <span class="n">pgz</span><span class="p">)</span>
                         <span class="k">break</span>
 
             <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
@@ -683,6 +682,40 @@
         <span class="k">return</span> <span class="n">ts_map</span></div></div>
 
 
+<div class="viewcode-block" id="MultiFileResourceX"><a class="viewcode-back" href="../../rex/rex.resource_extraction.html#rex.resource_extraction.MultiFileResourceX">[docs]</a><span class="k">class</span> <span class="nc">MultiFileResourceX</span><span class="p">(</span><span class="n">MultiFileResource</span><span class="p">,</span> <span class="n">ResourceX</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Multi-File resource extraction class</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">resource_path</span><span class="p">,</span> <span class="n">tree</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">compute_tree</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                 <span class="n">unscale</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">str_decode</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        resource_path : str</span>
+<span class="sd">            Path to resource .h5 files</span>
+<span class="sd">            Available formats:</span>
+<span class="sd">                /h5_dir/</span>
+<span class="sd">                /h5_dir/prefix*suffix</span>
+<span class="sd">        tree : str</span>
+<span class="sd">            path to .pgz file containing pickled cKDTree of lat, lon</span>
+<span class="sd">            coordinates</span>
+<span class="sd">        compute_tree : bool</span>
+<span class="sd">            Force the computation of the cKDTree</span>
+<span class="sd">        prefix : str</span>
+<span class="sd">            Prefix for resource .h5 files</span>
+<span class="sd">        suffix : str</span>
+<span class="sd">            Suffix for resource .h5 files</span>
+<span class="sd">        unscale : bool</span>
+<span class="sd">            Boolean flag to automatically unscale variables on extraction</span>
+<span class="sd">        str_decode : bool</span>
+<span class="sd">            Boolean flag to decode the bytestring meta data into normal</span>
+<span class="sd">            strings. Setting this to False will speed up the meta data read.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">resource_path</span><span class="p">,</span> <span class="n">unscale</span><span class="o">=</span><span class="n">unscale</span><span class="p">,</span> <span class="n">str_decode</span><span class="o">=</span><span class="n">str_decode</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_tree</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_init_tree</span><span class="p">(</span><span class="n">tree</span><span class="o">=</span><span class="n">tree</span><span class="p">,</span> <span class="n">compute_tree</span><span class="o">=</span><span class="n">compute_tree</span><span class="p">)</span></div>
+
+
 <div class="viewcode-block" id="SolarX"><a class="viewcode-back" href="../../rex/rex.resource_extraction.html#rex.resource_extraction.SolarX">[docs]</a><span class="k">class</span> <span class="nc">SolarX</span><span class="p">(</span><span class="n">SolarResource</span><span class="p">,</span> <span class="n">ResourceX</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Solar Resource extraction class</span>
@@ -749,7 +782,7 @@
 
 <div class="viewcode-block" id="MultiFileNSRDBX"><a class="viewcode-back" href="../../rex/rex.resource_extraction.html#rex.resource_extraction.MultiFileNSRDBX">[docs]</a><span class="k">class</span> <span class="nc">MultiFileNSRDBX</span><span class="p">(</span><span class="n">MultiFileNSRDB</span><span class="p">,</span> <span class="n">ResourceX</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    NSRDB extraction class</span>
+<span class="sd">    Multi-File NSRDB extraction class</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nsrdb_path</span><span class="p">,</span> <span class="n">tree</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">compute_tree</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
                  <span class="n">unscale</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">str_decode</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
@@ -870,7 +903,7 @@
 
 <div class="viewcode-block" id="MultiFileWindX"><a class="viewcode-back" href="../../rex/rex.resource_extraction.html#rex.resource_extraction.MultiFileWindX">[docs]</a><span class="k">class</span> <span class="nc">MultiFileWindX</span><span class="p">(</span><span class="n">MultiFileWTK</span><span class="p">,</span> <span class="n">WindX</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Wind Resource extraction class</span>
+<span class="sd">    Multi-File Wind Resource extraction class</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">wtk_path</span><span class="p">,</span> <span class="n">tree</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">compute_tree</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
                  <span class="n">unscale</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">str_decode</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>

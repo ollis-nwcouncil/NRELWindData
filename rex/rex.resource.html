@@ -216,9 +216,9 @@
   <div class="section" id="module-rex.resource">
 <span id="rex-resource-module"></span><h1>rex.resource module<a class="headerlink" href="#module-rex.resource" title="Permalink to this headline">¶</a></h1>
 <p>Classes to handle resource data</p>
-<dl class="class">
+<dl class="py class">
 <dt id="rex.resource.ResourceDataset">
-<em class="property">class </em><code class="sig-prename descclassname">rex.resource.</code><code class="sig-name descname">ResourceDataset</code><span class="sig-paren">(</span><em class="sig-param">ds</em>, <em class="sig-param">scale_attr='scale_factor'</em>, <em class="sig-param">add_attr='add_offset'</em>, <em class="sig-param">unscale=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/resource.html#ResourceDataset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.resource.ResourceDataset" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">rex.resource.</code><code class="sig-name descname">ResourceDataset</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ds</span></em>, <em class="sig-param"><span class="n">scale_attr</span><span class="o">=</span><span class="default_value">'scale_factor'</span></em>, <em class="sig-param"><span class="n">add_attr</span><span class="o">=</span><span class="default_value">'add_offset'</span></em>, <em class="sig-param"><span class="n">unscale</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/resource.html#ResourceDataset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.resource.ResourceDataset" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>h5py.Dataset wrapper for Resource .h5 files</p>
 <dl class="field-list simple">
@@ -231,7 +231,7 @@
 </ul>
 </dd>
 </dl>
-<dl class="method">
+<dl class="py method">
 <dt id="rex.resource.ResourceDataset.shape">
 <em class="property">property </em><code class="sig-name descname">shape</code><a class="headerlink" href="#rex.resource.ResourceDataset.shape" title="Permalink to this definition">¶</a></dt>
 <dd><p>Dataset shape</p>
@@ -242,7 +242,7 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="rex.resource.ResourceDataset.size">
 <em class="property">property </em><code class="sig-name descname">size</code><a class="headerlink" href="#rex.resource.ResourceDataset.size" title="Permalink to this definition">¶</a></dt>
 <dd><p>Dataset size</p>
@@ -253,7 +253,7 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="rex.resource.ResourceDataset.dtype">
 <em class="property">property </em><code class="sig-name descname">dtype</code><a class="headerlink" href="#rex.resource.ResourceDataset.dtype" title="Permalink to this definition">¶</a></dt>
 <dd><p>Dataset dtype</p>
@@ -264,7 +264,7 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="rex.resource.ResourceDataset.chunks">
 <em class="property">property </em><code class="sig-name descname">chunks</code><a class="headerlink" href="#rex.resource.ResourceDataset.chunks" title="Permalink to this definition">¶</a></dt>
 <dd><p>Dataset chunk size</p>
@@ -275,7 +275,7 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="rex.resource.ResourceDataset.scale_factor">
 <em class="property">property </em><code class="sig-name descname">scale_factor</code><a class="headerlink" href="#rex.resource.ResourceDataset.scale_factor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Dataset scale factor</p>
@@ -286,7 +286,7 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="rex.resource.ResourceDataset.adder">
 <em class="property">property </em><code class="sig-name descname">adder</code><a class="headerlink" href="#rex.resource.ResourceDataset.adder" title="Permalink to this definition">¶</a></dt>
 <dd><p>Dataset add offset</p>
@@ -297,9 +297,9 @@
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="rex.resource.ResourceDataset.extract">
-<em class="property">classmethod </em><code class="sig-name descname">extract</code><span class="sig-paren">(</span><em class="sig-param">ds</em>, <em class="sig-param">ds_slice</em>, <em class="sig-param">scale_attr='scale_factor'</em>, <em class="sig-param">add_attr='add_offset'</em>, <em class="sig-param">unscale=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/resource.html#ResourceDataset.extract"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.resource.ResourceDataset.extract" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="sig-name descname">extract</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ds</span></em>, <em class="sig-param"><span class="n">ds_slice</span></em>, <em class="sig-param"><span class="n">scale_attr</span><span class="o">=</span><span class="default_value">'scale_factor'</span></em>, <em class="sig-param"><span class="n">add_attr</span><span class="o">=</span><span class="default_value">'add_offset'</span></em>, <em class="sig-param"><span class="n">unscale</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/resource.html#ResourceDataset.extract"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.resource.ResourceDataset.extract" title="Permalink to this definition">¶</a></dt>
 <dd><p>Extract data from Resource Dataset</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -316,9 +316,9 @@
 
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="rex.resource.Resource">
-<em class="property">class </em><code class="sig-prename descclassname">rex.resource.</code><code class="sig-name descname">Resource</code><span class="sig-paren">(</span><em class="sig-param">h5_file</em>, <em class="sig-param">unscale=True</em>, <em class="sig-param">hsds=False</em>, <em class="sig-param">str_decode=True</em>, <em class="sig-param">group=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/resource.html#Resource"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.resource.Resource" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">rex.resource.</code><code class="sig-name descname">Resource</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">h5_file</span></em>, <em class="sig-param"><span class="n">unscale</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">hsds</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">str_decode</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">group</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/resource.html#Resource"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.resource.Resource" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Base class to handle resource .h5 files</p>
 <p class="rubric">Examples</p>
@@ -509,22 +509,22 @@ strings. Setting this to False will speed up the meta data read.</p></li>
 </ul>
 </dd>
 </dl>
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="rex.resource.Resource.SCALE_ATTR">
 <code class="sig-name descname">SCALE_ATTR</code><em class="property"> = 'scale_factor'</em><a class="headerlink" href="#rex.resource.Resource.SCALE_ATTR" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="rex.resource.Resource.ADD_ATTR">
 <code class="sig-name descname">ADD_ATTR</code><em class="property"> = 'add_offset'</em><a class="headerlink" href="#rex.resource.Resource.ADD_ATTR" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="rex.resource.Resource.UNIT_ATTR">
 <code class="sig-name descname">UNIT_ATTR</code><em class="property"> = 'units'</em><a class="headerlink" href="#rex.resource.Resource.UNIT_ATTR" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="rex.resource.Resource.h5">
 <em class="property">property </em><code class="sig-name descname">h5</code><a class="headerlink" href="#rex.resource.Resource.h5" title="Permalink to this definition">¶</a></dt>
 <dd><p>Open h5py File instance. If _group is not None return open Group</p>
@@ -535,7 +535,7 @@ strings. Setting this to False will speed up the meta data read.</p></li>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="rex.resource.Resource.datasets">
 <em class="property">property </em><code class="sig-name descname">datasets</code><a class="headerlink" href="#rex.resource.Resource.datasets" title="Permalink to this definition">¶</a></dt>
 <dd><p>Datasets available</p>
@@ -546,7 +546,7 @@ strings. Setting this to False will speed up the meta data read.</p></li>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="rex.resource.Resource.dsets">
 <em class="property">property </em><code class="sig-name descname">dsets</code><a class="headerlink" href="#rex.resource.Resource.dsets" title="Permalink to this definition">¶</a></dt>
 <dd><p>Datasets available</p>
@@ -557,7 +557,7 @@ strings. Setting this to False will speed up the meta data read.</p></li>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="rex.resource.Resource.groups">
 <em class="property">property </em><code class="sig-name descname">groups</code><a class="headerlink" href="#rex.resource.Resource.groups" title="Permalink to this definition">¶</a></dt>
 <dd><p>Groups available</p>
@@ -568,7 +568,7 @@ strings. Setting this to False will speed up the meta data read.</p></li>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="rex.resource.Resource.shape">
 <em class="property">property </em><code class="sig-name descname">shape</code><a class="headerlink" href="#rex.resource.Resource.shape" title="Permalink to this definition">¶</a></dt>
 <dd><p>Resource shape (timesteps, sites)
@@ -580,7 +580,7 @@ shape = (len(time_index), len(meta))</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="rex.resource.Resource.meta">
 <em class="property">property </em><code class="sig-name descname">meta</code><a class="headerlink" href="#rex.resource.Resource.meta" title="Permalink to this definition">¶</a></dt>
 <dd><p>Meta data DataFrame</p>
@@ -591,7 +591,7 @@ shape = (len(time_index), len(meta))</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="rex.resource.Resource.time_index">
 <em class="property">property </em><code class="sig-name descname">time_index</code><a class="headerlink" href="#rex.resource.Resource.time_index" title="Permalink to this definition">¶</a></dt>
 <dd><p>DatetimeIndex</p>
@@ -602,7 +602,7 @@ shape = (len(time_index), len(meta))</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="rex.resource.Resource.global_attrs">
 <em class="property">property </em><code class="sig-name descname">global_attrs</code><a class="headerlink" href="#rex.resource.Resource.global_attrs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Global (file) attributes</p>
@@ -613,9 +613,9 @@ shape = (len(time_index), len(meta))</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="rex.resource.Resource.df_str_decode">
-<em class="property">static </em><code class="sig-name descname">df_str_decode</code><span class="sig-paren">(</span><em class="sig-param">df</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/resource.html#Resource.df_str_decode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.resource.Resource.df_str_decode" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">df_str_decode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">df</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/resource.html#Resource.df_str_decode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.resource.Resource.df_str_decode" title="Permalink to this definition">¶</a></dt>
 <dd><p>Decode a dataframe with byte string columns into ordinary str cols.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -627,9 +627,9 @@ shape = (len(time_index), len(meta))</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="rex.resource.Resource.open_dataset">
-<code class="sig-name descname">open_dataset</code><span class="sig-paren">(</span><em class="sig-param">ds_name</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/resource.html#Resource.open_dataset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.resource.Resource.open_dataset" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">open_dataset</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ds_name</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/resource.html#Resource.open_dataset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.resource.Resource.open_dataset" title="Permalink to this definition">¶</a></dt>
 <dd><p>Open resource dataset</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -641,9 +641,9 @@ shape = (len(time_index), len(meta))</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="rex.resource.Resource.get_attrs">
-<code class="sig-name descname">get_attrs</code><span class="sig-paren">(</span><em class="sig-param">dset=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/resource.html#Resource.get_attrs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.resource.Resource.get_attrs" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_attrs</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dset</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/resource.html#Resource.get_attrs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.resource.Resource.get_attrs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get h5 attributes either from file or dataset</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -655,9 +655,9 @@ shape = (len(time_index), len(meta))</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="rex.resource.Resource.get_dset_properties">
-<code class="sig-name descname">get_dset_properties</code><span class="sig-paren">(</span><em class="sig-param">dset</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/resource.html#Resource.get_dset_properties"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.resource.Resource.get_dset_properties" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_dset_properties</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dset</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/resource.html#Resource.get_dset_properties"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.resource.Resource.get_dset_properties" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get dataset properties (shape, dtype, chunks)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -674,9 +674,9 @@ shape = (len(time_index), len(meta))</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="rex.resource.Resource.get_scale">
-<code class="sig-name descname">get_scale</code><span class="sig-paren">(</span><em class="sig-param">dset</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/resource.html#Resource.get_scale"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.resource.Resource.get_scale" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_scale</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dset</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/resource.html#Resource.get_scale"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.resource.Resource.get_scale" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get dataset scale factor</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -688,9 +688,9 @@ shape = (len(time_index), len(meta))</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="rex.resource.Resource.get_units">
-<code class="sig-name descname">get_units</code><span class="sig-paren">(</span><em class="sig-param">dset</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/resource.html#Resource.get_units"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.resource.Resource.get_units" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_units</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dset</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/resource.html#Resource.get_units"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.resource.Resource.get_units" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get dataset units</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -702,9 +702,9 @@ shape = (len(time_index), len(meta))</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="rex.resource.Resource.get_meta_arr">
-<code class="sig-name descname">get_meta_arr</code><span class="sig-paren">(</span><em class="sig-param">rec_name</em>, <em class="sig-param">rows=slice(None</em>, <em class="sig-param">None</em>, <em class="sig-param">None)</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/resource.html#Resource.get_meta_arr"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.resource.Resource.get_meta_arr" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_meta_arr</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">rec_name</span></em>, <em class="sig-param"><span class="n">rows</span><span class="o">=</span><span class="default_value">slice(None, None, None)</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/resource.html#Resource.get_meta_arr"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.resource.Resource.get_meta_arr" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get a meta array by name (faster than DataFrame extraction).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -719,15 +719,15 @@ shape = (len(time_index), len(meta))</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="rex.resource.Resource.close">
 <code class="sig-name descname">close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/resource.html#Resource.close"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.resource.Resource.close" title="Permalink to this definition">¶</a></dt>
 <dd><p>Close h5 instance</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="rex.resource.Resource.preload_SAM">
-<em class="property">classmethod </em><code class="sig-name descname">preload_SAM</code><span class="sig-paren">(</span><em class="sig-param">h5_file</em>, <em class="sig-param">project_points</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/resource.html#Resource.preload_SAM"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.resource.Resource.preload_SAM" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="sig-name descname">preload_SAM</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">h5_file</span></em>, <em class="sig-param"><span class="n">project_points</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/resource.html#Resource.preload_SAM"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.resource.Resource.preload_SAM" title="Permalink to this definition">¶</a></dt>
 <dd><p>Placeholder for classmethod that will pre-load project_points for SAM</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -742,9 +742,9 @@ shape = (len(time_index), len(meta))</p>
 
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="rex.resource.MultiH5">
-<em class="property">class </em><code class="sig-prename descclassname">rex.resource.</code><code class="sig-name descname">MultiH5</code><span class="sig-paren">(</span><em class="sig-param">h5_dir</em>, <em class="sig-param">prefix=''</em>, <em class="sig-param">suffix='.h5'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/resource.html#MultiH5"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.resource.MultiH5" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">rex.resource.</code><code class="sig-name descname">MultiH5</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">h5_dir</span></em>, <em class="sig-param"><span class="n">prefix</span><span class="o">=</span><span class="default_value">''</span></em>, <em class="sig-param"><span class="n">suffix</span><span class="o">=</span><span class="default_value">'.h5'</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/resource.html#MultiH5"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.resource.MultiH5" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Class to handle multiple h5 file Resources</p>
 <dl class="field-list simple">
@@ -756,7 +756,7 @@ shape = (len(time_index), len(meta))</p>
 </ul>
 </dd>
 </dl>
-<dl class="method">
+<dl class="py method">
 <dt id="rex.resource.MultiH5.attrs">
 <em class="property">property </em><code class="sig-name descname">attrs</code><a class="headerlink" href="#rex.resource.MultiH5.attrs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Global .h5 file attributes sourced from first .h5 file</p>
@@ -767,7 +767,7 @@ shape = (len(time_index), len(meta))</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="rex.resource.MultiH5.datasets">
 <em class="property">property </em><code class="sig-name descname">datasets</code><a class="headerlink" href="#rex.resource.MultiH5.datasets" title="Permalink to this definition">¶</a></dt>
 <dd><p>Available datasets</p>
@@ -778,7 +778,7 @@ shape = (len(time_index), len(meta))</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="rex.resource.MultiH5.h5_files">
 <em class="property">property </em><code class="sig-name descname">h5_files</code><a class="headerlink" href="#rex.resource.MultiH5.h5_files" title="Permalink to this definition">¶</a></dt>
 <dd><p>.h5 files data is being sourced from</p>
@@ -789,7 +789,7 @@ shape = (len(time_index), len(meta))</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="rex.resource.MultiH5.close">
 <code class="sig-name descname">close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/resource.html#MultiH5.close"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.resource.MultiH5.close" title="Permalink to this definition">¶</a></dt>
 <dd><p>Close all h5py.File instances</p>
@@ -797,9 +797,9 @@ shape = (len(time_index), len(meta))</p>
 
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="rex.resource.MultiFileResource">
-<em class="property">class </em><code class="sig-prename descclassname">rex.resource.</code><code class="sig-name descname">MultiFileResource</code><span class="sig-paren">(</span><em class="sig-param">h5_path</em>, <em class="sig-param">unscale=True</em>, <em class="sig-param">str_decode=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/resource.html#MultiFileResource"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.resource.MultiFileResource" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">rex.resource.</code><code class="sig-name descname">MultiFileResource</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">h5_path</span></em>, <em class="sig-param"><span class="n">unscale</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">str_decode</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/resource.html#MultiFileResource"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.resource.MultiFileResource" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#rex.resource.Resource" title="rex.resource.Resource"><code class="xref py py-class docutils literal notranslate"><span class="pre">rex.resource.Resource</span></code></a></p>
 <p>Class to handle fine spatial resolution resource data stored in
 multiple .h5 files</p>
@@ -875,19 +875,19 @@ strings. Setting this to False will speed up the meta data read.</p></li>
 </ul>
 </dd>
 </dl>
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="rex.resource.MultiFileResource.PREFIX">
 <code class="sig-name descname">PREFIX</code><em class="property"> = ''</em><a class="headerlink" href="#rex.resource.MultiFileResource.PREFIX" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="rex.resource.MultiFileResource.SUFFIX">
 <code class="sig-name descname">SUFFIX</code><em class="property"> = '.h5'</em><a class="headerlink" href="#rex.resource.MultiFileResource.SUFFIX" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="rex.resource.MultiFileResource.multi_args">
-<em class="property">static </em><code class="sig-name descname">multi_args</code><span class="sig-paren">(</span><em class="sig-param">h5_path</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/resource.html#MultiFileResource.multi_args"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.resource.MultiFileResource.multi_args" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">multi_args</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">h5_path</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/resource.html#MultiFileResource.multi_args"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.resource.MultiFileResource.multi_args" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get multi-h5 directory arguments for multi file resource paths.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>

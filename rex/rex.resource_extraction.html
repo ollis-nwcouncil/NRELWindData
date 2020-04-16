@@ -216,9 +216,9 @@
   <div class="section" id="module-rex.resource_extraction">
 <span id="rex-resource-extraction-module"></span><h1>rex.resource_extraction module<a class="headerlink" href="#module-rex.resource_extraction" title="Permalink to this headline">¶</a></h1>
 <p>Resource Extraction Tools</p>
-<dl class="class">
+<dl class="py class">
 <dt id="rex.resource_extraction.ResourceX">
-<em class="property">class </em><code class="sig-prename descclassname">rex.resource_extraction.</code><code class="sig-name descname">ResourceX</code><span class="sig-paren">(</span><em class="sig-param">res_h5</em>, <em class="sig-param">tree=None</em>, <em class="sig-param">unscale=True</em>, <em class="sig-param">hsds=False</em>, <em class="sig-param">str_decode=True</em>, <em class="sig-param">group=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/resource_extraction.html#ResourceX"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.resource_extraction.ResourceX" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">rex.resource_extraction.</code><code class="sig-name descname">ResourceX</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">res_h5</span></em>, <em class="sig-param"><span class="n">tree</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">unscale</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">hsds</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">str_decode</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">group</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/resource_extraction.html#ResourceX"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.resource_extraction.ResourceX" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="rex.resource.html#rex.resource.Resource" title="rex.resource.Resource"><code class="xref py py-class docutils literal notranslate"><span class="pre">rex.resource.Resource</span></code></a></p>
 <p>Resource data extraction tool</p>
 <dl class="field-list simple">
@@ -236,7 +236,7 @@ strings. Setting this to False will speed up the meta data read.</p></li>
 </ul>
 </dd>
 </dl>
-<dl class="method">
+<dl class="py method">
 <dt id="rex.resource_extraction.ResourceX.tree">
 <em class="property">property </em><code class="sig-name descname">tree</code><a class="headerlink" href="#rex.resource_extraction.ResourceX.tree" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
@@ -246,7 +246,7 @@ strings. Setting this to False will speed up the meta data read.</p></li>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="rex.resource_extraction.ResourceX.countries">
 <em class="property">property </em><code class="sig-name descname">countries</code><a class="headerlink" href="#rex.resource_extraction.ResourceX.countries" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
@@ -256,7 +256,7 @@ strings. Setting this to False will speed up the meta data read.</p></li>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="rex.resource_extraction.ResourceX.states">
 <em class="property">property </em><code class="sig-name descname">states</code><a class="headerlink" href="#rex.resource_extraction.ResourceX.states" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
@@ -266,7 +266,7 @@ strings. Setting this to False will speed up the meta data read.</p></li>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="rex.resource_extraction.ResourceX.counties">
 <em class="property">property </em><code class="sig-name descname">counties</code><a class="headerlink" href="#rex.resource_extraction.ResourceX.counties" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
@@ -276,9 +276,9 @@ strings. Setting this to False will speed up the meta data read.</p></li>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="rex.resource_extraction.ResourceX.get_gid_ts">
-<code class="sig-name descname">get_gid_ts</code><span class="sig-paren">(</span><em class="sig-param">ds_name</em>, <em class="sig-param">gid</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/resource_extraction.html#ResourceX.get_gid_ts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.resource_extraction.ResourceX.get_gid_ts" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_gid_ts</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ds_name</span></em>, <em class="sig-param"><span class="n">gid</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/resource_extraction.html#ResourceX.get_gid_ts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.resource_extraction.ResourceX.get_gid_ts" title="Permalink to this definition">¶</a></dt>
 <dd><p>Extract timeseries of site(s) neareset to given lat_lon(s)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -293,9 +293,9 @@ strings. Setting this to False will speed up the meta data read.</p></li>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="rex.resource_extraction.ResourceX.get_gid_df">
-<code class="sig-name descname">get_gid_df</code><span class="sig-paren">(</span><em class="sig-param">ds_name</em>, <em class="sig-param">gid</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/resource_extraction.html#ResourceX.get_gid_df"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.resource_extraction.ResourceX.get_gid_df" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_gid_df</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ds_name</span></em>, <em class="sig-param"><span class="n">gid</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/resource_extraction.html#ResourceX.get_gid_df"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.resource_extraction.ResourceX.get_gid_df" title="Permalink to this definition">¶</a></dt>
 <dd><p>Extract timeseries of site(s) nearest to given lat_lon(s) and return
 as a DataFrame</p>
 <dl class="field-list simple">
@@ -311,9 +311,9 @@ as a DataFrame</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="rex.resource_extraction.ResourceX.get_lat_lon_ts">
-<code class="sig-name descname">get_lat_lon_ts</code><span class="sig-paren">(</span><em class="sig-param">ds_name</em>, <em class="sig-param">lat_lon</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/resource_extraction.html#ResourceX.get_lat_lon_ts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.resource_extraction.ResourceX.get_lat_lon_ts" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_lat_lon_ts</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ds_name</span></em>, <em class="sig-param"><span class="n">lat_lon</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/resource_extraction.html#ResourceX.get_lat_lon_ts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.resource_extraction.ResourceX.get_lat_lon_ts" title="Permalink to this definition">¶</a></dt>
 <dd><p>Extract timeseries of site(s) neareset to given lat_lon(s)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -328,9 +328,9 @@ as a DataFrame</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="rex.resource_extraction.ResourceX.get_lat_lon_df">
-<code class="sig-name descname">get_lat_lon_df</code><span class="sig-paren">(</span><em class="sig-param">ds_name</em>, <em class="sig-param">lat_lon</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/resource_extraction.html#ResourceX.get_lat_lon_df"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.resource_extraction.ResourceX.get_lat_lon_df" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_lat_lon_df</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ds_name</span></em>, <em class="sig-param"><span class="n">lat_lon</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/resource_extraction.html#ResourceX.get_lat_lon_df"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.resource_extraction.ResourceX.get_lat_lon_df" title="Permalink to this definition">¶</a></dt>
 <dd><p>Extract timeseries of site(s) nearest to given lat_lon(s) and return
 as a DataFrame</p>
 <dl class="field-list simple">
@@ -346,9 +346,9 @@ as a DataFrame</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="rex.resource_extraction.ResourceX.get_region_ts">
-<code class="sig-name descname">get_region_ts</code><span class="sig-paren">(</span><em class="sig-param">ds_name</em>, <em class="sig-param">region</em>, <em class="sig-param">region_col='state'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/resource_extraction.html#ResourceX.get_region_ts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.resource_extraction.ResourceX.get_region_ts" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_region_ts</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ds_name</span></em>, <em class="sig-param"><span class="n">region</span></em>, <em class="sig-param"><span class="n">region_col</span><span class="o">=</span><span class="default_value">'state'</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/resource_extraction.html#ResourceX.get_region_ts"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.resource_extraction.ResourceX.get_region_ts" title="Permalink to this definition">¶</a></dt>
 <dd><p>Extract timeseries of of all sites in given region</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -365,9 +365,9 @@ region</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="rex.resource_extraction.ResourceX.get_region_df">
-<code class="sig-name descname">get_region_df</code><span class="sig-paren">(</span><em class="sig-param">ds_name</em>, <em class="sig-param">region</em>, <em class="sig-param">region_col='state'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/resource_extraction.html#ResourceX.get_region_df"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.resource_extraction.ResourceX.get_region_df" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_region_df</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ds_name</span></em>, <em class="sig-param"><span class="n">region</span></em>, <em class="sig-param"><span class="n">region_col</span><span class="o">=</span><span class="default_value">'state'</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/resource_extraction.html#ResourceX.get_region_df"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.resource_extraction.ResourceX.get_region_df" title="Permalink to this definition">¶</a></dt>
 <dd><p>Extract timeseries of of all sites in given region and return as a
 DataFrame</p>
 <dl class="field-list simple">
@@ -385,9 +385,9 @@ region</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="rex.resource_extraction.ResourceX.get_SAM_gid">
-<code class="sig-name descname">get_SAM_gid</code><span class="sig-paren">(</span><em class="sig-param">gid</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/resource_extraction.html#ResourceX.get_SAM_gid"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.resource_extraction.ResourceX.get_SAM_gid" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_SAM_gid</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">gid</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/resource_extraction.html#ResourceX.get_SAM_gid"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.resource_extraction.ResourceX.get_SAM_gid" title="Permalink to this definition">¶</a></dt>
 <dd><p>Extract time-series of all variables needed to run SAM for nearest
 site to given resource gid</p>
 <dl class="field-list simple">
@@ -402,9 +402,9 @@ returned</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="rex.resource_extraction.ResourceX.get_SAM_lat_lon">
-<code class="sig-name descname">get_SAM_lat_lon</code><span class="sig-paren">(</span><em class="sig-param">lat_lon</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/resource_extraction.html#ResourceX.get_SAM_lat_lon"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.resource_extraction.ResourceX.get_SAM_lat_lon" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_SAM_lat_lon</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">lat_lon</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/resource_extraction.html#ResourceX.get_SAM_lat_lon"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.resource_extraction.ResourceX.get_SAM_lat_lon" title="Permalink to this definition">¶</a></dt>
 <dd><p>Extract time-series of all variables needed to run SAM for nearest
 site to given lat_lon</p>
 <dl class="field-list simple">
@@ -419,9 +419,9 @@ returned</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="rex.resource_extraction.ResourceX.get_timestep_map">
-<code class="sig-name descname">get_timestep_map</code><span class="sig-paren">(</span><em class="sig-param">ds_name</em>, <em class="sig-param">timestep</em>, <em class="sig-param">region=None</em>, <em class="sig-param">region_col='state'</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/resource_extraction.html#ResourceX.get_timestep_map"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.resource_extraction.ResourceX.get_timestep_map" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_timestep_map</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ds_name</span></em>, <em class="sig-param"><span class="n">timestep</span></em>, <em class="sig-param"><span class="n">region</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">region_col</span><span class="o">=</span><span class="default_value">'state'</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/resource_extraction.html#ResourceX.get_timestep_map"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.resource_extraction.ResourceX.get_timestep_map" title="Permalink to this definition">¶</a></dt>
 <dd><p>Extract a map of the given dataset at the given timestep for the
 given region if supplied</p>
 <dl class="field-list simple">
@@ -441,9 +441,37 @@ given region if supplied</p>
 
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
+<dt id="rex.resource_extraction.MultiFileResourceX">
+<em class="property">class </em><code class="sig-prename descclassname">rex.resource_extraction.</code><code class="sig-name descname">MultiFileResourceX</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">resource_path</span></em>, <em class="sig-param"><span class="n">tree</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">compute_tree</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">unscale</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">str_decode</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/resource_extraction.html#MultiFileResourceX"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.resource_extraction.MultiFileResourceX" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="rex.resource.html#rex.resource.MultiFileResource" title="rex.resource.MultiFileResource"><code class="xref py py-class docutils literal notranslate"><span class="pre">rex.resource.MultiFileResource</span></code></a>, <a class="reference internal" href="#rex.resource_extraction.ResourceX" title="rex.resource_extraction.ResourceX"><code class="xref py py-class docutils literal notranslate"><span class="pre">rex.resource_extraction.ResourceX</span></code></a></p>
+<p>Multi-File resource extraction class</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul>
+<li><p><strong>resource_path</strong> (<em>str</em>) – Path to resource .h5 files
+Available formats:</p>
+<blockquote>
+<div><p>/h5_dir/
+/h5_dir/prefix*suffix</p>
+</div></blockquote>
+</li>
+<li><p><strong>tree</strong> (<em>str</em>) – path to .pgz file containing pickled cKDTree of lat, lon
+coordinates</p></li>
+<li><p><strong>compute_tree</strong> (<em>bool</em>) – Force the computation of the cKDTree</p></li>
+<li><p><strong>prefix</strong> (<em>str</em>) – Prefix for resource .h5 files</p></li>
+<li><p><strong>suffix</strong> (<em>str</em>) – Suffix for resource .h5 files</p></li>
+<li><p><strong>unscale</strong> (<em>bool</em>) – Boolean flag to automatically unscale variables on extraction</p></li>
+<li><p><strong>str_decode</strong> (<em>bool</em>) – Boolean flag to decode the bytestring meta data into normal
+strings. Setting this to False will speed up the meta data read.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
 <dt id="rex.resource_extraction.SolarX">
-<em class="property">class </em><code class="sig-prename descclassname">rex.resource_extraction.</code><code class="sig-name descname">SolarX</code><span class="sig-paren">(</span><em class="sig-param">solar_h5</em>, <em class="sig-param">tree=None</em>, <em class="sig-param">compute_tree=False</em>, <em class="sig-param">unscale=True</em>, <em class="sig-param">hsds=False</em>, <em class="sig-param">str_decode=True</em>, <em class="sig-param">group=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/resource_extraction.html#SolarX"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.resource_extraction.SolarX" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">rex.resource_extraction.</code><code class="sig-name descname">SolarX</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">solar_h5</span></em>, <em class="sig-param"><span class="n">tree</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">compute_tree</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">unscale</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">hsds</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">str_decode</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">group</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/resource_extraction.html#SolarX"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.resource_extraction.SolarX" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="rex.renewable_resource.html#rex.renewable_resource.SolarResource" title="rex.renewable_resource.SolarResource"><code class="xref py py-class docutils literal notranslate"><span class="pre">rex.renewable_resource.SolarResource</span></code></a>, <a class="reference internal" href="#rex.resource_extraction.ResourceX" title="rex.resource_extraction.ResourceX"><code class="xref py py-class docutils literal notranslate"><span class="pre">rex.resource_extraction.ResourceX</span></code></a></p>
 <p>Solar Resource extraction class</p>
 <dl class="field-list simple">
@@ -464,9 +492,9 @@ strings. Setting this to False will speed up the meta data read.</p></li>
 </dl>
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="rex.resource_extraction.NSRDBX">
-<em class="property">class </em><code class="sig-prename descclassname">rex.resource_extraction.</code><code class="sig-name descname">NSRDBX</code><span class="sig-paren">(</span><em class="sig-param">nsrdb_h5</em>, <em class="sig-param">tree=None</em>, <em class="sig-param">compute_tree=False</em>, <em class="sig-param">unscale=True</em>, <em class="sig-param">hsds=False</em>, <em class="sig-param">str_decode=True</em>, <em class="sig-param">group=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/resource_extraction.html#NSRDBX"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.resource_extraction.NSRDBX" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">rex.resource_extraction.</code><code class="sig-name descname">NSRDBX</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">nsrdb_h5</span></em>, <em class="sig-param"><span class="n">tree</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">compute_tree</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">unscale</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">hsds</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">str_decode</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">group</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/resource_extraction.html#NSRDBX"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.resource_extraction.NSRDBX" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="rex.renewable_resource.html#rex.renewable_resource.NSRDB" title="rex.renewable_resource.NSRDB"><code class="xref py py-class docutils literal notranslate"><span class="pre">rex.renewable_resource.NSRDB</span></code></a>, <a class="reference internal" href="#rex.resource_extraction.ResourceX" title="rex.resource_extraction.ResourceX"><code class="xref py py-class docutils literal notranslate"><span class="pre">rex.resource_extraction.ResourceX</span></code></a></p>
 <p>NSRDB extraction class</p>
 <dl class="field-list simple">
@@ -487,11 +515,11 @@ strings. Setting this to False will speed up the meta data read.</p></li>
 </dl>
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="rex.resource_extraction.MultiFileNSRDBX">
-<em class="property">class </em><code class="sig-prename descclassname">rex.resource_extraction.</code><code class="sig-name descname">MultiFileNSRDBX</code><span class="sig-paren">(</span><em class="sig-param">nsrdb_path</em>, <em class="sig-param">tree=None</em>, <em class="sig-param">compute_tree=False</em>, <em class="sig-param">unscale=True</em>, <em class="sig-param">str_decode=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/resource_extraction.html#MultiFileNSRDBX"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.resource_extraction.MultiFileNSRDBX" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">rex.resource_extraction.</code><code class="sig-name descname">MultiFileNSRDBX</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">nsrdb_path</span></em>, <em class="sig-param"><span class="n">tree</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">compute_tree</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">unscale</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">str_decode</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/resource_extraction.html#MultiFileNSRDBX"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.resource_extraction.MultiFileNSRDBX" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="rex.renewable_resource.html#rex.renewable_resource.MultiFileNSRDB" title="rex.renewable_resource.MultiFileNSRDB"><code class="xref py py-class docutils literal notranslate"><span class="pre">rex.renewable_resource.MultiFileNSRDB</span></code></a>, <a class="reference internal" href="#rex.resource_extraction.ResourceX" title="rex.resource_extraction.ResourceX"><code class="xref py py-class docutils literal notranslate"><span class="pre">rex.resource_extraction.ResourceX</span></code></a></p>
-<p>NSRDB extraction class</p>
+<p>Multi-File NSRDB extraction class</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul>
@@ -515,9 +543,9 @@ strings. Setting this to False will speed up the meta data read.</p></li>
 </dl>
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="rex.resource_extraction.WindX">
-<em class="property">class </em><code class="sig-prename descclassname">rex.resource_extraction.</code><code class="sig-name descname">WindX</code><span class="sig-paren">(</span><em class="sig-param">wind_h5</em>, <em class="sig-param">tree=None</em>, <em class="sig-param">compute_tree=False</em>, <em class="sig-param">unscale=True</em>, <em class="sig-param">hsds=False</em>, <em class="sig-param">str_decode=True</em>, <em class="sig-param">group=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/resource_extraction.html#WindX"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.resource_extraction.WindX" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">rex.resource_extraction.</code><code class="sig-name descname">WindX</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">wind_h5</span></em>, <em class="sig-param"><span class="n">tree</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">compute_tree</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">unscale</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">hsds</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">str_decode</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">group</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/resource_extraction.html#WindX"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.resource_extraction.WindX" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="rex.renewable_resource.html#rex.renewable_resource.WindResource" title="rex.renewable_resource.WindResource"><code class="xref py py-class docutils literal notranslate"><span class="pre">rex.renewable_resource.WindResource</span></code></a>, <a class="reference internal" href="#rex.resource_extraction.ResourceX" title="rex.resource_extraction.ResourceX"><code class="xref py py-class docutils literal notranslate"><span class="pre">rex.resource_extraction.ResourceX</span></code></a></p>
 <p>Wind Resource extraction class</p>
 <dl class="field-list simple">
@@ -531,9 +559,9 @@ coordinates</p></li>
 </ul>
 </dd>
 </dl>
-<dl class="method">
+<dl class="py method">
 <dt id="rex.resource_extraction.WindX.get_SAM_gid">
-<code class="sig-name descname">get_SAM_gid</code><span class="sig-paren">(</span><em class="sig-param">hub_height</em>, <em class="sig-param">gid</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/resource_extraction.html#WindX.get_SAM_gid"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.resource_extraction.WindX.get_SAM_gid" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_SAM_gid</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">hub_height</span></em>, <em class="sig-param"><span class="n">gid</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/resource_extraction.html#WindX.get_SAM_gid"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.resource_extraction.WindX.get_SAM_gid" title="Permalink to this definition">¶</a></dt>
 <dd><p>Extract time-series of all variables needed to run SAM for nearest
 site to given resource gid and hub height</p>
 <dl class="field-list simple">
@@ -554,9 +582,9 @@ returned</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="rex.resource_extraction.WindX.get_SAM_lat_lon">
-<code class="sig-name descname">get_SAM_lat_lon</code><span class="sig-paren">(</span><em class="sig-param">hub_height</em>, <em class="sig-param">lat_lon</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/resource_extraction.html#WindX.get_SAM_lat_lon"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.resource_extraction.WindX.get_SAM_lat_lon" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">get_SAM_lat_lon</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">hub_height</span></em>, <em class="sig-param"><span class="n">lat_lon</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/resource_extraction.html#WindX.get_SAM_lat_lon"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.resource_extraction.WindX.get_SAM_lat_lon" title="Permalink to this definition">¶</a></dt>
 <dd><p>Extract time-series of all variables needed to run SAM for nearest
 site to given lat_lon and hub height</p>
 <dl class="field-list simple">
@@ -579,11 +607,11 @@ returned</p>
 
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="rex.resource_extraction.MultiFileWindX">
-<em class="property">class </em><code class="sig-prename descclassname">rex.resource_extraction.</code><code class="sig-name descname">MultiFileWindX</code><span class="sig-paren">(</span><em class="sig-param">wtk_path</em>, <em class="sig-param">tree=None</em>, <em class="sig-param">compute_tree=False</em>, <em class="sig-param">unscale=True</em>, <em class="sig-param">str_decode=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/resource_extraction.html#MultiFileWindX"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.resource_extraction.MultiFileWindX" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">rex.resource_extraction.</code><code class="sig-name descname">MultiFileWindX</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">wtk_path</span></em>, <em class="sig-param"><span class="n">tree</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">compute_tree</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">unscale</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">str_decode</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/resource_extraction.html#MultiFileWindX"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.resource_extraction.MultiFileWindX" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="rex.renewable_resource.html#rex.renewable_resource.MultiFileWTK" title="rex.renewable_resource.MultiFileWTK"><code class="xref py py-class docutils literal notranslate"><span class="pre">rex.renewable_resource.MultiFileWTK</span></code></a>, <a class="reference internal" href="#rex.resource_extraction.WindX" title="rex.resource_extraction.WindX"><code class="xref py py-class docutils literal notranslate"><span class="pre">rex.resource_extraction.WindX</span></code></a></p>
-<p>Wind Resource extraction class</p>
+<p>Multi-File Wind Resource extraction class</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul>

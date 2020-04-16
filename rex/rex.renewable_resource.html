@@ -216,9 +216,9 @@
   <div class="section" id="module-rex.renewable_resource">
 <span id="rex-renewable-resource-module"></span><h1>rex.renewable_resource module<a class="headerlink" href="#module-rex.renewable_resource" title="Permalink to this headline">¶</a></h1>
 <p>Classes to handle renewable resource data</p>
-<dl class="class">
+<dl class="py class">
 <dt id="rex.renewable_resource.SolarResource">
-<em class="property">class </em><code class="sig-prename descclassname">rex.renewable_resource.</code><code class="sig-name descname">SolarResource</code><span class="sig-paren">(</span><em class="sig-param">h5_file</em>, <em class="sig-param">unscale=True</em>, <em class="sig-param">hsds=False</em>, <em class="sig-param">str_decode=True</em>, <em class="sig-param">group=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/renewable_resource.html#SolarResource"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.renewable_resource.SolarResource" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">rex.renewable_resource.</code><code class="sig-name descname">SolarResource</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">h5_file</span></em>, <em class="sig-param"><span class="n">unscale</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">hsds</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">str_decode</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">group</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/renewable_resource.html#SolarResource"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.renewable_resource.SolarResource" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="rex.resource.html#rex.resource.Resource" title="rex.resource.Resource"><code class="xref py py-class docutils literal notranslate"><span class="pre">rex.resource.Resource</span></code></a></p>
 <p>Class to handle Solar Resource .h5 files</p>
 <div class="admonition seealso">
@@ -241,9 +241,9 @@ strings. Setting this to False will speed up the meta data read.</p></li>
 </ul>
 </dd>
 </dl>
-<dl class="method">
+<dl class="py method">
 <dt id="rex.renewable_resource.SolarResource.preload_SAM">
-<em class="property">classmethod </em><code class="sig-name descname">preload_SAM</code><span class="sig-paren">(</span><em class="sig-param">h5_file</em>, <em class="sig-param">project_points</em>, <em class="sig-param">clearsky=False</em>, <em class="sig-param">unscale=True</em>, <em class="sig-param">hsds=False</em>, <em class="sig-param">str_decode=True</em>, <em class="sig-param">group=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/renewable_resource.html#SolarResource.preload_SAM"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.renewable_resource.SolarResource.preload_SAM" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="sig-name descname">preload_SAM</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">h5_file</span></em>, <em class="sig-param"><span class="n">project_points</span></em>, <em class="sig-param"><span class="n">clearsky</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">unscale</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">hsds</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">str_decode</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">group</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/renewable_resource.html#SolarResource.preload_SAM"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.renewable_resource.SolarResource.preload_SAM" title="Permalink to this definition">¶</a></dt>
 <dd><p>Pre-load project_points for SAM</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -268,9 +268,9 @@ in project_points</p>
 
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="rex.renewable_resource.NSRDB">
-<em class="property">class </em><code class="sig-prename descclassname">rex.renewable_resource.</code><code class="sig-name descname">NSRDB</code><span class="sig-paren">(</span><em class="sig-param">h5_file</em>, <em class="sig-param">unscale=True</em>, <em class="sig-param">hsds=False</em>, <em class="sig-param">str_decode=True</em>, <em class="sig-param">group=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/renewable_resource.html#NSRDB"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.renewable_resource.NSRDB" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">rex.renewable_resource.</code><code class="sig-name descname">NSRDB</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">h5_file</span></em>, <em class="sig-param"><span class="n">unscale</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">hsds</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">str_decode</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">group</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/renewable_resource.html#NSRDB"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.renewable_resource.NSRDB" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#rex.renewable_resource.SolarResource" title="rex.renewable_resource.SolarResource"><code class="xref py py-class docutils literal notranslate"><span class="pre">rex.renewable_resource.SolarResource</span></code></a></p>
 <p>Class to handle NSRDB .h5 files</p>
 <div class="admonition seealso">
@@ -293,24 +293,24 @@ strings. Setting this to False will speed up the meta data read.</p></li>
 </ul>
 </dd>
 </dl>
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="rex.renewable_resource.NSRDB.ADD_ATTR">
 <code class="sig-name descname">ADD_ATTR</code><em class="property"> = 'psm_add_offset'</em><a class="headerlink" href="#rex.renewable_resource.NSRDB.ADD_ATTR" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="rex.renewable_resource.NSRDB.SCALE_ATTR">
 <code class="sig-name descname">SCALE_ATTR</code><em class="property"> = 'psm_scale_factor'</em><a class="headerlink" href="#rex.renewable_resource.NSRDB.SCALE_ATTR" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="rex.renewable_resource.NSRDB.UNIT_ATTR">
 <code class="sig-name descname">UNIT_ATTR</code><em class="property"> = 'psm_units'</em><a class="headerlink" href="#rex.renewable_resource.NSRDB.UNIT_ATTR" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="rex.renewable_resource.NSRDB.preload_SAM">
-<em class="property">classmethod </em><code class="sig-name descname">preload_SAM</code><span class="sig-paren">(</span><em class="sig-param">h5_file</em>, <em class="sig-param">project_points</em>, <em class="sig-param">clearsky=False</em>, <em class="sig-param">downscale=None</em>, <em class="sig-param">unscale=True</em>, <em class="sig-param">hsds=False</em>, <em class="sig-param">str_decode=True</em>, <em class="sig-param">group=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/renewable_resource.html#NSRDB.preload_SAM"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.renewable_resource.NSRDB.preload_SAM" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="sig-name descname">preload_SAM</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">h5_file</span></em>, <em class="sig-param"><span class="n">project_points</span></em>, <em class="sig-param"><span class="n">clearsky</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">downscale</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">unscale</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">hsds</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">str_decode</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">group</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/renewable_resource.html#NSRDB.preload_SAM"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.renewable_resource.NSRDB.preload_SAM" title="Permalink to this definition">¶</a></dt>
 <dd><p>Pre-load project_points for SAM</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -338,9 +338,9 @@ in project_points</p>
 
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="rex.renewable_resource.WindResource">
-<em class="property">class </em><code class="sig-prename descclassname">rex.renewable_resource.</code><code class="sig-name descname">WindResource</code><span class="sig-paren">(</span><em class="sig-param">h5_file</em>, <em class="sig-param">unscale=True</em>, <em class="sig-param">hsds=False</em>, <em class="sig-param">str_decode=True</em>, <em class="sig-param">group=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/renewable_resource.html#WindResource"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.renewable_resource.WindResource" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">rex.renewable_resource.</code><code class="sig-name descname">WindResource</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">h5_file</span></em>, <em class="sig-param"><span class="n">unscale</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">hsds</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">str_decode</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">group</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/renewable_resource.html#WindResource"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.renewable_resource.WindResource" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="rex.resource.html#rex.resource.Resource" title="rex.resource.Resource"><code class="xref py py-class docutils literal notranslate"><span class="pre">rex.resource.Resource</span></code></a></p>
 <p>Class to handle Wind Resource .h5 files</p>
 <div class="admonition seealso">
@@ -402,7 +402,7 @@ strings. Setting this to False will speed up the meta data read.</p></li>
 </ul>
 </dd>
 </dl>
-<dl class="method">
+<dl class="py method">
 <dt id="rex.renewable_resource.WindResource.heights">
 <em class="property">property </em><code class="sig-name descname">heights</code><a class="headerlink" href="#rex.renewable_resource.WindResource.heights" title="Permalink to this definition">¶</a></dt>
 <dd><p>Extract available heights for pressure, temperature, windspeed, precip,
@@ -415,9 +415,9 @@ windspeed, winddirection, temperature, and pressure</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="rex.renewable_resource.WindResource.get_nearest_h">
-<em class="property">static </em><code class="sig-name descname">get_nearest_h</code><span class="sig-paren">(</span><em class="sig-param">h</em>, <em class="sig-param">heights</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/renewable_resource.html#WindResource.get_nearest_h"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.renewable_resource.WindResource.get_nearest_h" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">get_nearest_h</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">h</span></em>, <em class="sig-param"><span class="n">heights</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/renewable_resource.html#WindResource.get_nearest_h"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.renewable_resource.WindResource.get_nearest_h" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get two nearest h values in heights.
 Determine if h is inside or outside the range of heights
 (requiring extrapolation instead of interpolation)</p>
@@ -438,9 +438,9 @@ Determine if h is inside or outside the range of heights
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="rex.renewable_resource.WindResource.power_law_interp">
-<em class="property">static </em><code class="sig-name descname">power_law_interp</code><span class="sig-paren">(</span><em class="sig-param">ts_1</em>, <em class="sig-param">h_1</em>, <em class="sig-param">ts_2</em>, <em class="sig-param">h_2</em>, <em class="sig-param">h</em>, <em class="sig-param">mean=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/renewable_resource.html#WindResource.power_law_interp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.renewable_resource.WindResource.power_law_interp" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">power_law_interp</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ts_1</span></em>, <em class="sig-param"><span class="n">h_1</span></em>, <em class="sig-param"><span class="n">ts_2</span></em>, <em class="sig-param"><span class="n">h_2</span></em>, <em class="sig-param"><span class="n">h</span></em>, <em class="sig-param"><span class="n">mean</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/renewable_resource.html#WindResource.power_law_interp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.renewable_resource.WindResource.power_law_interp" title="Permalink to this definition">¶</a></dt>
 <dd><p>Power-law interpolate/extrapolate time-series data to height h</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -459,9 +459,9 @@ Determine if h is inside or outside the range of heights
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="rex.renewable_resource.WindResource.linear_interp">
-<em class="property">static </em><code class="sig-name descname">linear_interp</code><span class="sig-paren">(</span><em class="sig-param">ts_1</em>, <em class="sig-param">h_1</em>, <em class="sig-param">ts_2</em>, <em class="sig-param">h_2</em>, <em class="sig-param">h</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/renewable_resource.html#WindResource.linear_interp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.renewable_resource.WindResource.linear_interp" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">linear_interp</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ts_1</span></em>, <em class="sig-param"><span class="n">h_1</span></em>, <em class="sig-param"><span class="n">ts_2</span></em>, <em class="sig-param"><span class="n">h_2</span></em>, <em class="sig-param"><span class="n">h</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/renewable_resource.html#WindResource.linear_interp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.renewable_resource.WindResource.linear_interp" title="Permalink to this definition">¶</a></dt>
 <dd><p>Linear interpolate/extrapolate time-series data to height h</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -479,9 +479,9 @@ Determine if h is inside or outside the range of heights
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="rex.renewable_resource.WindResource.shortest_angle">
-<em class="property">static </em><code class="sig-name descname">shortest_angle</code><span class="sig-paren">(</span><em class="sig-param">a0</em>, <em class="sig-param">a1</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/renewable_resource.html#WindResource.shortest_angle"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.renewable_resource.WindResource.shortest_angle" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">shortest_angle</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">a0</span></em>, <em class="sig-param"><span class="n">a1</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/renewable_resource.html#WindResource.shortest_angle"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.renewable_resource.WindResource.shortest_angle" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate the shortest angle distance between a0 and a1</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -496,9 +496,9 @@ Determine if h is inside or outside the range of heights
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="rex.renewable_resource.WindResource.circular_interp">
-<em class="property">static </em><code class="sig-name descname">circular_interp</code><span class="sig-paren">(</span><em class="sig-param">ts_1</em>, <em class="sig-param">h_1</em>, <em class="sig-param">ts_2</em>, <em class="sig-param">h_2</em>, <em class="sig-param">h</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/renewable_resource.html#WindResource.circular_interp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.renewable_resource.WindResource.circular_interp" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">circular_interp</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ts_1</span></em>, <em class="sig-param"><span class="n">h_1</span></em>, <em class="sig-param"><span class="n">ts_2</span></em>, <em class="sig-param"><span class="n">h_2</span></em>, <em class="sig-param"><span class="n">h</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/renewable_resource.html#WindResource.circular_interp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.renewable_resource.WindResource.circular_interp" title="Permalink to this definition">¶</a></dt>
 <dd><p>Circular interpolate/extrapolate time-series data to height h</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -516,9 +516,9 @@ Determine if h is inside or outside the range of heights
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="rex.renewable_resource.WindResource.preload_SAM">
-<em class="property">classmethod </em><code class="sig-name descname">preload_SAM</code><span class="sig-paren">(</span><em class="sig-param">h5_file</em>, <em class="sig-param">project_points</em>, <em class="sig-param">require_wind_dir=False</em>, <em class="sig-param">precip_rate=False</em>, <em class="sig-param">icing=False</em>, <em class="sig-param">unscale=True</em>, <em class="sig-param">hsds=False</em>, <em class="sig-param">str_decode=True</em>, <em class="sig-param">group=None</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/renewable_resource.html#WindResource.preload_SAM"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.renewable_resource.WindResource.preload_SAM" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="sig-name descname">preload_SAM</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">h5_file</span></em>, <em class="sig-param"><span class="n">project_points</span></em>, <em class="sig-param"><span class="n">require_wind_dir</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">precip_rate</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">icing</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">unscale</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">hsds</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">str_decode</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">group</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/renewable_resource.html#WindResource.preload_SAM"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.renewable_resource.WindResource.preload_SAM" title="Permalink to this definition">¶</a></dt>
 <dd><p>Placeholder for classmethod that will pre-load project_points for SAM</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -546,9 +546,9 @@ in project_points</p>
 
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="rex.renewable_resource.MultiFileNSRDB">
-<em class="property">class </em><code class="sig-prename descclassname">rex.renewable_resource.</code><code class="sig-name descname">MultiFileNSRDB</code><span class="sig-paren">(</span><em class="sig-param">h5_path</em>, <em class="sig-param">unscale=True</em>, <em class="sig-param">str_decode=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/renewable_resource.html#MultiFileNSRDB"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.renewable_resource.MultiFileNSRDB" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">rex.renewable_resource.</code><code class="sig-name descname">MultiFileNSRDB</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">h5_path</span></em>, <em class="sig-param"><span class="n">unscale</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">str_decode</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/renewable_resource.html#MultiFileNSRDB"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.renewable_resource.MultiFileNSRDB" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="rex.resource.html#rex.resource.MultiFileResource" title="rex.resource.MultiFileResource"><code class="xref py py-class docutils literal notranslate"><span class="pre">rex.resource.MultiFileResource</span></code></a>, <a class="reference internal" href="#rex.renewable_resource.NSRDB" title="rex.renewable_resource.NSRDB"><code class="xref py py-class docutils literal notranslate"><span class="pre">rex.renewable_resource.NSRDB</span></code></a></p>
 <p>Class to handle 2018 and beyond NSRDB data that is at 2km and
 sub 30 min resolution</p>
@@ -577,9 +577,9 @@ strings. Setting this to False will speed up the meta data read.</p></li>
 </ul>
 </dd>
 </dl>
-<dl class="method">
+<dl class="py method">
 <dt id="rex.renewable_resource.MultiFileNSRDB.preload_SAM">
-<em class="property">classmethod </em><code class="sig-name descname">preload_SAM</code><span class="sig-paren">(</span><em class="sig-param">h5_path</em>, <em class="sig-param">project_points</em>, <em class="sig-param">clearsky=False</em>, <em class="sig-param">downscale=None</em>, <em class="sig-param">unscale=True</em>, <em class="sig-param">str_decode=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/renewable_resource.html#MultiFileNSRDB.preload_SAM"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.renewable_resource.MultiFileNSRDB.preload_SAM" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="sig-name descname">preload_SAM</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">h5_path</span></em>, <em class="sig-param"><span class="n">project_points</span></em>, <em class="sig-param"><span class="n">clearsky</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">downscale</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">unscale</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">str_decode</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/renewable_resource.html#MultiFileNSRDB.preload_SAM"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.renewable_resource.MultiFileNSRDB.preload_SAM" title="Permalink to this definition">¶</a></dt>
 <dd><p>Pre-load project_points for SAM</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
@@ -610,9 +610,9 @@ in project_points</p>
 
 </dd></dl>
 
-<dl class="class">
+<dl class="py class">
 <dt id="rex.renewable_resource.MultiFileWTK">
-<em class="property">class </em><code class="sig-prename descclassname">rex.renewable_resource.</code><code class="sig-name descname">MultiFileWTK</code><span class="sig-paren">(</span><em class="sig-param">h5_path</em>, <em class="sig-param">unscale=True</em>, <em class="sig-param">str_decode=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/renewable_resource.html#MultiFileWTK"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.renewable_resource.MultiFileWTK" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">rex.renewable_resource.</code><code class="sig-name descname">MultiFileWTK</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">h5_path</span></em>, <em class="sig-param"><span class="n">unscale</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">str_decode</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/renewable_resource.html#MultiFileWTK"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.renewable_resource.MultiFileWTK" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="rex.resource.html#rex.resource.MultiFileResource" title="rex.resource.MultiFileResource"><code class="xref py py-class docutils literal notranslate"><span class="pre">rex.resource.MultiFileResource</span></code></a>, <a class="reference internal" href="#rex.renewable_resource.WindResource" title="rex.renewable_resource.WindResource"><code class="xref py py-class docutils literal notranslate"><span class="pre">rex.renewable_resource.WindResource</span></code></a></p>
 <p>Class to handle 5min WIND Toolkit data</p>
 <div class="admonition seealso">
@@ -668,14 +668,14 @@ strings. Setting this to False will speed up the meta data read.</p></li>
 </ul>
 </dd>
 </dl>
-<dl class="attribute">
+<dl class="py attribute">
 <dt id="rex.renewable_resource.MultiFileWTK.SUFFIX">
 <code class="sig-name descname">SUFFIX</code><em class="property"> = 'm.h5'</em><a class="headerlink" href="#rex.renewable_resource.MultiFileWTK.SUFFIX" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="rex.renewable_resource.MultiFileWTK.preload_SAM">
-<em class="property">classmethod </em><code class="sig-name descname">preload_SAM</code><span class="sig-paren">(</span><em class="sig-param">h5_path</em>, <em class="sig-param">project_points</em>, <em class="sig-param">require_wind_dir=False</em>, <em class="sig-param">precip_rate=False</em>, <em class="sig-param">icing=False</em>, <em class="sig-param">unscale=True</em>, <em class="sig-param">str_decode=True</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/renewable_resource.html#MultiFileWTK.preload_SAM"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.renewable_resource.MultiFileWTK.preload_SAM" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="sig-name descname">preload_SAM</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">h5_path</span></em>, <em class="sig-param"><span class="n">project_points</span></em>, <em class="sig-param"><span class="n">require_wind_dir</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">precip_rate</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">icing</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">unscale</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">str_decode</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/renewable_resource.html#MultiFileWTK.preload_SAM"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.renewable_resource.MultiFileWTK.preload_SAM" title="Permalink to this definition">¶</a></dt>
 <dd><p>Placeholder for classmethod that will pre-load project_points for SAM</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
