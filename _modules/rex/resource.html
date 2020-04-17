@@ -1093,20 +1093,22 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_h5</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></div>
 
-    <span class="k">def</span> <span class="nf">_preload_SAM</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">project_points</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">_preload_SAM</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sites</span><span class="p">,</span> <span class="n">tech</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Placeholder method to pre-load project_points for SAM</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        project_points : reV.config.ProjectPoints</span>
-<span class="sd">            Projects points to be pre-loaded from Resource for SAM</span>
+<span class="sd">        sites : list</span>
+<span class="sd">            List of sites to be provided to SAM</span>
+<span class="sd">        tech : str</span>
+<span class="sd">            Technology to be run by SAM</span>
 <span class="sd">        kwargs : dict</span>
 <span class="sd">            internal kwargs</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
 <div class="viewcode-block" id="Resource.preload_SAM"><a class="viewcode-back" href="../../rex/rex.resource.html#rex.resource.Resource.preload_SAM">[docs]</a>    <span class="nd">@classmethod</span>
-    <span class="k">def</span> <span class="nf">preload_SAM</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">h5_file</span><span class="p">,</span> <span class="n">project_points</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">preload_SAM</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">h5_file</span><span class="p">,</span> <span class="n">sites</span><span class="p">,</span> <span class="n">tech</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Placeholder for classmethod that will pre-load project_points for SAM</span>
 
@@ -1114,8 +1116,10 @@
 <span class="sd">        ----------</span>
 <span class="sd">        h5_file : str</span>
 <span class="sd">            h5_file to extract resource from</span>
-<span class="sd">        project_points : reV.config.ProjectPoints</span>
-<span class="sd">            Projects points to be pre-loaded from Resource for SAM</span>
+<span class="sd">        sites : list</span>
+<span class="sd">            List of sites to be provided to SAM</span>
+<span class="sd">        tech : str</span>
+<span class="sd">            Technology to be run by SAM</span>
 <span class="sd">        kwargs : dict</span>
 <span class="sd">            kwargs to init resource class</span>
 <span class="sd">        &quot;&quot;&quot;</span></div></div>

@@ -219,21 +219,23 @@
 DataFrames</p>
 <dl class="py class">
 <dt id="rex.sam_resource.SAMResource">
-<em class="property">class </em><code class="sig-prename descclassname">rex.sam_resource.</code><code class="sig-name descname">SAMResource</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">project_points</span></em>, <em class="sig-param"><span class="n">time_index</span></em>, <em class="sig-param"><span class="n">require_wind_dir</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/sam_resource.html#SAMResource"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.sam_resource.SAMResource" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">rex.sam_resource.</code><code class="sig-name descname">SAMResource</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sites</span></em>, <em class="sig-param"><span class="n">tech</span></em>, <em class="sig-param"><span class="n">time_index</span></em>, <em class="sig-param"><span class="n">hub_heights</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">require_wind_dir</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/sam_resource.html#SAMResource"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.sam_resource.SAMResource" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Resource Manager for SAM</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>project_points</strong> (<em>reV.config.ProjectPoints</em>) – Instance of ProjectPoints</p></li>
+<li><p><strong>sites</strong> (<em>list</em>) – List of sites to be provided to SAM</p></li>
+<li><p><strong>tech</strong> (<em>str</em>) – Technology to be run by SAM</p></li>
 <li><p><strong>time_index</strong> (<em>pandas.DatetimeIndex</em>) – Time-series datetime index</p></li>
+<li><p><strong>hub_heights</strong> (<em>int | float | list</em>) – Hub height(s) to extract wind data at</p></li>
 <li><p><strong>require_wind_dir</strong> (<em>bool</em>) – Boolean flag indicating that wind direction is required</p></li>
 </ul>
 </dd>
 </dl>
 <dl class="py attribute">
 <dt id="rex.sam_resource.SAMResource.RES_VARS">
-<code class="sig-name descname">RES_VARS</code><em class="property"> = {'csp': ('dni', 'dhi', 'wind_speed', 'air_temperature', 'dew_point', 'surface_pressure'), 'lineardirectsteam': ('dni', 'dhi', 'wind_speed', 'air_temperature', 'dew_point', 'surface_pressure'), 'pv': ('dni', 'dhi', 'ghi', 'wind_speed', 'air_temperature'), 'solarwaterheat': ('dni', 'dhi', 'wind_speed', 'air_temperature', 'dew_point', 'surface_pressure'), 'troughphysicalheat': ('dni', 'dhi', 'wind_speed', 'air_temperature', 'dew_point', 'surface_pressure'), 'wind': ('pressure', 'temperature', 'winddirection', 'windspeed')}</em><a class="headerlink" href="#rex.sam_resource.SAMResource.RES_VARS" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">RES_VARS</code><em class="property"> = {'csp': ('dni', 'dhi', 'wind_speed', 'air_temperature', 'dew_point', 'surface_pressure'), 'lineardirectsteam': ('dni', 'dhi', 'wind_speed', 'air_temperature', 'dew_point', 'surface_pressure'), 'pv': ('dni', 'dhi', 'ghi', 'wind_speed', 'air_temperature'), 'solarwaterheat': ('dni', 'dhi', 'wind_speed', 'air_temperature', 'dew_point', 'surface_pressure'), 'troughphysicalheat': ('dni', 'dhi', 'wind_speed', 'air_temperature', 'dew_point', 'surface_pressure'), 'windpower': ('pressure', 'temperature', 'winddirection', 'windspeed')}</em><a class="headerlink" href="#rex.sam_resource.SAMResource.RES_VARS" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -248,7 +250,7 @@ DataFrames</p>
 
 <dl class="py attribute">
 <dt id="rex.sam_resource.SAMResource.WIND_DATA_RANGES">
-<code class="sig-name descname">WIND_DATA_RANGES</code><em class="property"> = {'pressure': (0.5, 1.1), 'rh': (0.1, 99.9), 'temperature': (-200, 100), 'windspeed': (0, 120)}</em><a class="headerlink" href="#rex.sam_resource.SAMResource.WIND_DATA_RANGES" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">WIND_DATA_RANGES</code><em class="property"> = {'pressure': (0.5, 1.099), 'rh': (0.1, 99.9), 'temperature': (-200, 100), 'windspeed': (0, 120)}</em><a class="headerlink" href="#rex.sam_resource.SAMResource.WIND_DATA_RANGES" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -268,7 +270,7 @@ DataFrames</p>
 
 <dl class="py attribute">
 <dt id="rex.sam_resource.SAMResource.DATA_RANGES">
-<code class="sig-name descname">DATA_RANGES</code><em class="property"> = {'csp': {'air_temperature': (-200, 100), 'dew_point': (-200, 100), 'dhi': (0.0, 1360.0), 'dni': (0.0, 1360.0), 'ghi': (0.0, 1360.0), 'surface_pressure': (300, 1100), 'wind_speed': (0, 120)}, 'lineardirectsteam': {'air_temperature': (-200, 100), 'dew_point': (-200, 100), 'dhi': (0.0, 1360.0), 'dni': (0.0, 1360.0), 'ghi': (0.0, 1360.0), 'surface_pressure': (300, 1100), 'wind_speed': (0, 120)}, 'pv': {'air_temperature': (-200, 100), 'dhi': (0.0, 1360.0), 'dni': (0.0, 1360.0), 'ghi': (0.0, 1360.0), 'wind_speed': (0, 120)}, 'solarwaterheat': {'air_temperature': (-200, 100), 'dew_point': (-200, 100), 'dhi': (0.0, 1360.0), 'dni': (0.0, 1360.0), 'ghi': (0.0, 1360.0), 'surface_pressure': (300, 1100), 'wind_speed': (0, 120)}, 'troughphysicalheat': {'air_temperature': (-200, 100), 'dew_point': (-200, 100), 'dhi': (0.0, 1360.0), 'dni': (0.0, 1360.0), 'ghi': (0.0, 1360.0), 'surface_pressure': (300, 1100), 'wind_speed': (0, 120)}, 'wind': {'pressure': (0.5, 1.1), 'rh': (0.1, 99.9), 'temperature': (-200, 100), 'windspeed': (0, 120)}}</em><a class="headerlink" href="#rex.sam_resource.SAMResource.DATA_RANGES" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">DATA_RANGES</code><em class="property"> = {'csp': {'air_temperature': (-200, 100), 'dew_point': (-200, 100), 'dhi': (0.0, 1360.0), 'dni': (0.0, 1360.0), 'ghi': (0.0, 1360.0), 'surface_pressure': (300, 1100), 'wind_speed': (0, 120)}, 'lineardirectsteam': {'air_temperature': (-200, 100), 'dew_point': (-200, 100), 'dhi': (0.0, 1360.0), 'dni': (0.0, 1360.0), 'ghi': (0.0, 1360.0), 'surface_pressure': (300, 1100), 'wind_speed': (0, 120)}, 'pv': {'air_temperature': (-200, 100), 'dhi': (0.0, 1360.0), 'dni': (0.0, 1360.0), 'ghi': (0.0, 1360.0), 'wind_speed': (0, 120)}, 'solarwaterheat': {'air_temperature': (-200, 100), 'dew_point': (-200, 100), 'dhi': (0.0, 1360.0), 'dni': (0.0, 1360.0), 'ghi': (0.0, 1360.0), 'surface_pressure': (300, 1100), 'wind_speed': (0, 120)}, 'troughphysicalheat': {'air_temperature': (-200, 100), 'dew_point': (-200, 100), 'dhi': (0.0, 1360.0), 'dni': (0.0, 1360.0), 'ghi': (0.0, 1360.0), 'surface_pressure': (300, 1100), 'wind_speed': (0, 120)}, 'windpower': {'pressure': (0.5, 1.099), 'rh': (0.1, 99.9), 'temperature': (-200, 100), 'windspeed': (0, 120)}}</em><a class="headerlink" href="#rex.sam_resource.SAMResource.DATA_RANGES" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -277,7 +279,20 @@ DataFrames</p>
 <dd><p>Sites being pre-loaded for SAM</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p><strong>sites</strong> (<em>list</em>) – List of sites to be provided to SAM, defined by project_points</p>
+<dd class="field-odd"><p><strong>sites</strong> (<em>list</em>) – List of sites to be provided to SAM</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="rex.sam_resource.SAMResource.sites_slice">
+<em class="property">property </em><code class="sig-name descname">sites_slice</code><a class="headerlink" href="#rex.sam_resource.SAMResource.sites_slice" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the sites in slice format if possible</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>sites</strong> (<em>list | slice</em>) – Sites slice belonging to this instance of ProjectPoints.
+The type is slice if possible. Will be a list only if sites are
+non-sequential.</p>
 </dd>
 </dl>
 </dd></dl>

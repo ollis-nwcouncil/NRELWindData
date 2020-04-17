@@ -243,8 +243,8 @@
                 <span class="s1">&#39;lineardirectsteam&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;dni&#39;</span><span class="p">,</span> <span class="s1">&#39;dhi&#39;</span><span class="p">,</span> <span class="s1">&#39;wind_speed&#39;</span><span class="p">,</span>
                                       <span class="s1">&#39;air_temperature&#39;</span><span class="p">,</span> <span class="s1">&#39;dew_point&#39;</span><span class="p">,</span>
                                       <span class="s1">&#39;surface_pressure&#39;</span><span class="p">),</span>
-                <span class="s1">&#39;wind&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;pressure&#39;</span><span class="p">,</span> <span class="s1">&#39;temperature&#39;</span><span class="p">,</span> <span class="s1">&#39;winddirection&#39;</span><span class="p">,</span>
-                         <span class="s1">&#39;windspeed&#39;</span><span class="p">)}</span>
+                <span class="s1">&#39;windpower&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;pressure&#39;</span><span class="p">,</span> <span class="s1">&#39;temperature&#39;</span><span class="p">,</span> <span class="s1">&#39;winddirection&#39;</span><span class="p">,</span>
+                              <span class="s1">&#39;windspeed&#39;</span><span class="p">)}</span>
 
     <span class="c1"># valid data ranges for PV solar resource:</span>
     <span class="n">PV_DATA_RANGES</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;dni&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1360.0</span><span class="p">),</span>
@@ -265,7 +265,7 @@
     <span class="c1"># valid data ranges for wind resource in SAM based on the cpp file:</span>
     <span class="c1"># https://github.com/NREL/ssc/blob/develop/shared/lib_windfile.cpp</span>
     <span class="n">WIND_DATA_RANGES</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;windspeed&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">120</span><span class="p">),</span>
-                        <span class="s1">&#39;pressure&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">),</span>
+                        <span class="s1">&#39;pressure&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">1.099</span><span class="p">),</span>
                         <span class="s1">&#39;temperature&#39;</span><span class="p">:</span> <span class="p">(</span><span class="o">-</span><span class="mi">200</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span>
                         <span class="s1">&#39;rh&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">99.9</span><span class="p">)}</span>
 
@@ -279,53 +279,58 @@
     <span class="n">SWH_DATA_RANGES</span> <span class="o">=</span> <span class="n">CSP_DATA_RANGES</span>
 
     <span class="c1"># Data range mapping by tech</span>
-    <span class="n">DATA_RANGES</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;wind&#39;</span><span class="p">:</span> <span class="n">WIND_DATA_RANGES</span><span class="p">,</span>
+    <span class="n">DATA_RANGES</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;windpower&#39;</span><span class="p">:</span> <span class="n">WIND_DATA_RANGES</span><span class="p">,</span>
                    <span class="s1">&#39;pv&#39;</span><span class="p">:</span> <span class="n">PV_DATA_RANGES</span><span class="p">,</span>
                    <span class="s1">&#39;csp&#39;</span><span class="p">:</span> <span class="n">CSP_DATA_RANGES</span><span class="p">,</span>
                    <span class="s1">&#39;troughphysicalheat&#39;</span><span class="p">:</span> <span class="n">TPPH_DATA_RANGES</span><span class="p">,</span>
                    <span class="s1">&#39;lineardirectsteam&#39;</span><span class="p">:</span> <span class="n">LF_DATA_RANGES</span><span class="p">,</span>
                    <span class="s1">&#39;solarwaterheat&#39;</span><span class="p">:</span> <span class="n">SWH_DATA_RANGES</span><span class="p">}</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">project_points</span><span class="p">,</span> <span class="n">time_index</span><span class="p">,</span> <span class="n">require_wind_dir</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sites</span><span class="p">,</span> <span class="n">tech</span><span class="p">,</span> <span class="n">time_index</span><span class="p">,</span> <span class="n">hub_heights</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">require_wind_dir</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        project_points : reV.config.ProjectPoints</span>
-<span class="sd">            Instance of ProjectPoints</span>
+<span class="sd">        sites : list</span>
+<span class="sd">            List of sites to be provided to SAM</span>
+<span class="sd">        tech : str</span>
+<span class="sd">            Technology to be run by SAM</span>
 <span class="sd">        time_index : pandas.DatetimeIndex</span>
 <span class="sd">            Time-series datetime index</span>
+<span class="sd">        hub_heights : int | float | list</span>
+<span class="sd">            Hub height(s) to extract wind data at</span>
 <span class="sd">        require_wind_dir : bool</span>
 <span class="sd">            Boolean flag indicating that wind direction is required</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_i</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_project_points</span> <span class="o">=</span> <span class="n">project_points</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_sites</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parse_sites</span><span class="p">(</span><span class="n">sites</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_time_index</span> <span class="o">=</span> <span class="n">time_index</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_shape</span> <span class="o">=</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">time_index</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">project_points</span><span class="o">.</span><span class="n">sites</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_shape</span> <span class="o">=</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">time_index</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_sites</span><span class="p">))</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_n</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_var_list</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_meta</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_runnable</span> <span class="o">=</span> <span class="kc">False</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_res_arrays</span> <span class="o">=</span> <span class="p">{}</span>
-        <span class="n">h</span> <span class="o">=</span> <span class="n">project_points</span><span class="o">.</span><span class="n">h</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_h</span> <span class="o">=</span> <span class="n">hub_heights</span>
 
-        <span class="k">if</span> <span class="n">project_points</span><span class="o">.</span><span class="n">tech</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">DATA_RANGES</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_tech</span> <span class="o">=</span> <span class="n">project_points</span><span class="o">.</span><span class="n">tech</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">tech</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">DATA_RANGES</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_tech</span> <span class="o">=</span> <span class="n">tech</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;Selected tech </span><span class="si">{}</span><span class="s1"> is not valid.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">project_points</span><span class="o">.</span><span class="n">tech</span><span class="p">)</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;Selected tech </span><span class="si">{}</span><span class="s1"> is not valid.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">tech</span><span class="p">)</span>
             <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
             <span class="k">raise</span> <span class="n">ResourceValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
 
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tech</span> <span class="o">==</span> <span class="s1">&#39;wind&#39;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_tech</span> <span class="o">==</span> <span class="s1">&#39;windpower&#39;</span><span class="p">:</span>
             <span class="c1"># hub height specified, get WTK wind data.</span>
-            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)):</span>
-                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">h</span><span class="p">)</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_n</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_h</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)):</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_h</span><span class="p">)</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_n</span><span class="p">:</span>
                     <span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;Must have a unique height for each site&#39;</span>
                     <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
                     <span class="k">raise</span> <span class="n">ResourceValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
             <span class="k">if</span> <span class="ow">not</span> <span class="n">require_wind_dir</span><span class="p">:</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_res_arrays</span><span class="p">[</span><span class="s1">&#39;winddirection&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_shape</span><span class="p">,</span>
                                                              <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;float32&#39;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_h</span> <span class="o">=</span> <span class="n">h</span>
 
     <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> with </span><span class="si">{}</span><span class="s2"> </span><span class="si">{}</span><span class="s2"> sites&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span>
@@ -376,6 +381,37 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">StopIteration</span>
 
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_parse_sites</span><span class="p">(</span><span class="n">sites</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Sites to extract resource for and send to SAM</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        sites : list | tuple | slice</span>
+<span class="sd">            list, tuple, or slice indicating sites to send to SAM</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        sites : list</span>
+<span class="sd">            list of sites to send to SAM</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">sites</span><span class="p">,</span> <span class="nb">slice</span><span class="p">):</span>
+            <span class="n">stop</span> <span class="o">=</span> <span class="n">sites</span><span class="o">.</span><span class="n">stop</span>
+            <span class="k">if</span> <span class="n">stop</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;sites as a slice must have an explicit stop value!&quot;</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+                <span class="k">raise</span> <span class="n">ResourceValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+            <span class="n">sites</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="o">*</span><span class="n">sites</span><span class="o">.</span><span class="n">indices</span><span class="p">(</span><span class="n">stop</span><span class="p">)))</span>
+        <span class="k">elif</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">sites</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)):</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;sites must a list, tuple or slice, not a </span><span class="si">{}</span><span class="s2">!&quot;</span>
+                   <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="nb">slice</span><span class="p">)))</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">ResourceValueError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">sites</span>
+
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">sites</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -384,10 +420,40 @@
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        sites : list</span>
-<span class="sd">            List of sites to be provided to SAM, defined by project_points</span>
+<span class="sd">            List of sites to be provided to SAM</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">sites</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_project_points</span><span class="o">.</span><span class="n">sites</span>
+        <span class="n">sites</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sites</span>
+
         <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">sites</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">sites_slice</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Get the sites in slice format if possible</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        sites : list | slice</span>
+<span class="sd">            Sites slice belonging to this instance of ProjectPoints.</span>
+<span class="sd">            The type is slice if possible. Will be a list only if sites are</span>
+<span class="sd">            non-sequential.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># try_slice is what the sites list would be if it is sequential</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sites</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">try_step</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sites</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">sites</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">try_step</span> <span class="o">=</span> <span class="mi">1</span>
+
+        <span class="n">try_slice</span> <span class="o">=</span> <span class="nb">slice</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sites</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">sites</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">try_step</span><span class="p">)</span>
+        <span class="n">try_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="o">*</span><span class="n">try_slice</span><span class="o">.</span><span class="n">indices</span><span class="p">(</span><span class="n">try_slice</span><span class="o">.</span><span class="n">stop</span><span class="p">)))</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">sites</span> <span class="o">==</span> <span class="n">try_list</span><span class="p">:</span>
+            <span class="c1"># try_slice is equivelant to the site list</span>
+            <span class="n">sites</span> <span class="o">=</span> <span class="n">try_slice</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># cannot be converted to a sequential slice, return list</span>
+            <span class="n">sites</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sites</span>
+
+        <span class="k">return</span> <span class="n">sites</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">shape</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -526,7 +592,7 @@
         <span class="n">pressure_change</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;csp&#39;</span><span class="p">,</span> <span class="s1">&#39;troughphysicalheat&#39;</span><span class="p">,</span> <span class="s1">&#39;lineardirectsteam&#39;</span><span class="p">,</span>
                            <span class="s1">&#39;solarwaterheat&#39;</span><span class="p">]</span>
 
-        <span class="k">if</span> <span class="s1">&#39;pressure&#39;</span> <span class="ow">in</span> <span class="n">var_name</span> <span class="ow">and</span> <span class="n">tech</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;wind&#39;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="s1">&#39;pressure&#39;</span> <span class="ow">in</span> <span class="n">var_name</span> <span class="ow">and</span> <span class="n">tech</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;windpower&#39;</span><span class="p">:</span>
             <span class="c1"># Check if pressure is in Pa, if so convert to atm</span>
             <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">var_array</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mf">1e3</span><span class="p">:</span>
                 <span class="c1"># convert pressure from Pa to ATM</span>

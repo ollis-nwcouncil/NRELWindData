@@ -243,13 +243,14 @@ strings. Setting this to False will speed up the meta data read.</p></li>
 </dl>
 <dl class="py method">
 <dt id="rex.renewable_resource.SolarResource.preload_SAM">
-<em class="property">classmethod </em><code class="sig-name descname">preload_SAM</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">h5_file</span></em>, <em class="sig-param"><span class="n">project_points</span></em>, <em class="sig-param"><span class="n">clearsky</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">unscale</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">hsds</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">str_decode</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">group</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/renewable_resource.html#SolarResource.preload_SAM"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.renewable_resource.SolarResource.preload_SAM" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="sig-name descname">preload_SAM</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">h5_file</span></em>, <em class="sig-param"><span class="n">sites</span></em>, <em class="sig-param"><span class="n">tech</span><span class="o">=</span><span class="default_value">'pv'</span></em>, <em class="sig-param"><span class="n">clearsky</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">unscale</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">hsds</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">str_decode</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">group</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/renewable_resource.html#SolarResource.preload_SAM"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.renewable_resource.SolarResource.preload_SAM" title="Permalink to this definition">¶</a></dt>
 <dd><p>Pre-load project_points for SAM</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>h5_file</strong> (<em>str</em>) – h5_file to extract resource from</p></li>
-<li><p><strong>project_points</strong> (<em>reV.config.ProjectPoints</em>) – Projects points to be pre-loaded from Resource for SAM</p></li>
+<li><p><strong>sites</strong> (<em>list</em>) – List of sites to be provided to SAM</p></li>
+<li><p><strong>tech</strong> (<em>str, optional</em>) – Technology to be run by SAM, by default ‘pv’</p></li>
 <li><p><strong>clearsky</strong> (<em>bool</em>) – Boolean flag to pull clearsky instead of real irradiance</p></li>
 <li><p><strong>unscale</strong> (<em>bool</em>) – Boolean flag to automatically unscale variables on extraction</p></li>
 <li><p><strong>hsds</strong> (<em>bool</em>) – Boolean flag to use h5pyd to handle .h5 ‘files’ hosted on AWS
@@ -310,13 +311,14 @@ strings. Setting this to False will speed up the meta data read.</p></li>
 
 <dl class="py method">
 <dt id="rex.renewable_resource.NSRDB.preload_SAM">
-<em class="property">classmethod </em><code class="sig-name descname">preload_SAM</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">h5_file</span></em>, <em class="sig-param"><span class="n">project_points</span></em>, <em class="sig-param"><span class="n">clearsky</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">downscale</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">unscale</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">hsds</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">str_decode</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">group</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/renewable_resource.html#NSRDB.preload_SAM"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.renewable_resource.NSRDB.preload_SAM" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="sig-name descname">preload_SAM</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">h5_file</span></em>, <em class="sig-param"><span class="n">sites</span></em>, <em class="sig-param"><span class="n">tech</span><span class="o">=</span><span class="default_value">'pv'</span></em>, <em class="sig-param"><span class="n">clearsky</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">downscale</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">unscale</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">hsds</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">str_decode</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">group</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/renewable_resource.html#NSRDB.preload_SAM"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.renewable_resource.NSRDB.preload_SAM" title="Permalink to this definition">¶</a></dt>
 <dd><p>Pre-load project_points for SAM</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>h5_file</strong> (<em>str</em>) – h5_file to extract resource from</p></li>
-<li><p><strong>project_points</strong> (<em>reV.config.ProjectPoints</em>) – Projects points to be pre-loaded from Resource for SAM</p></li>
+<li><p><strong>sites</strong> (<em>list</em>) – List of sites to be provided to SAM</p></li>
+<li><p><strong>tech</strong> (<em>str, optional</em>) – Technology to be run by SAM, by default ‘pv’</p></li>
 <li><p><strong>clearsky</strong> (<em>bool</em>) – Boolean flag to pull clearsky instead of real irradiance</p></li>
 <li><p><strong>downscale</strong> (<em>NoneType | str</em>) – Option for NSRDB resource downscaling to higher temporal
 resolution. Expects a string in the Pandas frequency format,
@@ -439,6 +441,47 @@ Determine if h is inside or outside the range of heights
 </dd></dl>
 
 <dl class="py method">
+<dt id="rex.renewable_resource.WindResource.monin_obukhov_extrapolation">
+<em class="property">static </em><code class="sig-name descname">monin_obukhov_extrapolation</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ts_1</span></em>, <em class="sig-param"><span class="n">h_1</span></em>, <em class="sig-param"><span class="n">z0</span></em>, <em class="sig-param"><span class="n">L</span></em>, <em class="sig-param"><span class="n">h</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/renewable_resource.html#WindResource.monin_obukhov_extrapolation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.renewable_resource.WindResource.monin_obukhov_extrapolation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Monin-Obukhov extrapolation</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>ts_1</strong> (<em>ndarray</em>) – Time-series array at height h_1</p>
+</dd>
+</dl>
+<dl class="simple">
+<dt>h_1<span class="classifier">int | float</span></dt><dd><p>Height corresponding to time-seris ts_1</p>
+</dd>
+<dt>z0: int | float | ndarray</dt><dd><p>Roughness length</p>
+</dd>
+<dt>L<span class="classifier">ndarray</span></dt><dd><p>time-series of Obukhov length (m; measure of stability)</p>
+</dd>
+<dt>h<span class="classifier">int | float</span></dt><dd><p>Desired height</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><em>ndarray</em> – new wind speed from MO extrapolation.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="rex.renewable_resource.WindResource.stability_function">
+<em class="property">static </em><code class="sig-name descname">stability_function</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">zeta</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/renewable_resource.html#WindResource.stability_function"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.renewable_resource.WindResource.stability_function" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate stability function depending on sign of L
+(negative is unstable, positive is stable)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>zeta</strong> (<em>ndarray</em>) – Normalized length</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>numpy.ndarray</em> – stability measurements.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt id="rex.renewable_resource.WindResource.power_law_interp">
 <em class="property">static </em><code class="sig-name descname">power_law_interp</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ts_1</span></em>, <em class="sig-param"><span class="n">h_1</span></em>, <em class="sig-param"><span class="n">ts_2</span></em>, <em class="sig-param"><span class="n">h_2</span></em>, <em class="sig-param"><span class="n">h</span></em>, <em class="sig-param"><span class="n">mean</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/renewable_resource.html#WindResource.power_law_interp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.renewable_resource.WindResource.power_law_interp" title="Permalink to this definition">¶</a></dt>
 <dd><p>Power-law interpolate/extrapolate time-series data to height h</p>
@@ -518,13 +561,14 @@ Determine if h is inside or outside the range of heights
 
 <dl class="py method">
 <dt id="rex.renewable_resource.WindResource.preload_SAM">
-<em class="property">classmethod </em><code class="sig-name descname">preload_SAM</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">h5_file</span></em>, <em class="sig-param"><span class="n">project_points</span></em>, <em class="sig-param"><span class="n">require_wind_dir</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">precip_rate</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">icing</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">unscale</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">hsds</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">str_decode</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">group</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/renewable_resource.html#WindResource.preload_SAM"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.renewable_resource.WindResource.preload_SAM" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="sig-name descname">preload_SAM</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">h5_file</span></em>, <em class="sig-param"><span class="n">sites</span></em>, <em class="sig-param"><span class="n">hub_heights</span></em>, <em class="sig-param"><span class="n">require_wind_dir</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">precip_rate</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">icing</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">unscale</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">hsds</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">str_decode</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">group</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/renewable_resource.html#WindResource.preload_SAM"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.renewable_resource.WindResource.preload_SAM" title="Permalink to this definition">¶</a></dt>
 <dd><p>Placeholder for classmethod that will pre-load project_points for SAM</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>h5_file</strong> (<em>str</em>) – h5_file to extract resource from</p></li>
-<li><p><strong>project_points</strong> (<em>reV.config.ProjectPoints</em>) – Projects points to be pre-loaded from Resource for SAM</p></li>
+<li><p><strong>sites</strong> (<em>list</em>) – List of sites to be provided to SAM</p></li>
+<li><p><strong>hub_heights</strong> (<em>int | float | list</em>) – Hub heights to extract for SAM</p></li>
 <li><p><strong>require_wind_dir</strong> (<em>bool</em>) – Boolean flag as to whether wind direction will be loaded.</p></li>
 <li><p><strong>precip_rate</strong> (<em>bool</em>) – Boolean flag as to whether precipitationrate_0m will be preloaded</p></li>
 <li><p><strong>icing</strong> (<em>bool</em>) – Boolean flag as to whether icing is analyzed.
@@ -579,7 +623,7 @@ strings. Setting this to False will speed up the meta data read.</p></li>
 </dl>
 <dl class="py method">
 <dt id="rex.renewable_resource.MultiFileNSRDB.preload_SAM">
-<em class="property">classmethod </em><code class="sig-name descname">preload_SAM</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">h5_path</span></em>, <em class="sig-param"><span class="n">project_points</span></em>, <em class="sig-param"><span class="n">clearsky</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">downscale</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">unscale</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">str_decode</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/renewable_resource.html#MultiFileNSRDB.preload_SAM"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.renewable_resource.MultiFileNSRDB.preload_SAM" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="sig-name descname">preload_SAM</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">h5_path</span></em>, <em class="sig-param"><span class="n">sites</span></em>, <em class="sig-param"><span class="n">tech</span><span class="o">=</span><span class="default_value">'pv'</span></em>, <em class="sig-param"><span class="n">clearsky</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">downscale</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">unscale</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">str_decode</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/renewable_resource.html#MultiFileNSRDB.preload_SAM"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.renewable_resource.MultiFileNSRDB.preload_SAM" title="Permalink to this definition">¶</a></dt>
 <dd><p>Pre-load project_points for SAM</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
@@ -591,7 +635,8 @@ Available formats:</p>
 /h5_dir/prefix*suffix</p>
 </div></blockquote>
 </li>
-<li><p><strong>project_points</strong> (<em>reV.config.ProjectPoints</em>) – Projects points to be pre-loaded from Resource for SAM</p></li>
+<li><p><strong>sites</strong> (<em>list</em>) – List of sites to be provided to SAM</p></li>
+<li><p><strong>tech</strong> (<em>str, optional</em>) – Technology to be run by SAM, by default ‘pv’</p></li>
 <li><p><strong>clearsky</strong> (<em>bool</em>) – Boolean flag to pull clearsky instead of real irradiance</p></li>
 <li><p><strong>downscale</strong> (<em>NoneType | str</em>) – Option for NSRDB resource downscaling to higher temporal
 resolution. Expects a string in the Pandas frequency format,
@@ -675,7 +720,7 @@ strings. Setting this to False will speed up the meta data read.</p></li>
 
 <dl class="py method">
 <dt id="rex.renewable_resource.MultiFileWTK.preload_SAM">
-<em class="property">classmethod </em><code class="sig-name descname">preload_SAM</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">h5_path</span></em>, <em class="sig-param"><span class="n">project_points</span></em>, <em class="sig-param"><span class="n">require_wind_dir</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">precip_rate</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">icing</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">unscale</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">str_decode</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/renewable_resource.html#MultiFileWTK.preload_SAM"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.renewable_resource.MultiFileWTK.preload_SAM" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="sig-name descname">preload_SAM</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">h5_path</span></em>, <em class="sig-param"><span class="n">sites</span></em>, <em class="sig-param"><span class="n">hub_heights</span></em>, <em class="sig-param"><span class="n">require_wind_dir</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">precip_rate</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">icing</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">unscale</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">str_decode</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/renewable_resource.html#MultiFileWTK.preload_SAM"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.renewable_resource.MultiFileWTK.preload_SAM" title="Permalink to this definition">¶</a></dt>
 <dd><p>Placeholder for classmethod that will pre-load project_points for SAM</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
@@ -687,7 +732,8 @@ Available formats:</p>
 /h5_dir/prefix*suffix</p>
 </div></blockquote>
 </li>
-<li><p><strong>project_points</strong> (<em>reV.config.ProjectPoints</em>) – Projects points to be pre-loaded from Resource for SAM</p></li>
+<li><p><strong>sites</strong> (<em>list</em>) – List of sites to be provided to SAM</p></li>
+<li><p><strong>hub_heights</strong> (<em>int | float | list</em>) – Hub heights to extract for SAM</p></li>
 <li><p><strong>require_wind_dir</strong> (<em>bool</em>) – Boolean flag as to whether wind direction will be loaded.</p></li>
 <li><p><strong>precip_rate</strong> (<em>bool</em>) – Boolean flag as to whether precipitationrate_0m will be preloaded</p></li>
 <li><p><strong>icing</strong> (<em>bool</em>) – Boolean flag as to whether icing is analyzed.
