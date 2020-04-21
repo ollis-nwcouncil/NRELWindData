@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>rex.utilities.parse_keys module &mdash; rex 0.1.2 documentation</title>
+  <title>rex.rechunk_h5 package &mdash; rex 0.1.2 documentation</title>
   
 
   
@@ -35,8 +35,8 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="rex.utilities.solar_position module" href="rex.utilities.solar_position.html" />
-    <link rel="prev" title="rex.utilities.loggers module" href="rex.utilities.loggers.html" />
+    <link rel="next" title="rex.rechunk_h5.rechunk_cli module" href="rex.rechunk_h5.rechunk_cli.html" />
+    <link rel="prev" title="rex package" href="rex.html" />
     <link href="../_static/style.css" rel="stylesheet" type="text/css">
 
 </head>
@@ -119,12 +119,12 @@
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="rex.html">rex package</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="rex.html#subpackages">Subpackages</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="rex.rechunk_h5.html">rex.rechunk_h5 package</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="rex.rechunk_h5.html#submodules">Submodules</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">rex.rechunk_h5 package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#submodules">Submodules</a></li>
 </ul>
 </li>
-<li class="toctree-l3 current"><a class="reference internal" href="rex.utilities.html">rex.utilities package</a><ul class="current">
-<li class="toctree-l4 current"><a class="reference internal" href="rex.utilities.html#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rex.utilities.html">rex.utilities package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="rex.utilities.html#submodules">Submodules</a></li>
 </ul>
 </li>
 </ul>
@@ -198,15 +198,13 @@
         
           <li><a href="rex.html">rex package</a> &raquo;</li>
         
-          <li><a href="rex.utilities.html">rex.utilities package</a> &raquo;</li>
-        
-      <li>rex.utilities.parse_keys module</li>
+      <li>rex.rechunk_h5 package</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/rex/rex.utilities.parse_keys.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/rex/rex.rechunk_h5.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -219,41 +217,21 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="module-rex.utilities.parse_keys">
-<span id="rex-utilities-parse-keys-module"></span><h1>rex.utilities.parse_keys module<a class="headerlink" href="#module-rex.utilities.parse_keys" title="Permalink to this headline">¶</a></h1>
-<p>Handler utility to parse slicing keys.</p>
-<dl class="py function">
-<dt id="rex.utilities.parse_keys.parse_slice">
-<code class="sig-prename descclassname">rex.utilities.parse_keys.</code><code class="sig-name descname">parse_slice</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ds_slice</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/utilities/parse_keys.html#parse_slice"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.utilities.parse_keys.parse_slice" title="Permalink to this definition">¶</a></dt>
-<dd><p>Parse dataset slice</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>ds_slice</strong> (<em>tuple | int | slice | list</em>) – Slice to extract from dataset</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>ds_slice</strong> (<em>tuple</em>) – slice for axis (0, 1)</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt id="rex.utilities.parse_keys.parse_keys">
-<code class="sig-prename descclassname">rex.utilities.parse_keys.</code><code class="sig-name descname">parse_keys</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">keys</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/utilities/parse_keys.html#parse_keys"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.utilities.parse_keys.parse_keys" title="Permalink to this definition">¶</a></dt>
-<dd><p>Parse keys for complex __getitem__ and __setitem__</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>keys</strong> (<em>string | tuple</em>) – key or key and slice to extract</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><ul class="simple">
-<li><p><strong>key</strong> (<em>string</em>) – key to extract</p></li>
-<li><p><strong>key_slice</strong> (<em>slice | tuple</em>) – Slice or tuple of slices of key to extract</p></li>
+  <div class="section" id="module-rex.rechunk_h5">
+<span id="rex-rechunk-h5-package"></span><h1>rex.rechunk_h5 package<a class="headerlink" href="#module-rex.rechunk_h5" title="Permalink to this headline">¶</a></h1>
+<p>.h5 rechunking tool</p>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="rex.rechunk_h5.rechunk_cli.html">rex.rechunk_h5.rechunk_cli module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rex.rechunk_h5.rechunk_cli.html#rechunk">rechunk</a></li>
 </ul>
-</p>
-</dd>
-</dl>
-</dd></dl>
-
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rex.rechunk_h5.rechunk_h5.html">rex.rechunk_h5.rechunk_h5 module</a></li>
+</ul>
+</div>
+</div>
 </div>
 
 
@@ -264,10 +242,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="rex.utilities.solar_position.html" class="btn btn-neutral float-right" title="rex.utilities.solar_position module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="rex.rechunk_h5.rechunk_cli.html" class="btn btn-neutral float-right" title="rex.rechunk_h5.rechunk_cli module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="rex.utilities.loggers.html" class="btn btn-neutral float-left" title="rex.utilities.loggers module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="rex.html" class="btn btn-neutral float-left" title="rex package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
