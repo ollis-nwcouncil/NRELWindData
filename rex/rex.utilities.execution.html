@@ -469,12 +469,63 @@ Returns None if squeue is empty.</p>
 </dd></dl>
 
 <dl class="py method">
+<dt id="rex.utilities.execution.SLURM.scontrol">
+<em class="property">static </em><code class="sig-name descname">scontrol</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">cmd</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/utilities/execution.html#SLURM.scontrol"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.utilities.execution.SLURM.scontrol" title="Permalink to this definition">¶</a></dt>
+<dd><p>Submit an scontrol command.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>cmd</strong> (<em>str</em>) – Command string after “scontrol” word</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt id="rex.utilities.execution.SLURM.scancel">
-<em class="property">static </em><code class="sig-name descname">scancel</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">job_id</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/utilities/execution.html#SLURM.scancel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.utilities.execution.SLURM.scancel" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">scancel</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">arg</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/utilities/execution.html#SLURM.scancel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.utilities.execution.SLURM.scancel" title="Permalink to this definition">¶</a></dt>
 <dd><p>Cancel a slurm job.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>job_id</strong> (<em>int</em>) – SLURM job id to cancel</p>
+<dd class="field-odd"><p><strong>arg</strong> (<em>int | list | str</em>) – SLURM job id(s) to cancel. Can be a list of integer job ids, ‘all’
+to cancel all jobs, or a feature (-p short) to cancel all jobs
+with a given feature</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="rex.utilities.execution.SLURM.change_qos">
+<em class="property">static </em><code class="sig-name descname">change_qos</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">arg</span></em>, <em class="sig-param"><span class="n">qos</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/utilities/execution.html#SLURM.change_qos"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.utilities.execution.SLURM.change_qos" title="Permalink to this definition">¶</a></dt>
+<dd><p>Change the priority (quality of service) for a job.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>arg</strong> (<em>int | list | str</em>) – SLURM job id(s) to change qos for. Can be ‘all’ for all jobs.</p></li>
+<li><p><strong>qos</strong> (<em>str</em>) – New qos value</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="rex.utilities.execution.SLURM.hold">
+<em class="property">static </em><code class="sig-name descname">hold</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">arg</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/utilities/execution.html#SLURM.hold"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.utilities.execution.SLURM.hold" title="Permalink to this definition">¶</a></dt>
+<dd><p>Temporarily hold a job from submitting. Held jobs will stay in queue
+but will not get nodes until released.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>arg</strong> (<em>int | list | str</em>) – SLURM job id(s) to hold. Can be ‘all’ to hold all jobs.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="rex.utilities.execution.SLURM.release">
+<em class="property">static </em><code class="sig-name descname">release</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">arg</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/utilities/execution.html#SLURM.release"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.utilities.execution.SLURM.release" title="Permalink to this definition">¶</a></dt>
+<dd><p>Release a job that was previously on hold so it will be submitted
+to a compute node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>arg</strong> (<em>int | list | str</em>) – SLURM job id(s) to release. Can be ‘all’ to release all jobs.</p>
 </dd>
 </dl>
 </dd></dl>

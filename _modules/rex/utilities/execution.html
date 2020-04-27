@@ -644,19 +644,155 @@
             <span class="n">squeue_rows</span> <span class="o">=</span> <span class="n">stdout</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
             <span class="k">return</span> <span class="n">squeue_rows</span></div>
 
+<div class="viewcode-block" id="SLURM.scontrol"><a class="viewcode-back" href="../../../rex/rex.utilities.execution.html#rex.utilities.execution.SLURM.scontrol">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">scontrol</span><span class="p">(</span><span class="n">cmd</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Submit an scontrol command.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        cmd : str</span>
+<span class="sd">            Command string after &quot;scontrol&quot; word</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="s1">&#39;scontrol </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+        <span class="n">cmd</span> <span class="o">=</span> <span class="n">shlex</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+        <span class="n">call</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span></div>
+
 <div class="viewcode-block" id="SLURM.scancel"><a class="viewcode-back" href="../../../rex/rex.utilities.execution.html#rex.utilities.execution.SLURM.scancel">[docs]</a>    <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">scancel</span><span class="p">(</span><span class="n">job_id</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">scancel</span><span class="p">(</span><span class="n">arg</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Cancel a slurm job.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        job_id : int</span>
-<span class="sd">            SLURM job id to cancel</span>
+<span class="sd">        arg : int | list | str</span>
+<span class="sd">            SLURM job id(s) to cancel. Can be a list of integer job ids, &#39;all&#39;</span>
+<span class="sd">            to cancel all jobs, or a feature (-p short) to cancel all jobs</span>
+<span class="sd">            with a given feature</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="n">cmd</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;scancel </span><span class="si">{job_id}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">job_id</span><span class="o">=</span><span class="n">job_id</span><span class="p">))</span>
-        <span class="n">cmd</span> <span class="o">=</span> <span class="n">shlex</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
-        <span class="n">call</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span></div>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)):</span>
+            <span class="k">for</span> <span class="n">jid</span> <span class="ow">in</span> <span class="n">arg</span><span class="p">:</span>
+                <span class="n">SLURM</span><span class="o">.</span><span class="n">scancel</span><span class="p">(</span><span class="n">jid</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="nb">str</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;all&#39;</span><span class="p">:</span>
+            <span class="n">sq</span> <span class="o">=</span> <span class="n">SLURM</span><span class="o">.</span><span class="n">squeue</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">sq</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+                <span class="n">job_id</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">row</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+                <span class="n">SLURM</span><span class="o">.</span><span class="n">scancel</span><span class="p">(</span><span class="n">job_id</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">)):</span>
+            <span class="n">cmd</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;scancel </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">arg</span><span class="p">))</span>
+            <span class="n">cmd</span> <span class="o">=</span> <span class="n">shlex</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+            <span class="n">call</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">e</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;Could not cancel: </span><span class="si">{}</span><span class="s1"> with type </span><span class="si">{}</span><span class="s1">&#39;</span>
+                 <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">arg</span><span class="p">)))</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">ExecutionError</span><span class="p">(</span><span class="n">e</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="SLURM.change_qos"><a class="viewcode-back" href="../../../rex/rex.utilities.execution.html#rex.utilities.execution.SLURM.change_qos">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">change_qos</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="n">qos</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Change the priority (quality of service) for a job.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        arg : int | list | str</span>
+<span class="sd">            SLURM job id(s) to change qos for. Can be &#39;all&#39; for all jobs.</span>
+<span class="sd">        qos : str</span>
+<span class="sd">            New qos value</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)):</span>
+            <span class="k">for</span> <span class="n">jid</span> <span class="ow">in</span> <span class="n">arg</span><span class="p">:</span>
+                <span class="n">SLURM</span><span class="o">.</span><span class="n">change_qos</span><span class="p">(</span><span class="n">jid</span><span class="p">,</span> <span class="n">qos</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+            <span class="n">cmd</span> <span class="o">=</span> <span class="s1">&#39;update job </span><span class="si">{}</span><span class="s1"> QOS=</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="n">qos</span><span class="p">)</span>
+            <span class="n">SLURM</span><span class="o">.</span><span class="n">scontrol</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="nb">str</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;all&#39;</span><span class="p">:</span>
+            <span class="n">sq</span> <span class="o">=</span> <span class="n">SLURM</span><span class="o">.</span><span class="n">squeue</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">sq</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+                <span class="n">row_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">row</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">]</span>
+                <span class="n">job_id</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">row_list</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                <span class="n">status</span> <span class="o">=</span> <span class="n">row_list</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+                <span class="k">if</span> <span class="n">status</span> <span class="o">==</span> <span class="s1">&#39;PD&#39;</span><span class="p">:</span>
+                    <span class="n">SLURM</span><span class="o">.</span><span class="n">change_qos</span><span class="p">(</span><span class="n">job_id</span><span class="p">,</span> <span class="n">qos</span><span class="p">)</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">e</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;Could not change qos of: </span><span class="si">{}</span><span class="s1"> with type </span><span class="si">{}</span><span class="s1">&#39;</span>
+                 <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">arg</span><span class="p">)))</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">ExecutionError</span><span class="p">(</span><span class="n">e</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="SLURM.hold"><a class="viewcode-back" href="../../../rex/rex.utilities.execution.html#rex.utilities.execution.SLURM.hold">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">hold</span><span class="p">(</span><span class="n">arg</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Temporarily hold a job from submitting. Held jobs will stay in queue</span>
+<span class="sd">        but will not get nodes until released.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        arg : int | list | str</span>
+<span class="sd">            SLURM job id(s) to hold. Can be &#39;all&#39; to hold all jobs.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)):</span>
+            <span class="k">for</span> <span class="n">jid</span> <span class="ow">in</span> <span class="n">arg</span><span class="p">:</span>
+                <span class="n">SLURM</span><span class="o">.</span><span class="n">hold</span><span class="p">(</span><span class="n">jid</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+            <span class="n">cmd</span> <span class="o">=</span> <span class="s1">&#39;hold </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span>
+            <span class="n">SLURM</span><span class="o">.</span><span class="n">scontrol</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="nb">str</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;all&#39;</span><span class="p">:</span>
+            <span class="n">sq</span> <span class="o">=</span> <span class="n">SLURM</span><span class="o">.</span><span class="n">squeue</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">sq</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+                <span class="n">row_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">row</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">]</span>
+                <span class="n">job_id</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">row_list</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                <span class="n">status</span> <span class="o">=</span> <span class="n">row_list</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+                <span class="k">if</span> <span class="n">status</span> <span class="o">==</span> <span class="s1">&#39;PD&#39;</span><span class="p">:</span>
+                    <span class="n">SLURM</span><span class="o">.</span><span class="n">hold</span><span class="p">(</span><span class="n">job_id</span><span class="p">)</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">e</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;Could not hold: </span><span class="si">{}</span><span class="s1"> with type </span><span class="si">{}</span><span class="s1">&#39;</span>
+                 <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">arg</span><span class="p">)))</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">ExecutionError</span><span class="p">(</span><span class="n">e</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="SLURM.release"><a class="viewcode-back" href="../../../rex/rex.utilities.execution.html#rex.utilities.execution.SLURM.release">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">release</span><span class="p">(</span><span class="n">arg</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Release a job that was previously on hold so it will be submitted</span>
+<span class="sd">        to a compute node.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        arg : int | list | str</span>
+<span class="sd">            SLURM job id(s) to release. Can be &#39;all&#39; to release all jobs.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)):</span>
+            <span class="k">for</span> <span class="n">jid</span> <span class="ow">in</span> <span class="n">arg</span><span class="p">:</span>
+                <span class="n">SLURM</span><span class="o">.</span><span class="n">release</span><span class="p">(</span><span class="n">jid</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+            <span class="n">cmd</span> <span class="o">=</span> <span class="s1">&#39;release </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span>
+            <span class="n">SLURM</span><span class="o">.</span><span class="n">scontrol</span><span class="p">(</span><span class="n">cmd</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="nb">str</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;all&#39;</span><span class="p">:</span>
+            <span class="n">sq</span> <span class="o">=</span> <span class="n">SLURM</span><span class="o">.</span><span class="n">squeue</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">sq</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+                <span class="n">row_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">row</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">]</span>
+                <span class="n">job_id</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">row_list</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                <span class="n">status</span> <span class="o">=</span> <span class="n">row_list</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+                <span class="n">reason</span> <span class="o">=</span> <span class="n">row_list</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+                <span class="k">if</span> <span class="n">status</span> <span class="o">==</span> <span class="s1">&#39;PD&#39;</span> <span class="ow">and</span> <span class="s1">&#39;jobheld&#39;</span> <span class="ow">in</span> <span class="n">reason</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span>
+                    <span class="n">SLURM</span><span class="o">.</span><span class="n">release</span><span class="p">(</span><span class="n">job_id</span><span class="p">)</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">e</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;Could not release: </span><span class="si">{}</span><span class="s1"> with type </span><span class="si">{}</span><span class="s1">&#39;</span>
+                 <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">arg</span><span class="p">)))</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">ExecutionError</span><span class="p">(</span><span class="n">e</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="SLURM.sbatch"><a class="viewcode-back" href="../../../rex/rex.utilities.execution.html#rex.utilities.execution.SLURM.sbatch">[docs]</a>    <span class="k">def</span> <span class="nf">sbatch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cmd</span><span class="p">,</span> <span class="n">alloc</span><span class="p">,</span> <span class="n">walltime</span><span class="p">,</span> <span class="n">memory</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">feature</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                <span class="n">name</span><span class="o">=</span><span class="s1">&#39;reV&#39;</span><span class="p">,</span> <span class="n">stdout_path</span><span class="o">=</span><span class="s1">&#39;./stdout&#39;</span><span class="p">,</span> <span class="n">keep_sh</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
