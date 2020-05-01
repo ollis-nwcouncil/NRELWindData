@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>rex.sam_resource &mdash; rex 0.1.2 documentation</title>
+  <title>rex.sam_resource &mdash; rex 0.1.3 documentation</title>
   
 
   
@@ -60,7 +60,7 @@
             
             
               <div class="version">
-                0.1.2
+                0.1.3
               </div>
             
           
@@ -291,7 +291,7 @@
                    <span class="s1">&#39;solarwaterheat&#39;</span><span class="p">:</span> <span class="n">SWH_DATA_RANGES</span><span class="p">}</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sites</span><span class="p">,</span> <span class="n">tech</span><span class="p">,</span> <span class="n">time_index</span><span class="p">,</span> <span class="n">hub_heights</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                 <span class="n">require_wind_dir</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+                 <span class="n">require_wind_dir</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">means</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -305,6 +305,8 @@
 <span class="sd">            Hub height(s) to extract wind data at</span>
 <span class="sd">        require_wind_dir : bool</span>
 <span class="sd">            Boolean flag indicating that wind direction is required</span>
+<span class="sd">        means : bool</span>
+<span class="sd">            Boolean flag to compute mean resource when res_array is set</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_i</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_sites</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parse_sites</span><span class="p">(</span><span class="n">sites</span><span class="p">)</span>
@@ -316,6 +318,10 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_runnable</span> <span class="o">=</span> <span class="kc">False</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_res_arrays</span> <span class="o">=</span> <span class="p">{}</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_h</span> <span class="o">=</span> <span class="n">hub_heights</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_mean_arrays</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="n">means</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_mean_arrays</span> <span class="o">=</span> <span class="p">{}</span>
 
         <span class="k">if</span> <span class="n">tech</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">DATA_RANGES</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_tech</span> <span class="o">=</span> <span class="n">tech</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
@@ -354,7 +360,11 @@
             <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">meta</span>
             <span class="n">out</span> <span class="o">=</span> <span class="n">out</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">var_slice</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
         <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">var</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
-            <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_var_ts</span><span class="p">(</span><span class="n">var</span><span class="p">,</span> <span class="o">*</span><span class="n">var_slice</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">var</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;mean_&#39;</span><span class="p">):</span>
+                <span class="n">var</span> <span class="o">=</span> <span class="n">var</span><span class="o">.</span><span class="n">lstrip</span><span class="p">(</span><span class="s1">&#39;mean_&#39;</span><span class="p">)</span>
+                <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_var_mean</span><span class="p">(</span><span class="n">var</span><span class="p">,</span> <span class="o">*</span><span class="n">var_slice</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_var_ts</span><span class="p">(</span><span class="n">var</span><span class="p">,</span> <span class="o">*</span><span class="n">var_slice</span><span class="p">)</span>
         <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">var</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
             <span class="n">site</span> <span class="o">=</span> <span class="n">var</span>
             <span class="n">out</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_res_df</span><span class="p">(</span><span class="n">site</span><span class="p">)</span>
@@ -732,6 +742,8 @@
                 <span class="n">arr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_check_physical_ranges</span><span class="p">(</span><span class="n">var</span><span class="p">,</span> <span class="n">arr</span><span class="p">,</span> <span class="n">var_slice</span><span class="p">)</span>
                 <span class="n">var_arr</span><span class="p">[</span><span class="n">var_slice</span><span class="p">]</span> <span class="o">=</span> <span class="n">arr</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">_res_arrays</span><span class="p">[</span><span class="n">var</span><span class="p">]</span> <span class="o">=</span> <span class="n">var_arr</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mean_arrays</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_mean_arrays</span><span class="p">[</span><span class="n">var</span><span class="p">]</span> <span class="o">=</span> <span class="n">var_arr</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> has shape </span><span class="si">{}</span><span class="s1">, &#39;</span>
                        <span class="s1">&#39;needs proper shape: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">var</span><span class="p">,</span>
@@ -742,6 +754,43 @@
             <span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> not in </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">var</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">var_list</span><span class="p">)</span>
             <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
             <span class="k">raise</span> <span class="n">ResourceKeyError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_get_var_mean</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">var</span><span class="p">,</span> <span class="o">*</span><span class="n">var_slice</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get variable means</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        var : str</span>
+<span class="sd">            Resource variable name</span>
+<span class="sd">        var_slice : int | list | slice</span>
+<span class="sd">            Slice of variable array to extract</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        means : ndarray</span>
+<span class="sd">            Vector of variable means</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mean_arrays</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="s2">&quot;Variable means were not computed, you must set &#39;means=True&#39;&quot;</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">ResourceRuntimeError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">var</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">var_list</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">var_array</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mean_arrays</span><span class="p">[</span><span class="n">var</span><span class="p">]</span>
+            <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+                <span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> has yet to be set!&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">var</span><span class="p">)</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+                <span class="k">raise</span> <span class="n">ResourceKeyError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+            <span class="n">means</span> <span class="o">=</span> <span class="n">var_array</span><span class="p">[</span><span class="n">var_slice</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> not in </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">var</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">var_list</span><span class="p">)</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">ResourceKeyError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">means</span>
 
     <span class="k">def</span> <span class="nf">_get_var_ts</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">var</span><span class="p">,</span> <span class="o">*</span><span class="n">var_slice</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -759,7 +808,6 @@
 <span class="sd">        ts : pandas.DataFrame</span>
 <span class="sd">            Time-series for desired sites of variable var</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-
         <span class="k">if</span> <span class="n">var</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">var_list</span><span class="p">:</span>
             <span class="k">try</span><span class="p">:</span>
                 <span class="n">var_array</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_res_arrays</span><span class="p">[</span><span class="n">var</span><span class="p">]</span>
@@ -769,9 +817,12 @@
                 <span class="k">raise</span> <span class="n">ResourceKeyError</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
 
             <span class="n">sites</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sites</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">var_slice</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+                <span class="n">sites</span> <span class="o">=</span> <span class="n">sites</span><span class="p">[</span><span class="n">var_slice</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
+
             <span class="n">ts</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">var_array</span><span class="p">[</span><span class="n">var_slice</span><span class="p">],</span>
                               <span class="n">index</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">time_index</span><span class="p">[</span><span class="n">var_slice</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span>
-                              <span class="n">columns</span><span class="o">=</span><span class="n">sites</span><span class="p">[</span><span class="n">var_slice</span><span class="p">[</span><span class="mi">1</span><span class="p">]])</span>
+                              <span class="n">columns</span><span class="o">=</span><span class="n">sites</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> not in </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">var</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">var_list</span><span class="p">)</span>
             <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
