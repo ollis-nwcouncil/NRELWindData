@@ -345,7 +345,7 @@
     --log_file &lt;log_file&gt;
 
       <ul>
-        <li><a href="rex/rex.rechunk_h5.rechunk_cli.html#cmdoption-rechunk-log_file">rechunk command line option</a>
+        <li><a href="rex/rex.rechunk_h5.rechunk_cli.html#cmdoption-rechunk-log">rechunk command line option</a>
 </li>
       </ul></li>
       <li>
@@ -451,10 +451,10 @@
 </li>
       </ul></li>
       <li>
-    --var_attrs &lt;var_attrs&gt;
+    --var_attrs_path &lt;var_attrs_path&gt;
 
       <ul>
-        <li><a href="rex/rex.rechunk_h5.rechunk_cli.html#cmdoption-rechunk-var_attrs">rechunk command line option</a>
+        <li><a href="rex/rex.rechunk_h5.rechunk_cli.html#cmdoption-rechunk-vap">rechunk command line option</a>
 </li>
       </ul></li>
       <li>
@@ -470,15 +470,15 @@
         <li><a href="rex/rex.wind_cli.html#cmdoption-WIND-v">WIND command line option</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     --version &lt;version&gt;
 
       <ul>
-        <li><a href="rex/rex.rechunk_h5.rechunk_cli.html#cmdoption-rechunk-version">rechunk command line option</a>
+        <li><a href="rex/rex.rechunk_h5.rechunk_cli.html#cmdoption-rechunk-ver">rechunk command line option</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     --wind_h5 &lt;wind_h5&gt;
 
@@ -601,6 +601,13 @@
 </li>
       </ul></li>
       <li>
+    -log
+
+      <ul>
+        <li><a href="rex/rex.rechunk_h5.rechunk_cli.html#cmdoption-rechunk-log">rechunk command line option</a>
+</li>
+      </ul></li>
+      <li>
     -m
 
       <ul>
@@ -688,6 +695,20 @@
         <li><a href="rex/rex.resource_cli.html#cmdoption-rex-v">rex command line option</a>
 </li>
         <li><a href="rex/rex.wind_cli.html#cmdoption-WIND-v">WIND command line option</a>
+</li>
+      </ul></li>
+      <li>
+    -vap
+
+      <ul>
+        <li><a href="rex/rex.rechunk_h5.rechunk_cli.html#cmdoption-rechunk-vap">rechunk command line option</a>
+</li>
+      </ul></li>
+      <li>
+    -ver
+
+      <ul>
+        <li><a href="rex/rex.rechunk_h5.rechunk_cli.html#cmdoption-rechunk-ver">rechunk command line option</a>
 </li>
       </ul></li>
   </ul></td>
@@ -1310,7 +1331,7 @@
 </li>
         <li><a href="rex/rex.rechunk_h5.rechunk_cli.html#cmdoption-rechunk-dst">--dst_h5 &lt;dst_h5&gt;</a>
 </li>
-        <li><a href="rex/rex.rechunk_h5.rechunk_cli.html#cmdoption-rechunk-log_file">--log_file &lt;log_file&gt;</a>
+        <li><a href="rex/rex.rechunk_h5.rechunk_cli.html#cmdoption-rechunk-log">--log_file &lt;log_file&gt;</a>
 </li>
         <li><a href="rex/rex.rechunk_h5.rechunk_cli.html#cmdoption-rechunk-m">--meta &lt;meta&gt;</a>
 </li>
@@ -1318,15 +1339,17 @@
 </li>
         <li><a href="rex/rex.rechunk_h5.rechunk_cli.html#cmdoption-rechunk-src">--src_h5 &lt;src_h5&gt;</a>
 </li>
-        <li><a href="rex/rex.rechunk_h5.rechunk_cli.html#cmdoption-rechunk-var_attrs">--var_attrs &lt;var_attrs&gt;</a>
+        <li><a href="rex/rex.rechunk_h5.rechunk_cli.html#cmdoption-rechunk-vap">--var_attrs_path &lt;var_attrs_path&gt;</a>
 </li>
         <li><a href="rex/rex.rechunk_h5.rechunk_cli.html#cmdoption-rechunk-v">--verbose</a>
 </li>
-        <li><a href="rex/rex.rechunk_h5.rechunk_cli.html#cmdoption-rechunk-version">--version &lt;version&gt;</a>
+        <li><a href="rex/rex.rechunk_h5.rechunk_cli.html#cmdoption-rechunk-ver">--version &lt;version&gt;</a>
 </li>
         <li><a href="rex/rex.rechunk_h5.rechunk_cli.html#cmdoption-rechunk-cda">-cda</a>
 </li>
         <li><a href="rex/rex.rechunk_h5.rechunk_cli.html#cmdoption-rechunk-dst">-dst</a>
+</li>
+        <li><a href="rex/rex.rechunk_h5.rechunk_cli.html#cmdoption-rechunk-log">-log</a>
 </li>
         <li><a href="rex/rex.rechunk_h5.rechunk_cli.html#cmdoption-rechunk-m">-m</a>
 </li>
@@ -1335,6 +1358,10 @@
         <li><a href="rex/rex.rechunk_h5.rechunk_cli.html#cmdoption-rechunk-src">-src</a>
 </li>
         <li><a href="rex/rex.rechunk_h5.rechunk_cli.html#cmdoption-rechunk-v">-v</a>
+</li>
+        <li><a href="rex/rex.rechunk_h5.rechunk_cli.html#cmdoption-rechunk-vap">-vap</a>
+</li>
+        <li><a href="rex/rex.rechunk_h5.rechunk_cli.html#cmdoption-rechunk-ver">-ver</a>
 </li>
       </ul></li>
       <li><a href="rex/rex.rechunk_h5.rechunk_h5.html#rex.rechunk_h5.rechunk_h5.RechunkH5.rechunk">rechunk() (rex.rechunk_h5.rechunk_h5.RechunkH5 method)</a>
@@ -1437,6 +1464,8 @@
         <li><a href="rex/rex.resource_cli.html#cmdoption-rex-sam-file-ll">-ll</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     rex-site command line option
 
@@ -1454,8 +1483,6 @@
         <li><a href="rex/rex.resource_cli.html#cmdoption-rex-site-ll">-ll</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     rex-timestep command line option
 
