@@ -448,7 +448,7 @@
         <span class="k">return</span> <span class="n">_shape</span>
 
 <div class="viewcode-block" id="RechunkH5.check_dset_attrs"><a class="viewcode-back" href="../../../rex/rex.rechunk_h5.rechunk_h5.html#rex.rechunk_h5.rechunk_h5.RechunkH5.check_dset_attrs">[docs]</a>    <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">check_dset_attrs</span><span class="p">(</span><span class="n">ds_in</span><span class="p">,</span> <span class="n">dset_attrs</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">check_dset_attrs</span><span class="p">(</span><span class="n">ds_in</span><span class="p">,</span> <span class="n">dset_attrs</span><span class="p">,</span> <span class="n">check_attrs</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Check dataset attributes (dtype, scale_factor, units) against source</span>
 <span class="sd">        Dataset</span>
@@ -459,6 +459,9 @@
 <span class="sd">            Source h5 Dataset</span>
 <span class="sd">        dset_attrs : dict</span>
 <span class="sd">            Dictionary of dataset attributes (dtype, chunk, attrs)</span>
+<span class="sd">        check_attrs : bool, optional</span>
+<span class="sd">            Flag to compare source and specified dataset attributes,</span>
+<span class="sd">            by default False</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">dtype</span> <span class="o">=</span> <span class="n">dset_attrs</span><span class="p">[</span><span class="s1">&#39;dtype&#39;</span><span class="p">]</span>
         <span class="n">attrs</span> <span class="o">=</span> <span class="n">dset_attrs</span><span class="p">[</span><span class="s1">&#39;attrs&#39;</span><span class="p">]</span>
@@ -468,17 +471,18 @@
                            <span class="s1">&#39;using source dtype,&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ds_in</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">dtype</span><span class="p">))</span>
             <span class="n">dset_attrs</span><span class="p">[</span><span class="s1">&#39;dtype&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ds_in</span><span class="o">.</span><span class="n">dtype</span><span class="o">.</span><span class="n">name</span>
 
-        <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">attrs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-            <span class="n">src_value</span> <span class="o">=</span> <span class="n">ds_in</span><span class="o">.</span><span class="n">attrs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">src_value</span><span class="p">:</span>
-                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">src_value</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">):</span>
-                    <span class="n">src_value</span> <span class="o">=</span> <span class="n">src_value</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">check_attrs</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">attrs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="n">src_value</span> <span class="o">=</span> <span class="n">ds_in</span><span class="o">.</span><span class="n">attrs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">src_value</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">src_value</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">):</span>
+                        <span class="n">src_value</span> <span class="o">=</span> <span class="n">src_value</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span>
 
-                <span class="k">if</span> <span class="n">src_value</span> <span class="o">!=</span> <span class="n">value</span><span class="p">:</span>
-                    <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s1">&#39;Attr </span><span class="si">{}</span><span class="s1"> value (</span><span class="si">{}</span><span class="s1">) does not match &#39;</span>
-                                   <span class="s1">&#39;source value (</span><span class="si">{}</span><span class="s1">), using source &#39;</span>
-                                   <span class="s1">&#39;value.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">src_value</span><span class="p">))</span>
-                    <span class="n">dset_attrs</span><span class="p">[</span><span class="s1">&#39;attrs&#39;</span><span class="p">][</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">src_value</span>
+                    <span class="k">if</span> <span class="n">src_value</span> <span class="o">!=</span> <span class="n">value</span><span class="p">:</span>
+                        <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s1">&#39;Attr </span><span class="si">{}</span><span class="s1"> value (</span><span class="si">{}</span><span class="s1">) does not match &#39;</span>
+                                       <span class="s1">&#39;source value (</span><span class="si">{}</span><span class="s1">), using source &#39;</span>
+                                       <span class="s1">&#39;value.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">src_value</span><span class="p">))</span>
+                        <span class="n">dset_attrs</span><span class="p">[</span><span class="s1">&#39;attrs&#39;</span><span class="p">][</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">src_value</span>
 
         <span class="k">return</span> <span class="n">dset_attrs</span></div>
 
@@ -601,7 +605,8 @@
         <span class="n">tt</span> <span class="o">=</span> <span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">ts</span><span class="p">)</span> <span class="o">/</span> <span class="mi">60</span>
         <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">- </span><span class="si">{:.2f}</span><span class="s1"> minutes&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">tt</span><span class="p">))</span></div>
 
-<div class="viewcode-block" id="RechunkH5.load_dset"><a class="viewcode-back" href="../../../rex/rex.rechunk_h5.rechunk_h5.html#rex.rechunk_h5.rechunk_h5.RechunkH5.load_dset">[docs]</a>    <span class="k">def</span> <span class="nf">load_dset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dset_name</span><span class="p">,</span> <span class="n">dset_attrs</span><span class="p">,</span> <span class="n">process_size</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="RechunkH5.load_dset"><a class="viewcode-back" href="../../../rex/rex.rechunk_h5.rechunk_h5.html#rex.rechunk_h5.rechunk_h5.RechunkH5.load_dset">[docs]</a>    <span class="k">def</span> <span class="nf">load_dset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dset_name</span><span class="p">,</span> <span class="n">dset_attrs</span><span class="p">,</span> <span class="n">process_size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                  <span class="n">check_attrs</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Transfer dataset from domain to combined .h5</span>
 
@@ -613,6 +618,9 @@
 <span class="sd">            Dictionary of dataset attributes (dtype, chunks, attrs)</span>
 <span class="sd">        process_size : int</span>
 <span class="sd">            Size of each chunk to be processed at a time</span>
+<span class="sd">        check_attrs : bool, optional</span>
+<span class="sd">            Flag to compare source and specified dataset attributes,</span>
+<span class="sd">            by default False</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="n">dset_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dst_h5</span><span class="p">:</span>
             <span class="n">ts</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
@@ -620,7 +628,8 @@
             <span class="n">sites</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
             <span class="k">with</span> <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_src_path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f_in</span><span class="p">:</span>
                 <span class="n">ds_in</span> <span class="o">=</span> <span class="n">f_in</span><span class="p">[</span><span class="n">dset_name</span><span class="p">]</span>
-                <span class="n">dset_attrs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">check_dset_attrs</span><span class="p">(</span><span class="n">ds_in</span><span class="p">,</span> <span class="n">dset_attrs</span><span class="p">)</span>
+                <span class="n">dset_attrs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">check_dset_attrs</span><span class="p">(</span><span class="n">ds_in</span><span class="p">,</span> <span class="n">dset_attrs</span><span class="p">,</span>
+                                                   <span class="n">check_attrs</span><span class="o">=</span><span class="n">check_attrs</span><span class="p">)</span>
                 <span class="n">ds_out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">init_dset</span><span class="p">(</span><span class="n">dset_name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">dset_attrs</span><span class="p">)</span>
 
                 <span class="n">by_rows</span> <span class="o">=</span> <span class="kc">False</span>
@@ -701,7 +710,8 @@
 
         <span class="k">return</span> <span class="n">var_attrs</span>
 
-<div class="viewcode-block" id="RechunkH5.rechunk"><a class="viewcode-back" href="../../../rex/rex.rechunk_h5.rechunk_h5.html#rex.rechunk_h5.rechunk_h5.RechunkH5.rechunk">[docs]</a>    <span class="k">def</span> <span class="nf">rechunk</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">var_attrs</span><span class="p">,</span> <span class="n">meta</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">process_size</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="RechunkH5.rechunk"><a class="viewcode-back" href="../../../rex/rex.rechunk_h5.rechunk_h5.html#rex.rechunk_h5.rechunk_h5.RechunkH5.rechunk">[docs]</a>    <span class="k">def</span> <span class="nf">rechunk</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">var_attrs</span><span class="p">,</span> <span class="n">meta</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">process_size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                <span class="n">check_dset_attrs</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Rechunk all variables in given variable attributes json</span>
 
@@ -715,6 +725,9 @@
 <span class="sd">            rechunked .h5 file</span>
 <span class="sd">        process_size : int</span>
 <span class="sd">            Size of each chunk to be processed at a time</span>
+<span class="sd">        check_dset_attrs : bool, optional</span>
+<span class="sd">            Flag to compare source and specified dataset attributes,</span>
+<span class="sd">            by default False</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="n">ts</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
@@ -745,7 +758,8 @@
             <span class="n">var_attrs</span> <span class="o">=</span> <span class="n">var_attrs</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
             <span class="k">for</span> <span class="n">dset_name</span><span class="p">,</span> <span class="n">dset_attrs</span> <span class="ow">in</span> <span class="n">var_attrs</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">load_dset</span><span class="p">(</span><span class="n">dset_name</span><span class="p">,</span> <span class="n">dset_attrs</span><span class="p">,</span>
-                               <span class="n">process_size</span><span class="o">=</span><span class="n">process_size</span><span class="p">)</span>
+                               <span class="n">process_size</span><span class="o">=</span><span class="n">process_size</span><span class="p">,</span>
+                               <span class="n">check_attrs</span><span class="o">=</span><span class="n">check_dset_attrs</span><span class="p">)</span>
 
             <span class="n">tt</span> <span class="o">=</span> <span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">ts</span><span class="p">)</span> <span class="o">/</span> <span class="mi">60</span>
             <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">- </span><span class="si">{:}</span><span class="s1"> created in </span><span class="si">{:.2f}</span><span class="s1"> minutes&#39;</span>
@@ -754,8 +768,8 @@
             <span class="n">logger</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="s1">&#39;Error creating </span><span class="si">{:}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_dst_path</span><span class="p">))</span></div>
 
 <div class="viewcode-block" id="RechunkH5.run"><a class="viewcode-back" href="../../../rex/rex.rechunk_h5.rechunk_h5.html#rex.rechunk_h5.rechunk_h5.RechunkH5.run">[docs]</a>    <span class="nd">@classmethod</span>
-    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">h5_src</span><span class="p">,</span> <span class="n">h5_dst</span><span class="p">,</span> <span class="n">var_attrs</span><span class="p">,</span>
-            <span class="n">version</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">meta</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">process_size</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">h5_src</span><span class="p">,</span> <span class="n">h5_dst</span><span class="p">,</span> <span class="n">var_attrs</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">meta</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+            <span class="n">process_size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">check_dset_attrs</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Rechunk h5_src to h5_dst using given attributes</span>
 
@@ -775,9 +789,13 @@
 <span class="sd">            rechunked .h5 file</span>
 <span class="sd">        process_size : int</span>
 <span class="sd">            Size of each chunk to be processed at a time</span>
+<span class="sd">        check_dset_attrs : bool, optional</span>
+<span class="sd">            Flag to compare source and specified dataset attributes,</span>
+<span class="sd">            by default False</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">with</span> <span class="bp">cls</span><span class="p">(</span><span class="n">h5_src</span><span class="p">,</span> <span class="n">h5_dst</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="n">version</span><span class="p">)</span> <span class="k">as</span> <span class="n">r</span><span class="p">:</span>
-            <span class="n">r</span><span class="o">.</span><span class="n">rechunk</span><span class="p">(</span><span class="n">var_attrs</span><span class="p">,</span> <span class="n">meta</span><span class="o">=</span><span class="n">meta</span><span class="p">,</span> <span class="n">process_size</span><span class="o">=</span><span class="n">process_size</span><span class="p">)</span></div></div>
+            <span class="n">r</span><span class="o">.</span><span class="n">rechunk</span><span class="p">(</span><span class="n">var_attrs</span><span class="p">,</span> <span class="n">meta</span><span class="o">=</span><span class="n">meta</span><span class="p">,</span> <span class="n">process_size</span><span class="o">=</span><span class="n">process_size</span><span class="p">,</span>
+                      <span class="n">check_dset_attrs</span><span class="o">=</span><span class="n">check_dset_attrs</span><span class="p">)</span></div></div>
 </pre></div>
 
            </div>

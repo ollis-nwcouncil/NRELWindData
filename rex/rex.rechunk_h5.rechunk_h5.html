@@ -346,7 +346,7 @@ shape = (len(time_index), len(meta))</p>
 
 <dl class="py method">
 <dt id="rex.rechunk_h5.rechunk_h5.RechunkH5.check_dset_attrs">
-<em class="property">static </em><code class="sig-name descname">check_dset_attrs</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ds_in</span></em>, <em class="sig-param"><span class="n">dset_attrs</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/rechunk_h5/rechunk_h5.html#RechunkH5.check_dset_attrs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.rechunk_h5.rechunk_h5.RechunkH5.check_dset_attrs" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">check_dset_attrs</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">ds_in</span></em>, <em class="sig-param"><span class="n">dset_attrs</span></em>, <em class="sig-param"><span class="n">check_attrs</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/rechunk_h5/rechunk_h5.html#RechunkH5.check_dset_attrs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.rechunk_h5.rechunk_h5.RechunkH5.check_dset_attrs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Check dataset attributes (dtype, scale_factor, units) against source
 Dataset</p>
 <dl class="field-list simple">
@@ -354,6 +354,8 @@ Dataset</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>ds_in</strong> (<em>h5py.Dataset</em>) – Source h5 Dataset</p></li>
 <li><p><strong>dset_attrs</strong> (<em>dict</em>) – Dictionary of dataset attributes (dtype, chunk, attrs)</p></li>
+<li><p><strong>check_attrs</strong> (<em>bool, optional</em>) – Flag to compare source and specified dataset attributes,
+by default False</p></li>
 </ul>
 </dd>
 </dl>
@@ -412,7 +414,7 @@ Dataset</p>
 
 <dl class="py method">
 <dt id="rex.rechunk_h5.rechunk_h5.RechunkH5.load_dset">
-<code class="sig-name descname">load_dset</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dset_name</span></em>, <em class="sig-param"><span class="n">dset_attrs</span></em>, <em class="sig-param"><span class="n">process_size</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/rechunk_h5/rechunk_h5.html#RechunkH5.load_dset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.rechunk_h5.rechunk_h5.RechunkH5.load_dset" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">load_dset</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dset_name</span></em>, <em class="sig-param"><span class="n">dset_attrs</span></em>, <em class="sig-param"><span class="n">process_size</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">check_attrs</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/rechunk_h5/rechunk_h5.html#RechunkH5.load_dset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.rechunk_h5.rechunk_h5.RechunkH5.load_dset" title="Permalink to this definition">¶</a></dt>
 <dd><p>Transfer dataset from domain to combined .h5</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -420,6 +422,8 @@ Dataset</p>
 <li><p><strong>dset_name</strong> (<em>str</em>) – Dataset to transfer</p></li>
 <li><p><strong>dset_attrs</strong> (<em>dict</em>) – Dictionary of dataset attributes (dtype, chunks, attrs)</p></li>
 <li><p><strong>process_size</strong> (<em>int</em>) – Size of each chunk to be processed at a time</p></li>
+<li><p><strong>check_attrs</strong> (<em>bool, optional</em>) – Flag to compare source and specified dataset attributes,
+by default False</p></li>
 </ul>
 </dd>
 </dl>
@@ -448,7 +452,7 @@ Dataset</p>
 
 <dl class="py method">
 <dt id="rex.rechunk_h5.rechunk_h5.RechunkH5.rechunk">
-<code class="sig-name descname">rechunk</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">var_attrs</span></em>, <em class="sig-param"><span class="n">meta</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">process_size</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/rechunk_h5/rechunk_h5.html#RechunkH5.rechunk"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.rechunk_h5.rechunk_h5.RechunkH5.rechunk" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">rechunk</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">var_attrs</span></em>, <em class="sig-param"><span class="n">meta</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">process_size</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">check_dset_attrs</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/rechunk_h5/rechunk_h5.html#RechunkH5.rechunk"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.rechunk_h5.rechunk_h5.RechunkH5.rechunk" title="Permalink to this definition">¶</a></dt>
 <dd><p>Rechunk all variables in given variable attributes json</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -458,6 +462,8 @@ attributes</p></li>
 <li><p><strong>meta</strong> (<em>str</em>) – Path to .csv or .npy file containing meta to load into
 rechunked .h5 file</p></li>
 <li><p><strong>process_size</strong> (<em>int</em>) – Size of each chunk to be processed at a time</p></li>
+<li><p><strong>check_dset_attrs</strong> (<em>bool, optional</em>) – Flag to compare source and specified dataset attributes,
+by default False</p></li>
 </ul>
 </dd>
 </dl>
@@ -465,7 +471,7 @@ rechunked .h5 file</p></li>
 
 <dl class="py method">
 <dt id="rex.rechunk_h5.rechunk_h5.RechunkH5.run">
-<em class="property">classmethod </em><code class="sig-name descname">run</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">h5_src</span></em>, <em class="sig-param"><span class="n">h5_dst</span></em>, <em class="sig-param"><span class="n">var_attrs</span></em>, <em class="sig-param"><span class="n">version</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">meta</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">process_size</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/rechunk_h5/rechunk_h5.html#RechunkH5.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.rechunk_h5.rechunk_h5.RechunkH5.run" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="sig-name descname">run</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">h5_src</span></em>, <em class="sig-param"><span class="n">h5_dst</span></em>, <em class="sig-param"><span class="n">var_attrs</span></em>, <em class="sig-param"><span class="n">version</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">meta</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">process_size</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">check_dset_attrs</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/rex/rechunk_h5/rechunk_h5.html#RechunkH5.run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#rex.rechunk_h5.rechunk_h5.RechunkH5.run" title="Permalink to this definition">¶</a></dt>
 <dd><p>Rechunk h5_src to h5_dst using given attributes</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -478,6 +484,8 @@ attributes</p></li>
 <li><p><strong>meta</strong> (<em>str</em>) – Path to .csv or .npy file containing meta to load into
 rechunked .h5 file</p></li>
 <li><p><strong>process_size</strong> (<em>int</em>) – Size of each chunk to be processed at a time</p></li>
+<li><p><strong>check_dset_attrs</strong> (<em>bool, optional</em>) – Flag to compare source and specified dataset attributes,
+by default False</p></li>
 </ul>
 </dd>
 </dl>
