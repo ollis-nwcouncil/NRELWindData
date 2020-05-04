@@ -318,18 +318,18 @@ Commands:
 <h2>NSRDBX class<a class="headerlink" href="#nsrdbx-class" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rex</span> <span class="kn">import</span> <span class="n">NSRDBX</span>
 
-<span class="n">nsrdb_file</span> <span class="o">=</span> <span class="s1">&#39;/datasets/NSRDB/v3.0.1/nsrdb_2010.h5&#39;</span>
+<span class="n">nsrdb_file</span> <span class="o">=</span> <span class="s1">&#39;/datasets/NSRDB/v3/nsrdb_2010.h5&#39;</span>
 <span class="k">with</span> <span class="n">NSRDBX</span><span class="p">(</span><span class="n">nsrdb_file</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">meta</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">meta</span>
     <span class="n">time_index</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">time_index</span>
-    <span class="n">dni</span> <span class="o">=</span> <span class="n">f</span><span class="p">[</span><span class="s1">&#39;dni&#39;</span><span class="p">]</span>
+    <span class="n">dni</span> <span class="o">=</span> <span class="n">f</span><span class="p">[</span><span class="s1">&#39;dni&#39;</span><span class="p">][:,</span> <span class="p">::</span><span class="mi">1000</span><span class="p">]</span>
 </pre></div>
 </div>
 <p><cite>NSRDBX</cite> also allows easy extraction of the nearest site to a desired (lat, lon)
 location:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rex</span> <span class="kn">import</span> <span class="n">NSRDBX</span>
 
-<span class="n">nsrdb_file</span> <span class="o">=</span> <span class="s1">&#39;/datasets/NSRDB/v3.0.1/nsrdb_2010.h5&#39;</span>
+<span class="n">nsrdb_file</span> <span class="o">=</span> <span class="s1">&#39;/datasets/NSRDB/v3/nsrdb_2010.h5&#39;</span>
 <span class="n">nrel</span> <span class="o">=</span> <span class="p">(</span><span class="mf">39.741931</span><span class="p">,</span> <span class="o">-</span><span class="mf">105.169891</span><span class="p">)</span>
 <span class="k">with</span> <span class="n">NSRDBX</span><span class="p">(</span><span class="n">nsrdb_file</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">nrel_dni</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">get_lat_lon_df</span><span class="p">(</span><span class="s1">&#39;dni&#39;</span><span class="p">,</span> <span class="n">nrel</span><span class="p">)</span>
@@ -338,7 +338,7 @@ location:</p>
 <p>or to extract all sites in a given region:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rex</span> <span class="kn">import</span> <span class="n">NSRDBX</span>
 
-<span class="n">nsrdb_file</span> <span class="o">=</span> <span class="s1">&#39;/datasets/NSRDB/v3.0.1/nsrdb_2010.h5&#39;</span>
+<span class="n">nsrdb_file</span> <span class="o">=</span> <span class="s1">&#39;/datasets/NSRDB/v3/nsrdb_2010.h5&#39;</span>
 <span class="n">state</span><span class="o">=</span><span class="s1">&#39;Colorado&#39;</span>
 <span class="k">with</span> <span class="n">NSRDBX</span><span class="p">(</span><span class="n">nsrdb_file</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">co_dni</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">get_region_df</span><span class="p">(</span><span class="s1">&#39;dni&#39;</span><span class="p">,</span> <span class="n">state</span><span class="p">,</span> <span class="n">region_col</span><span class="o">=</span><span class="s1">&#39;state&#39;</span><span class="p">)</span>
@@ -348,7 +348,7 @@ location:</p>
 given location:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rex</span> <span class="kn">import</span> <span class="n">NSRDBX</span>
 
-<span class="n">nsrdb_file</span> <span class="o">=</span> <span class="s1">&#39;/datasets/NSRDB/v3.0.1/nsrdb_2010.h5&#39;</span>
+<span class="n">nsrdb_file</span> <span class="o">=</span> <span class="s1">&#39;/datasets/NSRDB/v3/nsrdb_2010.h5&#39;</span>
 <span class="n">nrel</span> <span class="o">=</span> <span class="p">(</span><span class="mf">39.741931</span><span class="p">,</span> <span class="o">-</span><span class="mf">105.169891</span><span class="p">)</span>
 <span class="k">with</span> <span class="n">NSRDBX</span><span class="p">(</span><span class="n">nsrdb_file</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">nrel_sam_vars</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">get_SAM_df</span><span class="p">(</span><span class="n">nwtc</span><span class="p">)</span>

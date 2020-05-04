@@ -301,7 +301,7 @@ Commands:
 <span class="k">with</span> <span class="n">WindX</span><span class="p">(</span><span class="n">wtk_file</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="n">meta</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">meta</span>
     <span class="n">time_index</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">time_index</span>
-    <span class="n">wspd_100m</span> <span class="o">=</span> <span class="n">f</span><span class="p">[</span><span class="s1">&#39;windspeed_100m&#39;</span><span class="p">]</span>
+    <span class="n">wspd_100m</span> <span class="o">=</span> <span class="n">f</span><span class="p">[</span><span class="s1">&#39;windspeed_100m&#39;</span><span class="p">][:,</span> <span class="p">::</span><span class="mi">1000</span><span class="p">]</span>
 </pre></div>
 </div>
 <p>Note: <cite>WindX</cite> will automatically interpolate to the desired hub-height:</p>
@@ -310,7 +310,7 @@ Commands:
 <span class="n">wtk_file</span> <span class="o">=</span> <span class="s1">&#39;/datasets/WIND/conus/v1.0.0/wtk_conus_2010.h5&#39;</span>
 <span class="k">with</span> <span class="n">WindX</span><span class="p">(</span><span class="n">wtk_file</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">datasets</span><span class="p">)</span>  <span class="c1"># not 90m is not a valid dataset</span>
-    <span class="n">wspd_90m</span> <span class="o">=</span> <span class="n">f</span><span class="p">[</span><span class="s1">&#39;windspeed_90m&#39;</span><span class="p">]</span>
+    <span class="n">wspd_90m</span> <span class="o">=</span> <span class="n">f</span><span class="p">[</span><span class="s1">&#39;windspeed_90m&#39;</span><span class="p">][:,</span> <span class="p">::</span><span class="mi">1000</span><span class="p">]</span>
 </pre></div>
 </div>
 <p><cite>WindX</cite> also allows easy extraction of the nearest site to a desired (lat, lon)
