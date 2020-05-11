@@ -567,8 +567,12 @@
 <span class="sd">            Height of variable</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">try</span><span class="p">:</span>
-            <span class="n">name</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="n">ds_name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)</span>
-            <span class="n">h</span> <span class="o">=</span> <span class="n">WindResource</span><span class="o">.</span><span class="n">_parse_hub_height</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">ds_name</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;m&#39;</span><span class="p">):</span>
+                <span class="n">name</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="n">ds_name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)</span>
+                <span class="n">h</span> <span class="o">=</span> <span class="n">WindResource</span><span class="o">.</span><span class="n">_parse_hub_height</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> does not end with &quot;_hm&quot;&#39;</span>
+                                 <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ds_name</span><span class="p">))</span>
         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">ex</span><span class="p">:</span>
             <span class="n">name</span> <span class="o">=</span> <span class="n">ds_name</span>
             <span class="n">h</span> <span class="o">=</span> <span class="kc">None</span>
